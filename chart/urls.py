@@ -6,4 +6,6 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('docregister/', views.docregister, name="docregister"),
     path('lguregister/', views.lguregister, name="lguregister"),
+
+    path('communityboard/', views.communityboard, name="communityboard"),
 ]

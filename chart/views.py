@@ -14,3 +14,7 @@ def docregister(request):
 def lguregister(request):
     return render(request, 'chart/lguregister.html')
 
+
+def communityboard(request):
+    return render(request, 'chart/communityboard.html')
+
