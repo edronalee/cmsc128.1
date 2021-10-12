@@ -8,3 +8,9 @@ def login(request):
 def register(request):
     return render(request, 'chart/register.html')
 
+def docregister(request):
+    return render(request, 'chart/docregister.html')
+
+def lguregister(request):
+    return render(request, 'chart/lguregister.html')
+
