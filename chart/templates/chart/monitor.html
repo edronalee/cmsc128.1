@@ -203,136 +203,65 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Patient Registration</h1>
+                    <h1 class="h3 mb-2 text-gray-800">City Name</h1>
+                    <p class="mb-4">Data</p>
 
+                    <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">A set of questions required:</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">List of Patients</h6>
                         </div>
                         <div class="card-body">
-                            <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="name" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Name</label><br>
-                                        <input type="text" class="form-control form-control-user" id="name" placeholder="Name">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="age" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Age</label><br>
-                                        <input type="number" class="form-control form-control-user" id="age" placeholder="">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="gender" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Gender</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                            <label class="text-gray-900" for="inlineRadio1">Male</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                            <label class="text-gray-900" for="inlineRadio2">Female</label>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Patient Number</th>
+                                            <th>Barangay</th>
+                                            <th>Age</th>
+                                            <th>Date Added</th>
+                                            <th>Info</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Patient Number</th>
+                                            <th>Barangay</th>
+                                            <th>Age</th>
+                                            <th>Date Added</th>
+                                            <th>Info</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>CR-00001</td>
+                                            <td>Tunasan</td>
+                                            <td>25</td>
+                                            <td>10/12/2021</td>
+                                            <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                        </tr>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        <label for="streetAddress" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Address</label><br>
-                                        <input type="text" class="form-control form-control-user" id="streetAddress" placeholder="Street Address">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="barangay" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Barangay</label><br>
-                                        <input type="text" class="form-control form-control-user" id="barangay" placeholder="Barangay">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="city" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;City / Municipality</label><br>
-                                        <input type="text" class="form-control form-control-user" id="city" placeholder="City / Municipality">
-                                    </div>
-                                </div>
+                                        <tr>
+                                            <td>CR-00002</td>
+                                            <td>Alabang</td>
+                                            <td>26</td>
+                                            <td>10/20/2021</td>
+                                            <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                        </tr>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="numofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Number of Children</label><br>
-                                        <input type="number" class="form-control form-control-user"
-                                            id="numofchild" placeholder="0">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <label for="nameofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Names of Children</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="nameofchild" placeholder="Name of Children">
-                                    </div>
-                                </div>
+                                        <tr>
+                                            <td>CR-00003</td>
+                                            <td>Cupang</td>
+                                            <td>54</td>
+                                            <td>10/22/2021</td>
+                                            <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                        </tr>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="contactnumber" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Contact Number</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="contactnumber" placeholder="">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="email" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Email</label><br>
-                                        <input type="email" class="form-control form-control-user"
-                                            id="email" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-3 mb-3 mb-sm-0">
-                                        <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Vaccine</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="vaccine" placeholder="">
-                                    </div>
-                                    <div class="col-sm-3 mb-3 mb-sm-0">
-                                        <label for="dose" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Dose</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="firstdose" value="firstdose">
-                                            <label class="text-gray-900" for="firstdose">1st Dose</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="seconddose" value="seconddose">
-                                            <label class="text-gray-900" for="seconddose">2nd Dose</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="telemed" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Telemedicine</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="telemed" placeholder="">
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="form-group row">
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="antigenresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Antigen Test Result</label><br>
-                                        <select class="form-control" id="antigenresult">
-                                            <option selected>Choose...</option>
-                                            <option value="1">Positive</option>
-                                            <option value="0">Negative</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="rtpcrresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;RT-PCR Test Result</label><br>
-                                        <select class="form-control" id="rtpcrresult">
-                                            <option selected>Choose...</option>
-                                            <option value="1">Positive</option>
-                                            <option value="0">Negative</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="xray" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Chest X-ray or Film Array</label><br>
-                                        <input type="text" class="form-control form-control-user" id="xray"
-                                            placeholder="">
-                                    </div>
-                                </div>
-
-
-                                <a href="{% url 'communityboard' %}" class="btn btn-primary btn-user btn-block">
-                                    Register Patient
-                                </a>
-
-                            </form>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-
-
-                    
 
                 </div>
                 <!-- /.container-fluid -->

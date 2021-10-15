@@ -30,80 +30,85 @@
         <div class="container">
             <form class="row g-3">
                 <div class="col-md-6">
-                <label for="inputFirstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="inputFirstName">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstname">
                 </div>
 
                 <div class="col-md-6">
-                <label for="inputLastName" class="form-label">Last Name</label>
-                 <input type="text" class="form-control" id="inputLastName">
+                    <label for="lastname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastname">
                 </div>
 
                 <div class="col-md-4">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St">
                 </div>
 
                 <div class="col-md-4">
-                <label for="inputAddress2" class="form-label">Barangay</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="">
+                    <label for="barangay" class="form-label">Barangay</label>
+                    <input type="text" class="form-control" id="barangay" placeholder="">
                 </div>
 
                 <div class="col-md-4">
-                <label for="inputAddress3" class="form-label">City / Municipality</label>
-                <input type="text" class="form-control" id="inputAddress3" placeholder="">
+                    <label for="city" class="form-label">City / Municipality</label>
+                    <input type="text" class="form-control" id="city" placeholder="">
                 </div>
 
                 <div class="col-md-4">
-                <label for="inputBirthdate" class="form-label">Birthdate</label>
-                <input type="date" class="form-control" id="inputBirthdate">
+                    <label for="birthdate" class="form-label">Birthdate</label>
+                    <input type="date" class="form-control" id="birthdate">
                 </div>
 
                 <div class="col-md-4">
-                <label for="inputAge" class="form-label">Age</label>
-                <input type="number" class="form-control" id="inputAge">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age">
                 </div>
 
                 <div class="col-md-4">
-                <label for="inputGender" class="form-label">Gender</label>
-                <br>
-                <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                <label class="form-check-label" for="inlineRadio1">Male</label>
-                </div>
-                <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                <label class="form-check-label" for="inlineRadio2">Female</label>
-                </div>
+                    <label for="gender" class="form-label">Gender</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male" value="male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
                 </div>
 
                 <div class="col-md-6">
-                <label for="inputEmployeeNumber" class="form-label">Employee Number</label>
-                <input type="text" class="form-control" id="inputEmployeeNumber">
+                <label for="employeenumber" class="form-label">Employee Number</label>
+                <input type="text" class="form-control" id="employeenumber">
                 </div>
     
                 <div class="col-md-6">
-                <label for="inputContactNumber" class="form-label">Contact Number</label>
-                <input type="text" class="form-control" id="inputContactNumber">
+                    <label for="contactnumber" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" id="contactnumber">
                 </div>
 
-                <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <div class="col-md-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email">
                 </div>
 
-                <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <div class="col-md-4">
+                    <label for="password1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password1">
+                </div>
+
+                <div class="col-md-4">
+                    <label for="password2" class="form-label">Re-enter Password</label>
+                    <input type="password" class="form-control" id="password2">
                 </div>
 
                 <div class="col-12">
-                <center>
-                <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary me-md-2" type="submit">Sign up</button>
-                <a href="{% url 'register' %}" button class="btn btn-primary" type="button">Back</button></a>
-                </div>
-                </center>
+                    <center>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-primary me-md-2" type="submit">Sign up</button>
+                        <a href="{% url 'register' %}" button class="btn btn-primary" type="button">Back</button></a>
+                    </div>
+                    </center>
                 </div>
             </form>
         </div>

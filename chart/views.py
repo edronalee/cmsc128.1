@@ -18,3 +18,12 @@ def lguregister(request):
 def communityboard(request):
     return render(request, 'chart/communityboard.html')
 
+def brgyregistry(request):
+    return render(request, 'chart/brgyregistry.html')
+
+def healthtracker(request):
+    return render(request, 'chart/healthtracker.html')
+
+def monitor(request):
+    return render(request, 'chart/monitor.html')
+
