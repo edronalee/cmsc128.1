@@ -223,11 +223,11 @@
                                     <div class="col-sm-3">
                                         <label for="gender" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Gender</label><br>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
+                                            <input class="form-check-input" type="radio" name="rg" id="inlineRadio1" value="male">
                                             <label class="text-gray-900" for="inlineRadio1">Male</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
+                                            <input class="form-check-input" type="radio" name="rg" id="inlineRadio2" value="female">
                                             <label class="text-gray-900" for="inlineRadio2">Female</label>
                                         </div>
                                     </div>
@@ -280,21 +280,37 @@
                                         <input type="text" class="form-control form-control-user"
                                             id="vaccine" placeholder="">
                                     </div>
-                                    <div class="col-sm-3 mb-3 mb-sm-0">
+                                    <div class="col-sm-2 mb-3 mb-sm-0">
                                         <label for="dose" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Dose</label><br>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="firstdose" value="firstdose">
+                                            <input class="form-check-input form-control form-control-user" type="checkbox" name="inlineRadioOptions1" id="firstdose" value="firstdose">
                                             <label class="text-gray-900" for="firstdose">1st Dose</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="seconddose" value="seconddose">
+                                            <input class="form-check-input form-control form-control-user" type="checkbox" name="inlineRadioOptions2" id="seconddose" value="seconddose">
                                             <label class="text-gray-900" for="seconddose">2nd Dose</label>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-2 mb-3 mb-sm-0">
+                                        <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 1st Dose</label><br>
+                                        <input type="date" class="form-control form-control-user" id="firstdosedate">
+                                    </div>
+                                    <div class="col-sm-2 mb-3 mb-sm-0">
+                                        <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 2nd Dose</label><br>
+                                        <input type="date" class="form-control form-control-user" id="seconddosedate">
+                                    </div>
+                                    <div class="col-sm-3">
                                         <label for="telemed" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Telemedicine</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="telemed" placeholder="">
+                                        <select class="form-control" id="telemed">
+                                            <option selected>Choose...</option>
+                                            <option value="1">TelAventusMD</option>
+                                            <option value="2">SeeYouDoc</option>
+                                            <option value="3">MedCheck</option>
+                                            <option value="4">Telimed</option>
+                                            <option value="5">KonsultaMD</option>
+                                            <option value="6">CloudPx</option>
+                                            <option value="7">HealthNow</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <hr>
@@ -307,6 +323,17 @@
                                             <option value="0">Negative</option>
                                         </select>
                                     </div>
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="antigendate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                        <input type="date" class="form-control form-control-user" id="antigendate">
+                                    </div>
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="antigenresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                        <input class="form-control form-control-user" type="file" id="antigenresultfile">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
                                     <div class="col-sm-4">
                                         <label for="rtpcrresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;RT-PCR Test Result</label><br>
                                         <select class="form-control" id="rtpcrresult">
@@ -315,13 +342,87 @@
                                             <option value="0">Negative</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <label for="xray" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Chest X-ray or Film Array</label><br>
-                                        <input type="text" class="form-control form-control-user" id="xray"
-                                            placeholder="">
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="rtpcrdate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                        <input type="date" class="form-control form-control-user" id="rtpcrdate">
+                                    </div>
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="rtpcrresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                        <input class="form-control form-control-user" type="file" id="rtpcrresultfile">
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label for="xray" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Chest X-ray or Film Array</label><br>
+                                        <select class="form-control" id="xray">
+                                            <option selected>Choose...</option>
+                                            <option value="1">Chest X-ray</option>
+                                            <option value="2">Film Array</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="xraydate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                        <input type="date" class="form-control form-control-user" id="xraydate">
+                                    </div>
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="xrayresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                        <input class="form-control form-control-user" type="file" id="xrayresultfile">
+                                    </div>
+                                </div>
+
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Health History:</h6>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="symptomsdate" class="text-gray-900"><br>1. Day of onset of symptoms</label>
+                                        <input type="date" class="form-control form-control-user" id="symptomsdate">
+                                    </div>
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label for="symptomsdate" class="text-gray-900"><br>2. Last day of exposure</label>
+                                        <input type="date" class="form-control form-control-user" id="symptomsdate">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="gender" class="text-gray-900"><br>3. For 2 weeks or more, do you have unexplained weight loss or night sweats?</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radio3" id="radio31" value="yes">
+                                            <label class="text-gray-900" for="radio31">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radio3" id="radio32" value="no">
+                                            <label class="text-gray-900" for="radio32">No</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-4">
+                                        <label for="gender" class="text-gray-900"><br>4. Have you worked together or stayed in the same close environment of with symptoms, confirmed or suspected COVID-19 Positive? (Healthcare workers wearing proper PPE not included.)</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radio4" id="radio41" value="yes">
+                                            <label class="text-gray-900" for="radio41">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radio4" id="radio42" value="no">
+                                            <label class="text-gray-900" for="radio42">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="gender" class="text-gray-900"><br>5. Have you travelled to any area aside from work or outside of the Philippines in the last 2 weeks?</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radio5" id="radio51" value="yes">
+                                            <label class="text-gray-900" for="radio51">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radio5" id="radio52" value="no">
+                                            <label class="text-gray-900" for="radio52">No</label>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                
 
                                 <a href="{% url 'communityboard' %}" class="btn btn-primary btn-user btn-block">
                                     Register Patient
