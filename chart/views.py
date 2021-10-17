@@ -27,3 +27,9 @@ def healthtracker(request):
 def monitor(request):
     return render(request, 'chart/monitor.html')
 
+def patientinfo(request):
+    return render(request, 'chart/patientinfo.html')
+
+def vitalsign(request):
+    return render(request, 'chart/vitalsign.html')
+

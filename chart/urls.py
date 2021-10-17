@@ -11,4 +11,6 @@ urlpatterns = [
     path('communityboard/', views.communityboard, name="communityboard"),
     path('healthtracker/', views.healthtracker, name="healthtracker"),
     path('monitor/', views.monitor, name="monitor"),
+    path('patientinfo/', views.patientinfo, name="patientinfo"),
+    path('vitalsign/', views.vitalsign, name="vitalsign"),
 ]
