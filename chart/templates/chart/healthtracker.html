@@ -223,10 +223,12 @@
                                     Names of Children:<br>
                                     Contact Number:<br>
                                     Email:<br>
-                                    Vaccine: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dose:<br>
-                                    Antigen Test Result:<br>
-                                    RT-PCR Test Result:<br>
-                                    Chest X-ray or Film Array:<br>
+                                    Vaccine: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dose:<br>
+                                    Date of 1st Dose: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date of 2nd Dose:<br>
+                                    Telemedicine:<br>
+                                    Antigen Test Result: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released:<br>
+                                    RT-PCR Test Result: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released:<br>
+                                    Chest X-ray or Film Array: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released:<br>
                                 </div>
                             </div>
 
@@ -264,12 +266,12 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Asymptomatic&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rasymptomatic" id="rasymptomatic1" value="yes">
+                                                    <label class="text-gray-900" for="rasymptomatic1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rasymptomatic" id="rasymptomatic2" value="no">
+                                                    <label class="text-gray-900" for="rasymptomatic2">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -278,7 +280,7 @@
                                             <div class="col-sm-12">
                                                 <center>
                                                 <label for="gender" class="text-gray-900">Fever (°C)</label>
-                                                <input type="text" class="form-control form-control-user" id="streetAddress" placeholder=""> 
+                                                <input type="number" class="form-control form-control-user" id="feverdeg" placeholder=""> 
                                                 </center>
                                             </div>
                                            
@@ -288,23 +290,23 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Cough&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rcough" id="rcough1" value="yes">
+                                                    <label class="text-gray-900" for="rcough1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rcough" id="rcough2" value="no">
+                                                    <label class="text-gray-900" for="rcough2">No</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">General Weakness&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rgw" id="rgw1" value="yes">
+                                                    <label class="text-gray-900" for="rgw1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rgw" id="rgw2" value="no">
+                                                    <label class="text-gray-900" for="rgw2">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,23 +315,23 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Fatigue&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rfatigue" id="rfatigue1" value="yes">
+                                                    <label class="text-gray-900" for="rfatigue1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rfatigue" id="rfatigue2" value="no">
+                                                    <label class="text-gray-900" for="rfatigue2">No</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Headache&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rheadache" id="rheadache1" value="yes">
+                                                    <label class="text-gray-900" for="rheadache1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rheadache" id="rheadache2" value="no">
+                                                    <label class="text-gray-900" for="rheadache2">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,23 +340,23 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Body Aches&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rbodyache" id="rbodyache1" value="yes">
+                                                    <label class="text-gray-900" for="rbodyache1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rbodyache" id="rbodyache2" value="no">
+                                                    <label class="text-gray-900" for="rbodyache2">No</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Sore Throat&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rsorethroat" id="rsorethroat1" value="yes">
+                                                    <label class="text-gray-900" for="rsorethroat1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rsorethroat" id="rsorethroat2" value="no">
+                                                    <label class="text-gray-900" for="rsorethroat2">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -363,23 +365,23 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Runny nose&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rnose" id="rnose1" value="yes">
+                                                    <label class="text-gray-900" for="rnose1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rnose" id="rnose2" value="no">
+                                                    <label class="text-gray-900" for="rnose2">No</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Dyspnea&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rdys" id="rdys1" value="yes">
+                                                    <label class="text-gray-900" for="rdys1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rdys" id="rdys2" value="no">
+                                                    <label class="text-gray-900" for="rdys2">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -388,23 +390,23 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Loss of appetite&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rappetite" id="rappetite1" value="yes">
+                                                    <label class="text-gray-900" for="rappetite1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rappetite" id="rappetite2" value="no">
+                                                    <label class="text-gray-900" for="rappetite2">No</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Nausea&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rnau" id="rnau1" value="yes">
+                                                    <label class="text-gray-900" for="rnau1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rnau" id="rnau2" value="no">
+                                                    <label class="text-gray-900" for="rnau2">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -413,23 +415,23 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Vomiting&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rvom" id="rvom1" value="yes">
+                                                    <label class="text-gray-900" for="rvom1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rvom" id="rvom2" value="no">
+                                                    <label class="text-gray-900" for="rvom2">No</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Diarrhea&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rdiar" id="rdiar1" value="yes">
+                                                    <label class="text-gray-900" for="rdiar1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rdiar" id="rdiar2" value="no">
+                                                    <label class="text-gray-900" for="rdiar2">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -440,12 +442,12 @@
                                                 <center>
                                                 <label for="gender" class="text-gray-900">Altered Mental State&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="raltered" id="raltered1" value="yes">
+                                                    <label class="text-gray-900" for="raltered1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="raltered" id="raltered2" value="no">
+                                                    <label class="text-gray-900" for="raltered2">No</label>
                                                 </div>
                                                 </center>
                                             </div> 
@@ -456,24 +458,33 @@
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Loss of Smell&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rsmell" id="rsmell1" value="yes">
+                                                    <label class="text-gray-900" for="rsmell1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rsmell" id="rsmell2" value="no">
+                                                    <label class="text-gray-900" for="rsmell2">No</label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="gender" class="text-gray-900">Loss of Taste&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
-                                                    <label class="text-gray-900" for="inlineRadio1">Yes</label>
+                                                    <input class="form-check-input" type="radio" name="rtaste" id="rtaste1" value="yes">
+                                                    <label class="text-gray-900" for="rtaste1">Yes</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
-                                                    <label class="text-gray-900" for="inlineRadio2">No</label>
+                                                    <input class="form-check-input" type="radio" name="rtaste" id="rtaste2" value="noe">
+                                                    <label class="text-gray-900" for="rtaste2">No</label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <center>
+                                                <label for="gender" class="text-gray-900">Others, specify</label>
+                                                <input type="text" class="form-control form-control-user" id="others" placeholder=""> 
+                                                </center>
                                             </div>
                                         </div>
 
