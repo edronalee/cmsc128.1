@@ -33,3 +33,5 @@ def patientinfo(request):
 def vitalsign(request):
     return render(request, 'chart/vitalsign.html')
 
+def transfer(request):
+    return render(request, 'chart/transfer.html')
