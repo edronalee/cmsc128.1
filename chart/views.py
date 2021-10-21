@@ -35,3 +35,6 @@ def vitalsign(request):
 
 def transfer(request):
     return render(request, 'chart/transfer.html')
+
+def statistics(request):
+    return render(request, 'chart/statistics.html')

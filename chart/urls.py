@@ -14,4 +14,5 @@ urlpatterns = [
     path('patientinfo/', views.patientinfo, name="patientinfo"),
     path('vitalsign/', views.vitalsign, name="vitalsign"),
     path('transfer/', views.transfer, name="transfer"),
+    path('statistics/', views.statistics, name="statistics"),
 ]
