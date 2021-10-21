@@ -46,7 +46,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.view_name == 'communityboard' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'communityboard' %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Community Board</span></a>
@@ -61,19 +61,19 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.view_name == 'brgyregistry' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'brgyregistry' %}">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Barangay Registry</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.view_name == 'monitor' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'monitor' %}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Monitor</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.view_name == 'transfer' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'transfer' %}">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Transfer</span></a>
@@ -88,7 +88,7 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <li class="nav-item {% if request.resolver_match.view_name == 'statistics' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'statistics' %}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Statistics</span></a>
@@ -154,7 +154,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-900 small">Full Name</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-900 small">Hello, Full Name!</span>
                                 <img class="img-profile rounded-circle"
                                     src="{% static '/images/undraw_profile.svg' %}">
                             </a>
