@@ -51,6 +51,11 @@ class Patient(models.Model):
                     ('Chest Xray', 'Chest Xray'),
                     ('Film Array', 'Film Array'),
     )
+    STATUS = (
+                    ('For Monitoring', 'For Monitoring'),
+                    ('For Referral', 'For Referral'),
+                    ('For Transfer', 'For Transfer')
+    )
     name = models.CharField(max_length=200, null=True)
     age = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200, null=True, choices=GENDER)
@@ -76,6 +81,7 @@ class Patient(models.Model):
     xray = models.CharField(max_length=200, null=True, choices=XRAY)
     xraydate = models.DateField(null=True)
     #xrayfile
+    status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):

@@ -36,6 +36,18 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+
+                                        {% for i in patients %}
+                                            <tr>
+                                                <td>PR-{{i.id}}</td>
+                                                <td>{{i.status}}</td>
+                                                <td>{{i.barangay}}</td>
+                                                <td>{{i.age}}</td>
+                                                <td>{{i.date_created}}</td>
+                                                <td>{{i.date_created|timesince}}</td>
+                                                <td><a href="{% url 'patientinfo' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                            </tr>
+                                        {% endfor %}
                                         <tr>
                                             <td>CR-00001</td>
                                             <td>Status</td>
