@@ -11,7 +11,8 @@ urlpatterns = [
     path('communityboard/', views.communityboard, name="communityboard"),
     path('healthtracker/', views.healthtracker, name="healthtracker"),
     path('monitor/', views.monitor, name="monitor"),
-    path('patientinfo/', views.patientinfo, name="patientinfo"),
+
+    path('patientinfo/<str:pk_test>/', views.patientinfo, name="patientinfo"),
     path('vitalsign/', views.vitalsign, name="vitalsign"),
     path('transfer/', views.transfer, name="transfer"),
     path('statistics/', views.statistics, name="statistics"),

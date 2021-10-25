@@ -112,11 +112,15 @@ def healthtracker(request):
 
 def monitor(request):
     patients = Patient.objects.all()
+    
 
     return render(request, 'chart/monitor.html', {'patients':patients})
 
-def patientinfo(request):
-    return render(request, 'chart/patientinfo.html')
+def patientinfo(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+
+    context = {'patient':patient}
+    return render(request, 'chart/patientinfo.html', context)
 
 def vitalsign(request):
     return render(request, 'chart/vitalsign.html')

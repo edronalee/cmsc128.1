@@ -83,11 +83,8 @@ class Patient(models.Model):
     #xrayfile
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    
-    def __str__(self):
-        return self.name
 
-class HealthHistory(models.Model):
+    #healthhistory
     QUESTION3 = (
                     ('Yes', 'Yes'),
                     ('No', 'No'),
@@ -100,9 +97,11 @@ class HealthHistory(models.Model):
                     ('Yes', 'Yes'),
                     ('No', 'No'),
     )
-    patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
     startdate = models.DateField(null=True)
     lastdate = models.DateField(null=True)
     question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
     question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
     question5 = models.CharField(max_length=200, null=True, choices=QUESTION5)
+    
+    def __str__(self):
+        return self.name
