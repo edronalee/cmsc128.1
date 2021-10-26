@@ -1,11 +1,13 @@
 from django.urls import path
 from . import views
 
+from account.views import docregistration_view, lguregistration_view, login_view
+
 urlpatterns = [
-    path('', views.login, name="login"),
+    path('', login_view, name="login"),
     path('register/', views.register, name="register"),
-    path('docregister/', views.docregister, name="docregister"),
-    path('lguregister/', views.lguregister, name="lguregister"),
+    path('docregister/', docregistration_view, name="docregister"),
+    path('lguregister/', lguregistration_view, name="lguregister"),
 
     path('brgyregistry/', views.brgyregistry, name="brgyregistry"),
     path('communityboard/', views.communityboard, name="communityboard"),

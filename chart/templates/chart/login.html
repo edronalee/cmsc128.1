@@ -32,15 +32,19 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
+                            {% csrf_token %}
                             <h3 class="text-center">Sign in</h3>
+                            {% for field in login_form %}
                             <div class="form-group">
-                                <label for="email" class="col-sm-2 col-form-label">Email:</label><br>
-                                <input type="email" name="email" id="email" class="form-control">
+                                <label for="email" class="col-sm-2 col-form-label">{{field.label_tag}}</label><br>
+                                <p class = "form-control">{{field}}</p>
                             </div>
-                            <div class="form-group">
-                                <label for="password" class="col-sm-2 col-form-label">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
-                            </div>
+
+                            {% for error in field.errors %}
+                                <p style = "color:red;">{{error}}</p>
+                            {% endfor %}
+
+                            {% endfor %}
                             <br>
                             <div class="form-group">
                                 <center><input type="submit" name="submit" class="btn btn-primary" value="Login"></center>
