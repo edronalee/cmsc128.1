@@ -66,7 +66,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">Vital Signs</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <a href="{% url 'vitalsign' %}" class="btn btn-success btn-circle btn-lg">
+                                                    <a href="{% url 'vitalsign' patient.id %}" class="btn btn-success btn-circle btn-lg">
                                                         <i class="fas fa-clipboard-list"></i>
                                                     </a>
                                                 </div>
@@ -86,7 +86,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">Daily Health</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <a href="{% url 'healthtracker' %}" class="btn btn-warning btn-circle btn-lg">
+                                                    <a href="{% url 'healthtracker' patient.id %}" class="btn btn-warning btn-circle btn-lg">
                                                         <i class="fas fa-clipboard-list"></i>
                                                     </a>
                                                 </div>
@@ -116,31 +116,31 @@
                                                     <td>10/12/2021</td>
                                                     <td>11:50 AM</td>
                                                     <td>Vital Signs</td>
-                                                    <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                 </tr> 
                                                 <tr>
                                                     <td>10/11/2021</td>
                                                     <td>11:50 PM</td>
                                                     <td>Vital Signs</td>
-                                                    <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>10/10/2021</td>
                                                     <td>03:15 PM</td>
                                                     <td>Daily Health</td>
-                                                    <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                    <td><a href="{% url 'healthtracker' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>10/13/2021</td>
                                                     <td>02:13 AM</td>
                                                     <td>Vital Signs</td>
-                                                    <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                 </tr> 
                                                 <tr>
                                                     <td>10/10/2021</td>
                                                     <td>07:00 AM</td>
                                                     <td>Vital Signs</td>
-                                                    <td><a href="{% url 'healthtracker' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                 </tr> 
                                             </tbody>
                                         </table>

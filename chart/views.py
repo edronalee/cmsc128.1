@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 # Create your views here.
 from .models import *
+from .forms import *
 
 
 
@@ -105,10 +106,23 @@ def communityboard(request):
     return render(request, 'chart/communityboard.html', context)
 
 def brgyregistry(request):
-    return render(request, 'chart/brgyregistry.html')
+    submitted = False
+    if request.method == "POST":
+        form = PatientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/brgyregistry?submitted=True')
+    else:
+        form = PatientForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'chart/brgyregistry.html', {'form':form, 'submitted':submitted})
 
-def healthtracker(request):
-    return render(request, 'chart/healthtracker.html')
+def healthtracker(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+
+    context = {'patient':patient}
+    return render(request, 'chart/healthtracker.html', context)
 
 def monitor(request):
     patients = Patient.objects.all()
@@ -122,8 +136,11 @@ def patientinfo(request, pk_test):
     context = {'patient':patient}
     return render(request, 'chart/patientinfo.html', context)
 
-def vitalsign(request):
-    return render(request, 'chart/vitalsign.html')
+def vitalsign(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+
+    context = {'patient':patient}
+    return render(request, 'chart/vitalsign.html', context)
 
 def transfer(request):
     return render(request, 'chart/transfer.html')

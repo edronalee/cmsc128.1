@@ -9,11 +9,11 @@ urlpatterns = [
 
     path('brgyregistry/', views.brgyregistry, name="brgyregistry"),
     path('communityboard/', views.communityboard, name="communityboard"),
-    path('healthtracker/', views.healthtracker, name="healthtracker"),
+    path('healthtracker/<str:pk_test>/', views.healthtracker, name="healthtracker"),
     path('monitor/', views.monitor, name="monitor"),
 
     path('patientinfo/<str:pk_test>/', views.patientinfo, name="patientinfo"),
-    path('vitalsign/', views.vitalsign, name="vitalsign"),
+    path('vitalsign/<str:pk_test>/', views.vitalsign, name="vitalsign"),
     path('transfer/', views.transfer, name="transfer"),
     path('statistics/', views.statistics, name="statistics"),
 ]
