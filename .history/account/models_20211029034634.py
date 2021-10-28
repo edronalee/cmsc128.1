@@ -110,7 +110,7 @@ class Account(AbstractBaseUser):
     ), blank=True)
     licensenumber = models.CharField(verbose_name = "license number", max_length=200, null=True)
     licenseexpiry = models.DateField(verbose_name= "license expiry")
-    licensepic = models.ImageField(verbose_name= "license picture", null = True, blank=True, upload_to = "pic_uploads/")
+    licensepic = models.ImageField(verbose_name= "license picture", null = True, blank=True)
     contactnumber = models.CharField(max_length=200, null=True, verbose_name="contact number")
     specialization = models.CharField(max_length=200, null=True, choices=(
                     ('General Practitioner', 'General Practitioner'),
@@ -209,7 +209,7 @@ class LGUAccount(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-    def getFullName(self):
+     def getFullName(self):
         return self.firstname + " " + self.lastname
 
     def getAddress(self):
@@ -227,8 +227,20 @@ class LGUAccount(AbstractBaseUser):
     def getGender(self):
         return self.gender
 
-    def getEmployeeNum(self):
-        return self.employeenumber
+    def getLicenseNum(self):
+        return self.licensenumber
+
+    def getLicenseExp(self):
+        return self.licenseexpiry
+
+    def getLicensePic(self):
+        return self.licensepic
 
     def getContactNum(self):
         return self.contactnumber
+
+    def getSpecialization(self):
+        return self.specialization
+
+    def getSchedule(self):
+        return self.schedule

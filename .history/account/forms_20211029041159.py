@@ -13,8 +13,8 @@ class DateInput(forms.DateInput):
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text="Required. Add a valid email address.", widget=widgets.TextInput(attrs={'class':"form-control"}))
-    password1 = forms.CharField(max_length=200, widget=widgets.PasswordInput(attrs={'class':"form-control"}), label="Password")
-    password2 = forms.CharField(max_length=200, widget=widgets.PasswordInput(attrs={'class':"form-control"}), label="Password Confirmation")
+    password1 = forms.CharField(max_length=200, widget=widgets.TextInput(attrs={'class':"form-control"}), label="Password")
+    password2 = forms.CharField(max_length=200, widget=widgets.TextInput(attrs={'class':"form-control"}), label="Password Confirmation")
     class Meta:
         model = Account
         fields = ("email", "firstname", "lastname", "address", "barangay", "city", "birthdate", "age", "gender", "licensenumber", "licenseexpiry", "licensepic",
