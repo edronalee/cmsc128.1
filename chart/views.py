@@ -1,22 +1,30 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth import login as dj_login, authenticate
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.contrib.auth import views as auth_views
 # Create your views here.
 from .models import *
 from .forms import *
 
-
-
-def login(request): 
-    return render(request, 'chart/login.html')
+#def login(request):
+#    form = "login-form"
+#    if request.POST:
+#        if form.is_valid:
+#        account = authenticate(request['email'],request['password'])
+#        dj_login(request, account)
+#    return render(request, 'chart/login.html')
 
 def register(request):
     return render(request, 'chart/register.html')
 
-def docregister(request):
-    return render(request, 'chart/docregister.html')
+#def docregister(request):
+#    form = UserCreationForm()
+#    return render(request, 'chart/docregister.html', {"form": form})
 
-def lguregister(request):
-    return render(request, 'chart/lguregister.html')
+#def lguregister(request):
+#   return render(request, 'chart/lguregister.html')
 
 
 def communityboard(request):

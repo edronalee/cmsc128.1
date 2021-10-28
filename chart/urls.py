@@ -1,12 +1,14 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [
-    path('', views.login, name="login"),
-    path('register/', views.register, name="register"),
-    path('docregister/', views.docregister, name="docregister"),
-    path('lguregister/', views.lguregister, name="lguregister"),
+from account.views import docregistration_view, lguregistration_view, login_view, logout_view
 
+urlpatterns = [
+    path('', login_view, name="login"),
+    path('', logout_view, name ="logout"), #just a call to the logout function, redirects to login.html
+    path('register/', views.register, name="register"),
+    path('docregister/', docregistration_view, name="docregister"),
+    path('lguregister/', lguregistration_view, name="lguregister"),
     path('brgyregistry/', views.brgyregistry, name="brgyregistry"),
     path('communityboard/', views.communityboard, name="communityboard"),
     path('healthtracker/<str:pk_test>/', views.healthtracker, name="healthtracker"),
