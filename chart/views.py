@@ -130,6 +130,12 @@ def monitor(request):
 
     return render(request, 'chart/monitor.html', {'patients':patients})
 
+def referred(request):
+    patients = Patient.objects.all()
+    
+
+    return render(request, 'chart/referred.html', {'patients':patients})
+
 def patientinfo(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
 

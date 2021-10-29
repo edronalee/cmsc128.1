@@ -12,6 +12,8 @@ urlpatterns = [
     path('healthtracker/<str:pk_test>/', views.healthtracker, name="healthtracker"),
     path('monitor/', views.monitor, name="monitor"),
 
+    path('referred/', views.referred, name="referred"),
+
     path('patientinfo/<str:pk_test>/', views.patientinfo, name="patientinfo"),
     path('vitalsign/<str:pk_test>/', views.vitalsign, name="vitalsign"),
     path('transfer/', views.transfer, name="transfer"),
