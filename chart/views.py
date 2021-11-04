@@ -26,7 +26,7 @@ def register(request):
 #def lguregister(request):
 #   return render(request, 'chart/lguregister.html')
 
-
+@login_required(login_url='login')
 def communityboard(request):
     patients = Patient.objects.all()
     alabang_patients = patients.filter(barangay='Alabang')
@@ -113,6 +113,7 @@ def communityboard(request):
 
     return render(request, 'chart/communityboard.html', context)
 
+@login_required(login_url='login')
 def brgyregistry(request):
     submitted = False
     if request.method == "POST":
@@ -126,32 +127,38 @@ def brgyregistry(request):
             submitted = True
     return render(request, 'chart/brgyregistry.html', {'form':form, 'submitted':submitted})
 
+@login_required(login_url='login')
 def healthtracker(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
 
     context = {'patient':patient}
     return render(request, 'chart/healthtracker.html', context)
 
+@login_required(login_url='login')
 def monitor(request):
     patients = Patient.objects.all()
     
 
     return render(request, 'chart/monitor.html', {'patients':patients})
 
+@login_required(login_url='login')
 def patientinfo(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
 
     context = {'patient':patient}
     return render(request, 'chart/patientinfo.html', context)
 
+@login_required(login_url='login')
 def vitalsign(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
 
     context = {'patient':patient}
     return render(request, 'chart/vitalsign.html', context)
 
+@login_required(login_url='login')
 def transfer(request):
     return render(request, 'chart/transfer.html')
 
+@login_required(login_url='login')
 def statistics(request):
     return render(request, 'chart/statistics.html')
