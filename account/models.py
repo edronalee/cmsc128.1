@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+
 # Create your models here.
 
 class MyAccountManager(BaseUserManager):
@@ -133,7 +134,7 @@ class Account(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-class LGUAccount(AbstractBaseUser):
+class LGUAccount(AbstractBaseUser, PermissionsMixin):
 #required by django superuser
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
 #username = models.CharField(max_length=200, null = True, unique = True)

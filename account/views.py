@@ -1,10 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import Group
+
 from account.forms import RegistrationForm, LGURegistrationForm, LoginForm
+from chart.decorators import unauthenticated_user, allowed_users, admin_only
+
 
 
 # Create your views here.
 
+@unauthenticated_user
 def login_view(request):
     context = {}
     if request.POST:
@@ -34,6 +39,7 @@ def logout_view(request):
     logout(request)
     return render(request, "chart/login.html", context)
 
+@unauthenticated_user
 def docregistration_view(request):
     context = {}
     if request.POST:
@@ -52,6 +58,7 @@ def docregistration_view(request):
         context['registration_form'] = form
     return render(request, "chart/docregister.html", context)
 
+@unauthenticated_user
 def lguregistration_view(request):
     context={}
     if request.POST:

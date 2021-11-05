@@ -8,6 +8,8 @@ from django.contrib.auth import views as auth_views
 from .models import *
 from .forms import *
 
+from .decorators import unauthenticated_user, allowed_users, admin_only
+
 #def login(request):
 #    form = "login-form"
 #    if request.POST:
