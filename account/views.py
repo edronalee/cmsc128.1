@@ -10,7 +10,7 @@ from chart.decorators import unauthenticated_user, allowed_users, admin_only
 
 # Create your views here.
 
-@unauthenticated_user
+#@unauthenticated_user
 def login_view(request):
     context = {}
     if request.POST:
@@ -57,7 +57,7 @@ def docregistration_view(request):
             docgroup, created = Group.objects.get_or_create(name="Doctors")
             account.groups.add(docgroup)
             #login(request, account)
-            return redirect("login.html")
+            return redirect("chart/login.html")
         else: #not a valid form
             context['registration_form'] = form
     else: #not POST request, it's a GET request; this is their first time seeing this
@@ -80,7 +80,7 @@ def lguregistration_view(request):
             lgugroup, created = Group.objects.get_or_create(name="LGU Employees")
             account.groups.add(lgugroup)
             #login(request, account)
-            return redirect("login.html")
+            return redirect("chart/login.html")
         else: #not a valid form
             context['registration_form'] = form
     else: #not POST request, it's a GET request; this is their first time seeing this

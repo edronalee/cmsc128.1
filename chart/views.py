@@ -2,9 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as dj_login, authenticate
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
-from django.contrib.auth.models import Group, Permission
-from django.http import HttpResponse
-from django.contrib.auth import views as auth_views
 # Create your views here.
 from .models import *
 from .forms import *
@@ -134,7 +131,6 @@ def brgyregistry(request):
 @login_required(login_url='login')
 def healthtracker(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
-
     context = {'patient':patient}
     return render(request, 'chart/healthtracker.html', context)
 
@@ -142,7 +138,6 @@ def healthtracker(request, pk_test):
 def monitor(request):
     patients = Patient.objects.all()
     
-
     return render(request, 'chart/monitor.html', {'patients':patients})
 
 @login_required(login_url='login')
@@ -164,7 +159,6 @@ def docinfo(request):
 @user_passes_test(Account.is_LGU)
 def lguinfo(request):
     return render(request, 'chart/lguinfo.html')
-
 
 @login_required(login_url='login')
 def transfer(request):
