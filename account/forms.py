@@ -3,12 +3,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from django.forms import fields, widgets
 
-from account.models import Account, LGUAccount
+from account.models import Account
+from chart import models
 
 
 class DateInput(forms.DateInput):
     input_type = 'date'
-
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text="Required. Add a valid email address.", widget=widgets.TextInput(attrs={'class':"form-control"}))
@@ -44,7 +44,7 @@ class LGURegistrationForm(UserCreationForm):
     password1 = forms.CharField(max_length=200, widget=widgets.PasswordInput(attrs={'class':"form-control"}), label="Password")
     password2 = forms.CharField(max_length=200, widget=widgets.PasswordInput(attrs={'class':"form-control"}), label="Password Confirmation")
     class Meta:
-        model = LGUAccount
+        model = Account
         fields = ("email", "firstname", "lastname", "address", "barangay", "city", "birthdate", "age", "gender", "employeenumber", "contactnumber", "password1", "password2")
         widgets = {
             #attrs={'class':"form-control"}
@@ -62,7 +62,7 @@ class LGURegistrationForm(UserCreationForm):
         }
 
 class LoginForm(forms.Form):
-    models = Account, LGUAccount
+    models = Account
     email = forms.EmailField(max_length=200, widget=widgets.TextInput(attrs={'class':"form-control"}))
     password = forms.CharField(max_length=200, widget=widgets.PasswordInput(attrs={'class':"form-control"}))
     class Meta:

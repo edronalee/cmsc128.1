@@ -11,9 +11,10 @@ urlpatterns = [
     path('lguregister/', lguregistration_view, name="lguregister"),
     path('brgyregistry/', views.brgyregistry, name="brgyregistry"),
     path('communityboard/', views.communityboard, name="communityboard"),
+    path('docinfo/', views.docinfo, name = "docinfo"),
+    path('lguinfo/', views.lguinfo, name = "lguinfo"),
     path('healthtracker/<str:pk_test>/', views.healthtracker, name="healthtracker"),
     path('monitor/', views.monitor, name="monitor"),
-
     path('patientinfo/<str:pk_test>/', views.patientinfo, name="patientinfo"),
     path('vitalsign/<str:pk_test>/', views.vitalsign, name="vitalsign"),
     path('transfer/', views.transfer, name="transfer"),

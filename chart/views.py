@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as dj_login, authenticate
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
+from django.contrib.auth.models import Group, Permission
 from django.http import HttpResponse
 from django.contrib.auth import views as auth_views
 # Create your views here.
 from .models import *
 from .forms import *
+from account.models import Account
 
 from .decorators import unauthenticated_user, allowed_users, admin_only
 
@@ -153,9 +155,16 @@ def patientinfo(request, pk_test):
 @login_required(login_url='login')
 def vitalsign(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
+    return render(request, 'chart/vitalsign.html', patient)
 
-    context = {'patient':patient}
-    return render(request, 'chart/vitalsign.html', context)
+@user_passes_test(Account.is_Doctor)
+def docinfo(request):
+    return render(request, 'chart/docinfo.html')
+
+@user_passes_test(Account.is_LGU)
+def lguinfo(request):
+    return render(request, 'chart/lguinfo.html')
+
 
 @login_required(login_url='login')
 def transfer(request):
