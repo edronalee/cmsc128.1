@@ -10,7 +10,7 @@
                         </div>
                         <div class="card-body">
                             {% if submitted %}
-                                submitted succesfully
+                                Patient Registered Succesfully!
                             {% else %}
                                 <form action="" method=POST class="user">
                                     {% csrf_token %}
@@ -172,7 +172,6 @@
                                         </center>
 
                                     </div>
-
                                     <input type="submit" value="Register Patient" class="btn btn-primary btn-user btn-block">
                                 </form>
                             {% endif %}

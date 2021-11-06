@@ -108,3 +108,13 @@ class Patient(models.Model):
     
     def __str__(self):
         return self.name
+
+class Vitalsigns(models.Model):
+    patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
+    bloodpressure = models.CharField(max_length=200, null=True)
+    heartrate = models.CharField(max_length=200, null=True)
+    respiratoryrate = models.CharField(max_length=200, null=True)
+    temperature = models.CharField(max_length=200, null=True)
+    painscale = models.CharField(max_length=200, null=True)
+    o2saturation = models.CharField(max_length=200, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)

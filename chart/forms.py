@@ -3,8 +3,8 @@ from django.forms import ModelForm
 from .models import *
 
 class PatientForm(ModelForm):
-    fdosedate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
-    sdosedate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
+    fdosedate = forms.DateField(required=False, widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
+    sdosedate = forms.DateField(required=False, widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
     antigendate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
     rtpcrdate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
     xraydate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
@@ -40,4 +40,17 @@ class PatientForm(ModelForm):
             'rtpcrfile':forms.FileInput(attrs={'class':'form-control'}),
             'xrayfile':forms.FileInput(attrs={'class':'form-control'}),
             
+        }
+
+class VitalsignForm(ModelForm):
+    class Meta:
+        model = Vitalsigns
+        fields = ('bloodpressure', 'heartrate', 'respiratoryrate', 'temperature', 'painscale', 'o2saturation')
+        widgets = {
+            'bloodpressure': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'heartrate': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'respiratoryrate': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'temperature': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'painscale': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'o2saturation': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }

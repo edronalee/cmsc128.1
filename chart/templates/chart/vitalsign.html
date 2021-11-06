@@ -59,63 +59,64 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form class="user">
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <center>
-                                                <label for="bp" class="text-gray-900">Blood Pressure</label>
-                                                <input type="text" class="form-control form-control-user" id="bp" placeholder=""> 
-                                                </center>
-                                            </div> 
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <center>
-                                                <label for="hr" class="text-gray-900">Heart Rate</label>
-                                                <input type="text" class="form-control form-control-user" id="hr" placeholder=""> 
-                                                </center>
-                                            </div> 
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <center>
-                                                <label for="rr" class="text-gray-900">Respiratory Rate</label>
-                                                <input type="text" class="form-control form-control-user" id="rr" placeholder=""> 
-                                                </center>
-                                            </div> 
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <center>
-                                                <label for="temp" class="text-gray-900">Temperature</label>
-                                                <input type="text" class="form-control form-control-user" id="temp" placeholder=""> 
-                                                </center>
-                                            </div> 
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <center>
-                                                <label for="ps" class="text-gray-900">Pain Scale</label>
-                                                <input type="text" class="form-control form-control-user" id="ps" placeholder=""> 
-                                                </center>
-                                            </div> 
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <center>
-                                                <label for="o2" class="text-gray-900">O2 Saturation</label>
-                                                <input type="text" class="form-control form-control-user" id="o2" placeholder=""> 
-                                                </center>
-                                            </div> 
-                                        </div>
-
-                                        
-                                        
-                                        <a href="#" class="btn btn-primary btn-user btn-block">
-                                            Save
-                                        </a>
-        
-                                    </form>
+                                    {% if submitted %}
+                                        Vital Signs Saved Succesfully!
+                                    
+                                    {% else %}
+                                        <form action="" method=POST class="user">
+                                            {% csrf_token %}
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="bp" class="text-gray-900">Blood Pressure</label>
+                                                    {{form.bloodpressure}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="hr" class="text-gray-900">Heart Rate</label>
+                                                    {{form.heartrate}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="rr" class="text-gray-900">Respiratory Rate</label>
+                                                    {{form.respiratoryrate}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="temp" class="text-gray-900">Temperature</label>
+                                                    {{form.temperature}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="ps" class="text-gray-900">Pain Scale</label>
+                                                    {{form.painscale}} 
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="o2" class="text-gray-900">O2 Saturation</label>
+                                                    {{form.o2saturation}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            
+                                            <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
+                                        </form>
+                                    {% endif %}
                                 </div>
                             </div>
 
