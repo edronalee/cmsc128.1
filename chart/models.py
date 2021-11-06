@@ -74,12 +74,15 @@ class Patient(models.Model):
     telemedicine = models.CharField(max_length=200, null=True, choices=TELEMEDICINE)
     antigenresult = models.CharField(max_length=200, null=True, choices=ANTIGENRESULT)
     antigendate = models.DateField(null=True)
+    antigenfile = models.ImageField(verbose_name= "antigenfile", null = True, blank=True, upload_to = "pic_uploads/")
     #antigenfile
     rtpcrresult = models.CharField(max_length=200, null=True, choices=RTPCRRESULT)
     rtpcrdate = models.DateField(null=True)
+    rtpcrfile = models.ImageField(verbose_name= "rtpcrfile", null = True, blank=True, upload_to = "pic_uploads/")
     #rtpcrfile
     xray = models.CharField(max_length=200, null=True, choices=XRAY)
     xraydate = models.DateField(null=True)
+    xrayfile = models.ImageField(verbose_name= "xrayfile", null = True, blank=True, upload_to = "pic_uploads/")
     #xrayfile
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)

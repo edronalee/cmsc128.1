@@ -3,15 +3,6 @@ from django.forms import ModelForm
 from .models import *
 
 class PatientForm(ModelForm):
-    #attrs = {'class':'text-gray-900'}
-    #gender = forms.ChoiceField(choices=Patient.GENDER, widget=forms.RadioSelect(attrs=attrs))
-    #fdosedate = forms.DateField(widget=forms.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'placeholder':'dd-mm-yy'}))
-    #sdosedate = forms.DateField(widget=forms.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'placeholder':'dd-mm-yy'}))
-    #antigendate = forms.DateField(widget=forms.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'placeholder':'dd-mm-yy'}))
-    #rtpcrdate = forms.DateField(widget=forms.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'placeholder':'dd-mm-yy'}))
-   # xraydate = forms.DateField(widget=forms.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'placeholder':'dd-mm-yy'}))
-   # startdate = forms.DateField(widget=forms.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'placeholder':'dd-mm-yy'}))
-    #lastdate = forms.DateField(widget=forms.DateInput(format=('%d-%m-%Y'), attrs={'class':'form-control', 'placeholder':'dd-mm-yy'}))
     fdosedate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
     sdosedate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
     antigendate = forms.DateField(widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
@@ -22,7 +13,7 @@ class PatientForm(ModelForm):
 
     class Meta:
         model = Patient
-        fields = ('name', 'age', 'gender', 'address', 'barangay', 'city', 'numchild', 'namechild', 'contactnumber', 'email', 'vaccine', 'firstdose', 'seconddose', 'fdosedate', 'sdosedate', 'telemedicine', 'antigenresult', 'antigendate', 'rtpcrresult', 'rtpcrdate', 'xray', 'xraydate', 'status', 'startdate', 'lastdate', 'question3', 'question4', 'question5')
+        fields = ('name', 'age', 'gender', 'address', 'barangay', 'city', 'numchild', 'namechild', 'contactnumber', 'email', 'vaccine', 'firstdose', 'seconddose', 'fdosedate', 'sdosedate', 'telemedicine', 'antigenresult', 'antigendate', 'antigenfile', 'rtpcrfile', 'xrayfile', 'rtpcrresult', 'rtpcrdate', 'xray', 'xraydate', 'status', 'startdate', 'lastdate', 'question3', 'question4', 'question5')
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control form-control-user'}),
             'age': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
@@ -45,5 +36,8 @@ class PatientForm(ModelForm):
             'question4': forms.Select(choices=Patient.QUESTION4, attrs={'class':'form-control'}),
             'question5': forms.Select(choices=Patient.QUESTION5, attrs={'class':'form-control'}),
             'status': forms.Select(choices=Patient.STATUS, attrs={'class':'form-control'}),
-            #'gender': forms.ChoiceField(choices=Patient.GENDER,widget=forms.RadioSelect),
+            'antigenfile':forms.FileInput(attrs={'class':'form-control'}),
+            'rtpcrfile':forms.FileInput(attrs={'class':'form-control'}),
+            'xrayfile':forms.FileInput(attrs={'class':'form-control'}),
+            
         }
