@@ -59,15 +59,12 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
                                 </div>
                                 <div class="card-body">
-                                    {% if submitted %}
-                                        Vital Signs Saved Succesfully!
-                                    
-                                    {% else %}
                                         <form action="" method=POST class="user">
                                             {% csrf_token %}
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <center>
+                                                    {{form.patient}}<hr>
                                                     <label for="bp" class="text-gray-900">Blood Pressure</label>
                                                     {{form.bloodpressure}}
                                                     </center>
@@ -116,7 +113,6 @@
                                             
                                             <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
                                         </form>
-                                    {% endif %}
                                 </div>
                             </div>
 

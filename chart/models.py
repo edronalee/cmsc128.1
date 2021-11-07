@@ -109,7 +109,7 @@ class Patient(models.Model):
     def __str__(self):
         return self.name
 
-class Vitalsigns(models.Model):
+class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
     bloodpressure = models.CharField(max_length=200, null=True)
     heartrate = models.CharField(max_length=200, null=True)

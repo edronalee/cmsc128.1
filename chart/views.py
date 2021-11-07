@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as dj_login, authenticate
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
@@ -143,25 +143,22 @@ def monitor(request):
 @login_required(login_url='login')
 def patientinfo(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
+    vitalsigns = patient.vitalsign_set.all()
 
-    context = {'patient':patient}
+    context = {'patient':patient, 'vitalsigns':vitalsigns}
     return render(request, 'chart/patientinfo.html', context)
 
 @login_required(login_url='login')
 def vitalsign(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
-    submitted = False
+    form = VitalsignForm(initial={'patient':patient})
     if request.method == "POST":
         form = VitalsignForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/vitalsign/%d?submitted=True' %patient.id)
-    else:
-        form = VitalsignForm
-        if 'submitted' in request.GET:
-            submitted = True
+            return redirect('/patientinfo/%d' %patient.id)
 
-    context = {'patient':patient, 'form':form, 'submitted':submitted}
+    context = {'patient':patient, 'form':form}
     return render(request, 'chart/vitalsign.html', context)
 
 @user_passes_test(Account.is_Doctor)

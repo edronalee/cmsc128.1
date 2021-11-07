@@ -112,36 +112,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>10/12/2021</td>
-                                                    <td>11:50 AM</td>
-                                                    <td>Vital Signs</td>
-                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                </tr> 
-                                                <tr>
-                                                    <td>10/11/2021</td>
-                                                    <td>11:50 PM</td>
-                                                    <td>Vital Signs</td>
-                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>10/10/2021</td>
-                                                    <td>03:15 PM</td>
-                                                    <td>Daily Health</td>
-                                                    <td><a href="{% url 'healthtracker' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>10/13/2021</td>
-                                                    <td>02:13 AM</td>
-                                                    <td>Vital Signs</td>
-                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                </tr> 
-                                                <tr>
-                                                    <td>10/10/2021</td>
-                                                    <td>07:00 AM</td>
-                                                    <td>Vital Signs</td>
-                                                    <td><a href="{% url 'vitalsign' patient.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                </tr> 
+                                                {% for vitalsign in vitalsigns %}
+                                                    <tr>
+                                                        <td>{{vitalsign.date_created.date}}</td>
+                                                        <td>-</td>
+                                                        <td>Vital Signs</td>
+                                                        <td><a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                    </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>

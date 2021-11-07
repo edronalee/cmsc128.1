@@ -39,13 +39,13 @@ class PatientForm(ModelForm):
             'antigenfile':forms.FileInput(attrs={'class':'form-control'}),
             'rtpcrfile':forms.FileInput(attrs={'class':'form-control'}),
             'xrayfile':forms.FileInput(attrs={'class':'form-control'}),
-            
         }
 
 class VitalsignForm(ModelForm):
+    #patient = forms.ModelChoiceField(queryset=Patient.objects.all())
     class Meta:
-        model = Vitalsigns
-        fields = ('bloodpressure', 'heartrate', 'respiratoryrate', 'temperature', 'painscale', 'o2saturation')
+        model = Vitalsign
+        fields = ('patient', 'bloodpressure', 'heartrate', 'respiratoryrate', 'temperature', 'painscale', 'o2saturation')
         widgets = {
             'bloodpressure': forms.TextInput(attrs={'class':'form-control form-control-user'}),
             'heartrate': forms.TextInput(attrs={'class':'form-control form-control-user'}),
