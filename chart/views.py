@@ -149,6 +149,14 @@ def patientinfo(request, pk_test):
     return render(request, 'chart/patientinfo.html', context)
 
 @login_required(login_url='login')
+def vitalsigndetails(request, pk, pk_test):
+    patient = Patient.objects.get(id=pk)
+    vitalsigns = Vitalsign.objects.get(id=pk_test)
+
+    context = {'patient':patient,'vitalsigns':vitalsigns}
+    return render(request, 'chart/vitalsigndetails.html', context)
+
+@login_required(login_url='login')
 def vitalsign(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
     form = VitalsignForm(initial={'patient':patient})
@@ -160,6 +168,7 @@ def vitalsign(request, pk_test):
 
     context = {'patient':patient, 'form':form}
     return render(request, 'chart/vitalsign.html', context)
+
 
 @user_passes_test(Account.is_Doctor)
 def docinfo(request):

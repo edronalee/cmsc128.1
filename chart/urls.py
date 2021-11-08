@@ -17,6 +17,7 @@ urlpatterns = [
     path('monitor/', views.monitor, name="monitor"),
     path('patientinfo/<str:pk_test>/', views.patientinfo, name="patientinfo"),
     path('vitalsign/<str:pk_test>/', views.vitalsign, name="vitalsign"),
+    path('vitalsigndetails/<str:pk>/<str:pk_test>/', views.vitalsigndetails, name="vitalsigndetails"),
     path('transfer/', views.transfer, name="transfer"),
     path('statistics/', views.statistics, name="statistics"),
 ]
