@@ -115,7 +115,7 @@
                                                 {% for vitalsign in vitalsigns %}
                                                     <tr>
                                                         <td>{{vitalsign.date_created.date}}</td>
-                                                        <td>-</td>
+                                                        <td>{{vitalsign.date_created.time}}</td>
                                                         <td>Vital Signs</td>
                                                         <td><a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
                                                     </tr>
