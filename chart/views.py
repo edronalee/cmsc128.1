@@ -141,6 +141,12 @@ def monitor(request):
     return render(request, 'chart/monitor.html', {'patients':patients})
 
 @login_required(login_url='login')
+def referred(request):
+    patients = Patient.objects.all()
+    
+    return render(request, 'chart/referred.html', {'patients':patients})
+
+@login_required(login_url='login')
 def patientinfo(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
     vitalsigns = patient.vitalsign_set.all()
