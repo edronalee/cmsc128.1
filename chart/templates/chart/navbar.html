@@ -61,17 +61,29 @@
             </div>
 
             <!-- Nav Item - Charts -->
+            {% if request.user.is_LGU %}
             <li class="nav-item {% if request.resolver_match.view_name == 'brgyregistry' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'brgyregistry' %}">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Barangay Registry</span></a>
             </li>
+            {% endif %}
 
+            {% if request.user.is_Doctor %}
+            <li class="nav-item {% if request.resolver_match.view_name == 'referred' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'referred' %}">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Referred</span></a>
+            </li>
+            {% endif %}
+
+            {% if request.user.is_LGU %}
             <li class="nav-item {% if request.resolver_match.view_name == 'monitor' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'monitor' %}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Monitor</span></a>
             </li>
+            {% endif %}
 
             <li class="nav-item {% if request.resolver_match.view_name == 'transfer' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'transfer' %}">

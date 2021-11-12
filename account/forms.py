@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import Group
 from django.forms import fields, widgets
-from django.forms.forms import Form
 
 from account.models import Account
 from chart import models

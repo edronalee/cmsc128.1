@@ -9,239 +9,172 @@
                             <h6 class="m-0 font-weight-bold text-primary">A set of questions required:</h6>
                         </div>
                         <div class="card-body">
-                            <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="name" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Name</label><br>
-                                        <input type="text" class="form-control form-control-user" id="name" placeholder="Name">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="age" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Age</label><br>
-                                        <input type="number" class="form-control form-control-user" id="age" placeholder="">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="gender" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Gender</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="rg" id="inlineRadio1" value="male">
-                                            <label class="text-gray-900" for="inlineRadio1">Male</label>
+                            {% if submitted %}
+                                Patient Registered Succesfully!
+                            {% else %}
+                                <form action="" method=POST class="user">
+                                    {% csrf_token %}
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="name" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Name</label><br>
+                                            {{form.name}}   
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="rg" id="inlineRadio2" value="female">
-                                            <label class="text-gray-900" for="inlineRadio2">Female</label>
+                                        <div class="col-sm-3">
+                                            <label for="age" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Age</label><br>
+                                            {{form.age}}
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="gender" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Gender</label><br>
+                                            {{form.gender}}
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        <label for="streetAddress" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Address</label><br>
-                                        <input type="text" class="form-control form-control-user" id="streetAddress" placeholder="Street Address">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="barangay" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Barangay</label><br>
-                                        <select class="form-control" id="barangay">
-                                            <option selected>Choose...</option>
-                                            <option value="Alabang">Alabang</option>
-                                            <option value="Ayala-Alabang">Ayala-Alabang</option>
-                                            <option value="Bayanan">Bayanan</option>
-                                            <option value="Buli">Buli</option>
-                                            <option value="Cupang">Cupang</option>
-                                            <option value="Poblacion">Poblacion</option>
-                                            <option value="Putatan">Putatan</option>
-                                            <option value="Sucat">Sucat</option>
-                                            <option value="Tunasan">Tunasan</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <label for="city" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;City / Municipality</label><br>
-                                        <select class="form-control" id="city">
-                                            <option selected>Choose...</option>
-                                            <option value="Muntinlupa">Muntinlupa</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="numofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Number of Children</label><br>
-                                        <input type="number" class="form-control form-control-user"
-                                            id="numofchild" placeholder="0">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <label for="nameofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Names of Children</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="nameofchild" placeholder="Name of Children">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="contactnumber" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Contact Number</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="contactnumber" placeholder="">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="email" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Email</label><br>
-                                        <input type="email" class="form-control form-control-user"
-                                            id="email" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-3 mb-3 mb-sm-0">
-                                        <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Vaccine</label><br>
-                                        <input type="text" class="form-control form-control-user"
-                                            id="vaccine" placeholder="">
-                                    </div>
-                                    <div class="col-sm-2 mb-3 mb-sm-0">
-                                        <label for="dose" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Dose</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input form-control form-control-user" type="checkbox" name="inlineRadioOptions1" id="firstdose" value="firstdose">
-                                            <label class="text-gray-900" for="firstdose">1st Dose</label>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="streetAddress" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Address</label><br>
+                                            {{form.address}}
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input form-control form-control-user" type="checkbox" name="inlineRadioOptions2" id="seconddose" value="seconddose">
-                                            <label class="text-gray-900" for="seconddose">2nd Dose</label>
+                                        <div class="col-sm-4">
+                                            <label for="barangay" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Barangay</label><br>
+                                            {{form.barangay}}
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="city" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;City / Municipality</label><br>
+                                            {{form.city}}
                                         </div>
                                     </div>
-                                    <div class="col-sm-2 mb-3 mb-sm-0">
-                                        <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 1st Dose</label><br>
-                                        <input type="date" class="form-control form-control-user" id="firstdosedate">
-                                    </div>
-                                    <div class="col-sm-2 mb-3 mb-sm-0">
-                                        <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 2nd Dose</label><br>
-                                        <input type="date" class="form-control form-control-user" id="seconddosedate">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label for="telemed" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Telemedicine</label><br>
-                                        <select class="form-control" id="telemed">
-                                            <option selected>Choose...</option>
-                                            <option value="1">TelAventusMD</option>
-                                            <option value="2">SeeYouDoc</option>
-                                            <option value="3">MedCheck</option>
-                                            <option value="4">Telimed</option>
-                                            <option value="5">KonsultaMD</option>
-                                            <option value="6">CloudPx</option>
-                                            <option value="7">HealthNow</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="form-group row">
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="antigenresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Antigen Test Result</label><br>
-                                        <select class="form-control" id="antigenresult">
-                                            <option selected>Choose...</option>
-                                            <option value="1">Positive</option>
-                                            <option value="0">Negative</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="antigendate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
-                                        <input type="date" class="form-control form-control-user" id="antigendate">
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="antigenresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
-                                        <input class="form-control form-control-user" type="file" id="antigenresultfile">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        <label for="rtpcrresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;RT-PCR Test Result</label><br>
-                                        <select class="form-control" id="rtpcrresult">
-                                            <option selected>Choose...</option>
-                                            <option value="1">Positive</option>
-                                            <option value="0">Negative</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="rtpcrdate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
-                                        <input type="date" class="form-control form-control-user" id="rtpcrdate">
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="rtpcrresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
-                                        <input class="form-control form-control-user" type="file" id="rtpcrresultfile">
-                                    </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                        <label for="xray" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Chest X-ray or Film Array</label><br>
-                                        <select class="form-control" id="xray">
-                                            <option selected>Choose...</option>
-                                            <option value="1">Chest X-ray</option>
-                                            <option value="2">Film Array</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="xraydate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
-                                        <input type="date" class="form-control form-control-user" id="xraydate">
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label for="xrayresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
-                                        <input class="form-control form-control-user" type="file" id="xrayresultfile">
-                                    </div>
-                                </div>
-
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Health History:</h6>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="symptomsdate" class="text-gray-900"><br>1. Day of onset of symptoms</label>
-                                        <input type="date" class="form-control form-control-user" id="symptomsdate">
-                                    </div>
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label for="exposuredate" class="text-gray-900"><br>2. Last day of exposure</label>
-                                        <input type="date" class="form-control form-control-user" id="exposuredate">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <label for="radio3" class="text-gray-900"><br>3. For 2 weeks or more, do you have unexplained weight loss or night sweats?</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radio3" id="radio31" value="yes">
-                                            <label class="text-gray-900" for="radio31">Yes</label>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="numofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Number of Children</label><br>
+                                            {{form.numchild}}
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radio3" id="radio32" value="no">
-                                            <label class="text-gray-900" for="radio32">No</label>
+                                        <div class="col-sm-8">
+                                            <label for="nameofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Names of Children</label><br>
+                                            {{form.namechild}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="contactnumber" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Contact Number</label><br>
+                                            {{form.contactnumber}}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="email" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Email</label><br>
+                                            {{form.email}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Vaccine</label><br>
+                                            {{form.vaccine}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="firstdose" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;1st Dose</label><br>
+                                            {{form.firstdose}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="seconddose" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;2nd Dose</label><br>
+                                            {{form.seconddose}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 1st Dose</label><br>
+                                            {{form.fdosedate}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 2nd Dose</label><br>
+                                            {{form.sdosedate}}
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label for="telemed" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Telemedicine</label><br>
+                                            {{form.telemedicine}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="antigenresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Antigen Test Result</label><br>
+                                            {{form.antigenresult}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="antigendate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                            {{form.antigendate}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="antigenresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                            {{form.antigenfile}}
                                         </div>
                                     </div>
                                     
-                                    <div class="col-sm-12">
-                                        <label for="radio4" class="text-gray-900"><br>4. Have you worked together or stayed in the same close environment of with symptoms, confirmed or suspected COVID-19 Positive? (Healthcare workers wearing proper PPE not included.)</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radio4" id="radio41" value="yes">
-                                            <label class="text-gray-900" for="radio41">Yes</label>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="rtpcrresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;RT-PCR Test Result</label><br>
+                                            {{form.rtpcrresult}}
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radio4" id="radio42" value="no">
-                                            <label class="text-gray-900" for="radio42">No</label>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="rtpcrdate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                            {{form.rtpcrdate}}
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <label for="radio5" class="text-gray-900"><br>5. Have you travelled to any area aside from work or outside of the Philippines in the last 2 weeks?</label><br>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radio5" id="radio51" value="yes">
-                                            <label class="text-gray-900" for="radio51">Yes</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radio5" id="radio52" value="no">
-                                            <label class="text-gray-900" for="radio52">No</label>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="rtpcrresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                            {{form.rtpcrfile}}
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="xray" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Chest X-ray or Film Array</label><br>
+                                            {{form.xray}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="xraydate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                            {{form.xraydate}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="xrayresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                            {{form.xrayfile}}
+                                        </div>
+                                    </div>
 
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Health History:</h6>
+                                    </div>
 
-                                </div>
-                                
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="symptomsdate" class="text-gray-900"><br>1. Day of onset of symptoms</label>
+                                            {{form.startdate}}
+                                        </div>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="exposuredate" class="text-gray-900"><br>2. Last day of exposure</label>
+                                            {{form.lastdate}}
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="radio3" class="text-gray-900"><br>3. For 2 weeks or more, do you have unexplained weight loss or night sweats?</label><br>
+                                            {{form.question3}}
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <label for="radio4" class="text-gray-900"><br>4. Have you worked together or stayed in the same close environment of with symptoms, confirmed or suspected COVID-19 Positive? (Healthcare workers wearing proper PPE not included.)</label><br>
+                                            {{form.question4}}
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="radio5" class="text-gray-900"><br>5. Have you travelled to any area aside from work or outside of the Philippines in the last 2 weeks?</label><br>
+                                            {{form.question5}}
+                                        </div>
+                                        <center>
+                                        <div class="col-sm-12">
+                                            <label for="status" class="text-gray-900"><br>Status:</label><br>
+                                            {{form.status}}
+                                        </div>
+                                        </center>
 
-                                <a href="{% url 'communityboard' %}" class="btn btn-primary btn-user btn-block">
-                                    Register Patient
-                                </a>
-
-                            </form>
+                                    </div>
+                                    <input type="submit" value="Register Patient" class="btn btn-primary btn-user btn-block">
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
 {% endblock content %}
