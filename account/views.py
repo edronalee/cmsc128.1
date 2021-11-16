@@ -42,7 +42,7 @@ def logout_view(request):
     logout(request)
     return render(request, "chart/login.html", context)
 
-@unauthenticated_user
+#@unauthenticated_user
 def docregistration_view(request):
     context = {}
     if request.POST:
@@ -65,7 +65,7 @@ def docregistration_view(request):
         context['registration_form'] = form
     return render(request, "chart/docregister.html", context)
 
-@unauthenticated_user
+#@unauthenticated_user
 def lguregistration_view(request):
     context={}
     if request.POST:

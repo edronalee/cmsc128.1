@@ -120,6 +120,15 @@
                                                         <td><a href="{% url 'vitalsigndetails' patient.id vitalsign.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
                                                     </tr>
                                                 {% endfor %}
+
+                                                {% for healthtracker in healthtracker %}
+                                                <tr>
+                                                    <td>{{healthtracker.date_created.date}}</td>
+                                                    <td>{{healthtracker.date_created.time}}</td>
+                                                    <td>Health Tracker</td>
+                                                    <td><a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>

@@ -54,3 +54,29 @@ class VitalsignForm(ModelForm):
             'painscale': forms.TextInput(attrs={'class':'form-control form-control-user'}),
             'o2saturation': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }
+
+class HealthtrackerForm(ModelForm):
+    #patient = forms.ModelChoiceField(queryset=Patient.objects.all())
+    class Meta:
+        model = Healthtracker
+        fields = ('patient', 'asymptomatic', 'fever', 'cough', 'generalweakness', 'fatigue', 'headache', 'bodyaches', 'sorethroat', 'runnynose', 'dyspnea', 'lossappetite', 'nausea', 'vomiting', 'diarrhea', 'alteredmentalstate', 'losssmell', 'losstaste', 'others')
+        widgets = {
+            'asymptomatic': forms.Select(choices=Healthtracker.ASYMPTOMATIC, attrs={'class':'form-control'}),
+            'fever': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'cough': forms.Select(choices=Healthtracker.COUGH, attrs={'class':'form-control'}),
+            'generalweakness': forms.Select(choices=Healthtracker.GENERALWEAKNESS, attrs={'class':'form-control'}),
+            'fatigue': forms.Select(choices=Healthtracker.FATIGUE, attrs={'class':'form-control'}),
+            'headache': forms.Select(choices=Healthtracker.HEADACHE, attrs={'class':'form-control'}), 
+            'bodyaches': forms.Select(choices=Healthtracker.BODYACHES, attrs={'class':'form-control'}),
+            'sorethroat': forms.Select(choices=Healthtracker.SORETHROAT, attrs={'class':'form-control'}), 
+            'runnynose': forms.Select(choices=Healthtracker.RUNNYNOSE, attrs={'class':'form-control'}),
+            'dyspnea': forms.Select(choices=Healthtracker.DYSPNEA, attrs={'class':'form-control'}),
+            'lossappetite': forms.Select(choices=Healthtracker.LOSSAPPETITE, attrs={'class':'form-control'}), 
+            'nausea': forms.Select(choices=Healthtracker.NAUSEA, attrs={'class':'form-control'}),
+            'vomiting': forms.Select(choices=Healthtracker.VOMITING, attrs={'class':'form-control'}), 
+            'diarrhea': forms.Select(choices=Healthtracker.DIARRHEA, attrs={'class':'form-control'}),
+            'alteredmentalstate': forms.Select(choices=Healthtracker.ALTEREDMENTALSTATE, attrs={'class':'form-control'}),
+            'losssmell': forms.Select(choices=Healthtracker.LOSSSMELL, attrs={'class':'form-control'}),
+            'losstaste': forms.Select(choices=Healthtracker.LOSSTASTE, attrs={'class':'form-control'}), 
+            'others': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+        }
