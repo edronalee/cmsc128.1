@@ -103,7 +103,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     address = models.CharField(max_length=200, null=True)
     barangay = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
-    birthdate = models.DateField(verbose_name="birth date", blank=True) 
+    birthdate = models.DateField(verbose_name="birth date", blank=True)
     age = models.CharField(max_length=200, null=True, blank=True)
     gender = models.CharField(max_length=200, null=True, choices=( 
                 ('Male', 'Male'),
