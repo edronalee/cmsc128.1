@@ -80,7 +80,7 @@ def lguregistration_view(request):
             lgugroup, created = Group.objects.get_or_create(name="LGU Employees")
             account.groups.add(lgugroup)
             #login(request, account)
-            return redirect("chart/login.html")
+            return redirect("login")
         else: #not a valid form
             context['registration_form'] = form
     else: #not POST request, it's a GET request; this is their first time seeing this
