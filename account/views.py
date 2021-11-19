@@ -42,7 +42,7 @@ def logout_view(request):
     logout(request)
     return render(request, "chart/login.html", context)
 
-@unauthenticated_user
+#@unauthenticated_user
 def docregistration_view(request):
     context = {}
     if request.POST:
@@ -57,7 +57,7 @@ def docregistration_view(request):
             docgroup, created = Group.objects.get_or_create(name="Doctors")
             account.groups.add(docgroup)
             #login(request, account)
-            return redirect("chart/login.html")
+            return redirect("login")
         else: #not a valid form
             context['registration_form'] = form
     else: #not POST request, it's a GET request; this is their first time seeing this
@@ -65,7 +65,7 @@ def docregistration_view(request):
         context['registration_form'] = form
     return render(request, "chart/docregister.html", context)
 
-@unauthenticated_user
+#@unauthenticated_user
 def lguregistration_view(request):
     context={}
     if request.POST:
@@ -80,7 +80,7 @@ def lguregistration_view(request):
             lgugroup, created = Group.objects.get_or_create(name="LGU Employees")
             account.groups.add(lgugroup)
             #login(request, account)
-            return redirect("chart/login.html")
+            return redirect("login")
         else: #not a valid form
             context['registration_form'] = form
     else: #not POST request, it's a GET request; this is their first time seeing this

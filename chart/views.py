@@ -131,7 +131,14 @@ def brgyregistry(request):
 @login_required(login_url='login')
 def healthtracker(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
-    context = {'patient':patient}
+    form = HealthtrackerForm(initial={'patient':patient})
+    if request.method == "POST":
+        form = HealthtrackerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/patientinfo/%d' %patient.id)
+
+    context = {'patient':patient, 'form':form}
     return render(request, 'chart/healthtracker.html', context)
 
 @login_required(login_url='login')
@@ -150,8 +157,9 @@ def referred(request):
 def patientinfo(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
     vitalsigns = patient.vitalsign_set.all()
+    healthtracker = patient.healthtracker_set.all()
 
-    context = {'patient':patient, 'vitalsigns':vitalsigns}
+    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker}
     return render(request, 'chart/patientinfo.html', context)
 
 @login_required(login_url='login')
