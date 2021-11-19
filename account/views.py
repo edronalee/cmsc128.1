@@ -57,7 +57,7 @@ def docregistration_view(request):
             docgroup, created = Group.objects.get_or_create(name="Doctors")
             account.groups.add(docgroup)
             #login(request, account)
-            return redirect("chart/login.html")
+            return redirect("login")
         else: #not a valid form
             context['registration_form'] = form
     else: #not POST request, it's a GET request; this is their first time seeing this
