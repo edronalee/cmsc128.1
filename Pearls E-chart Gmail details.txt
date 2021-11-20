@@ -1,0 +1,4 @@
+pearlscommunityechart@gmail.com
+pearls2897
+
+*note: the email used for sending password reset emails can be changed in the settings.py
