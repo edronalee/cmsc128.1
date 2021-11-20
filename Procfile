@@ -1,0 +1,1 @@
+web: gunicorn echart.wsgi --log-file -

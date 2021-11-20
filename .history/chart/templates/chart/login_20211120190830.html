@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community E-Chart</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Favicon  -->
+    <link rel="icon" type="image/png" href="{% static '/images/icon.png' %}">
+
+    <style>
+        body {
+            background-image: url("/static/images/bg2.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            {% csrf_token %}
+                            <h3 class="text-center">Sign in</h3>
+                            {% for field in login_form %}
+                            <div class="form-group">
+                                <label for="email" class="col-sm-2 col-form-label">{{field.label_tag}}</label><br>
+                                <p class = "form-control">{{field}}</p>
+                            </div>
+                            {% endfor %}
+
+                            {% if invalid_user %}
+                            <div id = "invalid_user" title = "Invalid User">
+                                <p style = "color:red;">Error: invalid username or password.</p>
+                            </div>
+                            {% endif %}
+
+                            <br>
+                            <div class="form-group">
+                                <center><input type="submit" name="submit" class="btn btn-primary" value="Login"></center>
+                            </div>
+                            <br>
+                            <div id="register-link" class="text-right">
+                                Not yet registered?
+                                <a href="{% url 'register' %}" class="col-sm-2 col-form-label">Register here</a>
+                            </div>
+                            <br>
+                            <div id="reset-link" class="text-right">
+                                Forgot your password?
+                                <a href="{% url 'reset_password' %}" class="col-sm-2 col-form-label">Reset your password here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

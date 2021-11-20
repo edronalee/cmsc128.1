@@ -1,19 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth import login as dj_login, authenticate
-from django.http import HttpResponse
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 # Create your views here.
 from .models import *
+from .forms import *
+from account.models import Account
 
+from .decorators import unauthenticated_user, allowed_users, admin_only
 
-
-def login(request):
+#def login(request):
 #    form = "login-form"
 #    if request.POST:
 #        if form.is_valid:
 #        account = authenticate(request['email'],request['password'])
 #        dj_login(request, account)
-    return render(request, 'chart/login.html')
+#    return render(request, 'chart/login.html')
 
 def register(request):
     return render(request, 'chart/register.html')
@@ -25,7 +27,7 @@ def register(request):
 #def lguregister(request):
 #   return render(request, 'chart/lguregister.html')
 
-
+@login_required(login_url='login')
 def communityboard(request):
     patients = Patient.objects.all()
     alabang_patients = patients.filter(barangay='Alabang')
@@ -112,25 +114,88 @@ def communityboard(request):
 
     return render(request, 'chart/communityboard.html', context)
 
+@login_required(login_url='login')
 def brgyregistry(request):
-    return render(request, 'chart/brgyregistry.html')
+    submitted = False
+    if request.method == "POST":
+        form = PatientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/brgyregistry?submitted=True')
+    else:
+        form = PatientForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'chart/brgyregistry.html', {'form':form, 'submitted':submitted})
 
-def healthtracker(request):
-    return render(request, 'chart/healthtracker.html')
+@login_required(login_url='login')
+def healthtracker(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+    form = HealthtrackerForm(initial={'patient':patient})
+    if request.method == "POST":
+        form = HealthtrackerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/patientinfo/%d' %patient.id)
 
+    context = {'patient':patient, 'form':form}
+    return render(request, 'chart/healthtracker.html', context)
+
+@login_required(login_url='login')
 def monitor(request):
     patients = Patient.objects.all()
-
+    
     return render(request, 'chart/monitor.html', {'patients':patients})
 
-def patientinfo(request):
-    return render(request, 'chart/patientinfo.html')
+@login_required(login_url='login')
+def referred(request):
+    patients = Patient.objects.all()
+    
+    return render(request, 'chart/referred.html', {'patients':patients})
 
-def vitalsign(request):
-    return render(request, 'chart/vitalsign.html')
+@login_required(login_url='login')
+def patientinfo(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+    vitalsigns = patient.vitalsign_set.all()
+    healthtracker = patient.healthtracker_set.all()
 
+    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker}
+    return render(request, 'chart/patientinfo.html', context)
+
+@login_required(login_url='login')
+def vitalsigndetails(request, pk, pk_test):
+    patient = Patient.objects.get(id=pk)
+    vitalsigns = Vitalsign.objects.get(id=pk_test)
+
+    context = {'patient':patient,'vitalsigns':vitalsigns}
+    return render(request, 'chart/vitalsigndetails.html', context)
+
+@login_required(login_url='login')
+def vitalsign(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+    form = VitalsignForm(initial={'patient':patient})
+    if request.method == "POST":
+        form = VitalsignForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/patientinfo/%d' %patient.id)
+
+    context = {'patient':patient, 'form':form}
+    return render(request, 'chart/vitalsign.html', context)
+
+
+@user_passes_test(Account.is_Doctor)
+def docinfo(request):
+    return render(request, 'chart/docinfo.html')
+
+@user_passes_test(Account.is_LGU)
+def lguinfo(request):
+    return render(request, 'chart/lguinfo.html')
+
+@login_required(login_url='login')
 def transfer(request):
     return render(request, 'chart/transfer.html')
 
+@login_required(login_url='login')
 def statistics(request):
     return render(request, 'chart/statistics.html')

@@ -74,20 +74,20 @@ class Patient(models.Model):
     telemedicine = models.CharField(max_length=200, null=True, choices=TELEMEDICINE)
     antigenresult = models.CharField(max_length=200, null=True, choices=ANTIGENRESULT)
     antigendate = models.DateField(null=True)
+    antigenfile = models.ImageField(verbose_name= "antigenfile", null = True, blank=True, upload_to = "pic_uploads/")
     #antigenfile
     rtpcrresult = models.CharField(max_length=200, null=True, choices=RTPCRRESULT)
     rtpcrdate = models.DateField(null=True)
+    rtpcrfile = models.ImageField(verbose_name= "rtpcrfile", null = True, blank=True, upload_to = "pic_uploads/")
     #rtpcrfile
     xray = models.CharField(max_length=200, null=True, choices=XRAY)
     xraydate = models.DateField(null=True)
+    xrayfile = models.ImageField(verbose_name= "xrayfile", null = True, blank=True, upload_to = "pic_uploads/")
     #xrayfile
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
-    
-    def __str__(self):
-        return self.name
 
-class HealthHistory(models.Model):
+    #healthhistory
     QUESTION3 = (
                     ('Yes', 'Yes'),
                     ('No', 'No'),
@@ -100,9 +100,107 @@ class HealthHistory(models.Model):
                     ('Yes', 'Yes'),
                     ('No', 'No'),
     )
-    patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
     startdate = models.DateField(null=True)
     lastdate = models.DateField(null=True)
     question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
     question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
     question5 = models.CharField(max_length=200, null=True, choices=QUESTION5)
+    
+    def __str__(self):
+        return self.name
+
+class Vitalsign(models.Model):
+    patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
+    bloodpressure = models.CharField(max_length=200, null=True)
+    heartrate = models.CharField(max_length=200, null=True)
+    respiratoryrate = models.CharField(max_length=200, null=True)
+    temperature = models.CharField(max_length=200, null=True)
+    painscale = models.CharField(max_length=200, null=True)
+    o2saturation = models.CharField(max_length=200, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+class Healthtracker(models.Model):
+    patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
+    ASYMPTOMATIC = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    COUGH = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    GENERALWEAKNESS = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    FATIGUE = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    HEADACHE = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    BODYACHES = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    SORETHROAT = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    RUNNYNOSE = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    DYSPNEA = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    LOSSAPPETITE = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    NAUSEA = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    VOMITING = (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    DIARRHEA= (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    ALTEREDMENTALSTATE= (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    LOSSSMELL= (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    LOSSTASTE= (
+                    ('Yes', 'Yes'),
+                    ('No', 'No'),
+    )
+    asymptomatic = models.CharField(max_length=200, null=True, choices=ASYMPTOMATIC)
+    fever = models.CharField(max_length=200, null=True)
+    cough = models.CharField(max_length=200, null=True, choices=COUGH)
+    generalweakness = models.CharField(max_length=200, null=True, choices=GENERALWEAKNESS)
+    fatigue = models.CharField(max_length=200, null=True, choices=FATIGUE)
+    headache = models.CharField(max_length=200, null=True, choices=HEADACHE)
+    bodyaches = models.CharField(max_length=200, null=True, choices=BODYACHES)
+    sorethroat = models.CharField(max_length=200, null=True, choices=SORETHROAT)
+    runnynose = models.CharField(max_length=200, null=True, choices=RUNNYNOSE)
+    dyspnea  = models.CharField(max_length=200, null=True, choices=DYSPNEA)
+    lossappetite = models.CharField(max_length=200, null=True, choices=LOSSAPPETITE)
+    nausea = models.CharField(max_length=200, null=True, choices=NAUSEA)
+    vomiting = models.CharField(max_length=200, null=True, choices=VOMITING)
+    diarrhea = models.CharField(max_length=200, null=True, choices=DIARRHEA)
+    alteredmentalstate = models.CharField(max_length=200, null=True, choices=ALTEREDMENTALSTATE)
+    losssmell = models.CharField(max_length=200, null=True, choices=LOSSSMELL)
+    losstaste = models.CharField(max_length=200, null=True, choices=LOSSTASTE)
+    others = models.CharField(max_length=200, null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)

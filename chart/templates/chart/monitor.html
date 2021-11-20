@@ -43,40 +43,11 @@
                                                 <td>{{i.status}}</td>
                                                 <td>{{i.barangay}}</td>
                                                 <td>{{i.age}}</td>
-                                                <td>{{i.date_created}}</td>
+                                                <td>{{i.date_created.date}}</td>
                                                 <td>{{i.date_created|timesince}}</td>
-                                                <td><a href="{% url 'patientinfo' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                <td><a href="{% url 'patientinfo' i.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
                                             </tr>
                                         {% endfor %}
-                                        <tr>
-                                            <td>CR-00001</td>
-                                            <td>Status</td>
-                                            <td>Tunasan</td>
-                                            <td>25</td>
-                                            <td>10/12/2021</td>
-                                            <td>2 days</td>
-                                            <td><a href="{% url 'patientinfo' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>CR-00002</td>
-                                            <td>Status</td>
-                                            <td>Alabang</td>
-                                            <td>26</td>
-                                            <td>10/20/2021</td>
-                                            <td>5 days</td>
-                                            <td><a href="{% url 'patientinfo' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>CR-00003</td>
-                                            <td>Status</td>
-                                            <td>Cupang</td>
-                                            <td>54</td>
-                                            <td>10/22/2021</td>
-                                            <td>12 days</td>
-                                            <td><a href="{% url 'patientinfo' %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                        </tr>
 
                                     </tbody>
                                 </table>

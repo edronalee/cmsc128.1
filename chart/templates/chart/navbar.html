@@ -61,17 +61,29 @@
             </div>
 
             <!-- Nav Item - Charts -->
+            {% if request.user.is_LGU %}
             <li class="nav-item {% if request.resolver_match.view_name == 'brgyregistry' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'brgyregistry' %}">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Barangay Registry</span></a>
             </li>
+            {% endif %}
 
+            {% if request.user.is_Doctor %}
+            <li class="nav-item {% if request.resolver_match.view_name == 'referred' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'referred' %}">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Referred</span></a>
+            </li>
+            {% endif %}
+
+            {% if request.user.is_LGU %}
             <li class="nav-item {% if request.resolver_match.view_name == 'monitor' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'monitor' %}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Monitor</span></a>
             </li>
+            {% endif %}
 
             <li class="nav-item {% if request.resolver_match.view_name == 'transfer' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'transfer' %}">
@@ -154,19 +166,32 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-900 small">Hello, Full Name!</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-900 small">Hello, {{request.user.getFullName|title}}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{% static '/images/undraw_profile.svg' %}">
                             </a>
                         <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-900"></i>
-                                    Profile
-                                </a>
+                                {% if request.user.is_Doctor %}
+                                    <a class="dropdown-item" href="{% url 'docinfo' %}">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-900"></i>
+                                        Profile
+                                    </a>
+                                {% elif request.user.is_LGU %}
+                                    <a class="dropdown-item" href="{% url 'lguinfo' %}">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-900"></i>
+                                        Profile
+                                    </a>
+                                {% else %}
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-900"></i>
+                                        Profile
+                                    </a>
+                                {% endif %}
+                                
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'login' %}" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{%url 'logout' %}" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-900"></i>
                                     Logout
                                 </a>

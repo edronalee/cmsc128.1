@@ -14,20 +14,20 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Name:<br>
-                                    Age:<br>
-                                    Gender:<br>
-                                    Address:<br>
-                                    Number of Children:<br>
-                                    Names of Children:<br>
-                                    Contact Number:<br>
-                                    Email:<br>
-                                    Vaccine: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dose:<br>
-                                    Date of 1st Dose: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date of 2nd Dose:<br>
-                                    Telemedicine:<br>
-                                    Antigen Test Result: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released:<br>
-                                    RT-PCR Test Result: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released:<br>
-                                    Chest X-ray or Film Array: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released:<br>
+                                    Name: <b>{{patient.name}}</b><br>
+                                    Age: <b>{{patient.age}}</b><br>
+                                    Gender: <b>{{patient.gender}}</b><br>
+                                    Address: <b>{{patient.address}}</b><br>
+                                    Number of Children: <b>{{patient.numchild}}</b><br>
+                                    Names of Children: <b>{{patient.namechild}}</b><br>
+                                    Contact Number: <b>{{patient.contactnumber}}</b><br>
+                                    Email: <b>{{patient.email}}</b><br>
+                                    Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2nd Dose: <b>{{patient.seconddose}}</b><br>
+                                    Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date of 2nd Dose: <b>{{patient.sdosedate}}</b><br>
+                                    Telemedicine: <b>{{patient.telemedicine}}</b><br>
+                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.antigendate}}</b><br>
+                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.rtpcrdate}}</b><br>
+                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.xraydate}}</b><br>
                                 </div>
                             </div>
 
@@ -37,16 +37,16 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Health History</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    1. Day of onset of symptoms:<br>
-                                    2. Last day of exposure:<br>
+                                    1. Day of onset of symptoms: <b>{{patient.startdate}}</b><br>
+                                    2. Last day of exposure: <b>{{patient.lastdate}}</b><br>
                                     3. For 2 weeks or more, do you have unexplained
-                                    weight loss or night sweats?<br>
+                                    weight loss or night sweats? <b>{{patient.question3}}</b><br>
                                     4. Have you worked together or stayed in the same
                                     close environment of with symptoms, confirmed
                                     or suspected COVID-19 Positive ? (Healthcare
-                                    workers wearing proper PPE not included.)<br>
+                                    workers wearing proper PPE not included.) <b>{{patient.question4}}</b><br>
                                     5. Have you travelled to any area aside from work
-                                    or outside of the Philippines in the last 2 weeks?<br>
+                                    or outside of the Philippines in the last 2 weeks? <b>{{patient.question5}}</b>
                                 </div>
                             </div>
 
@@ -60,18 +60,19 @@
                                         symptoms?</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form class="user">
+                                    <form action="" method=POST class="user">
+                                        {% csrf_token %}
                                         <div class="form-group row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-12">
+                                                <center>
+                                                    {{form.patient}}<hr>
+                                                </center>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <center>
                                                 <label for="rasymptomatic" class="text-gray-900">Asymptomatic&emsp;&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rasymptomatic" id="rasymptomatic1" value="yes">
-                                                    <label class="text-gray-900" for="rasymptomatic1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rasymptomatic" id="rasymptomatic2" value="no">
-                                                    <label class="text-gray-900" for="rasymptomatic2">No</label>
-                                                </div>
+                                                </center>
+                                                {{form.asymptomatic}}
                                             </div>
                                         </div>
                                         <hr>
@@ -79,7 +80,7 @@
                                             <div class="col-sm-12">
                                                 <center>
                                                 <label for="feverdeg" class="text-gray-900">Fever (°C)</label>
-                                                <input type="number" class="form-control form-control-user" id="feverdeg" placeholder=""> 
+                                                {{form.fever}}
                                                 </center>
                                             </div>
                                            
@@ -88,150 +89,66 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label for="rcough" class="text-gray-900">Cough&emsp;&emsp;&emsp;&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rcough" id="rcough1" value="yes">
-                                                    <label class="text-gray-900" for="rcough1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rcough" id="rcough2" value="no">
-                                                    <label class="text-gray-900" for="rcough2">No</label>
-                                                </div>
+                                                {{form.cough}}
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="rgw" class="text-gray-900">General Weakness&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rgw" id="rgw1" value="yes">
-                                                    <label class="text-gray-900" for="rgw1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rgw" id="rgw2" value="no">
-                                                    <label class="text-gray-900" for="rgw2">No</label>
-                                                </div>
+                                                {{form.generalweakness}}
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label for="rfatigue" class="text-gray-900">Fatigue&emsp;&emsp;&emsp;&ensp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rfatigue" id="rfatigue1" value="yes">
-                                                    <label class="text-gray-900" for="rfatigue1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rfatigue" id="rfatigue2" value="no">
-                                                    <label class="text-gray-900" for="rfatigue2">No</label>
-                                                </div>
+                                                {{form.fatigue}}
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="rheadache" class="text-gray-900">Headache&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rheadache" id="rheadache1" value="yes">
-                                                    <label class="text-gray-900" for="rheadache1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rheadache" id="rheadache2" value="no">
-                                                    <label class="text-gray-900" for="rheadache2">No</label>
-                                                </div>
+                                                {{form.headache}}
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label for="rbodyache" class="text-gray-900">Body Aches&emsp;&ensp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rbodyache" id="rbodyache1" value="yes">
-                                                    <label class="text-gray-900" for="rbodyache1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rbodyache" id="rbodyache2" value="no">
-                                                    <label class="text-gray-900" for="rbodyache2">No</label>
-                                                </div>
+                                                {{form.bodyaches}}
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="rsorethroat" class="text-gray-900">Sore Throat&emsp;&emsp;&emsp;&ensp;&nbsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rsorethroat" id="rsorethroat1" value="yes">
-                                                    <label class="text-gray-900" for="rsorethroat1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rsorethroat" id="rsorethroat2" value="no">
-                                                    <label class="text-gray-900" for="rsorethroat2">No</label>
-                                                </div>
+                                                {{form.sorethroat}}
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label for="rnose" class="text-gray-900">Runny nose&emsp;&ensp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rnose" id="rnose1" value="yes">
-                                                    <label class="text-gray-900" for="rnose1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rnose" id="rnose2" value="no">
-                                                    <label class="text-gray-900" for="rnose2">No</label>
-                                                </div>
+                                                {{form.runnynose}}
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="rdys" class="text-gray-900">Dyspnea&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rdys" id="rdys1" value="yes">
-                                                    <label class="text-gray-900" for="rdys1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rdys" id="rdys2" value="no">
-                                                    <label class="text-gray-900" for="rdys2">No</label>
-                                                </div>
+                                                {{form.dyspnea}}
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label for="rappetite" class="text-gray-900">Loss of appetite&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rappetite" id="rappetite1" value="yes">
-                                                    <label class="text-gray-900" for="rappetite1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rappetite" id="rappetite2" value="no">
-                                                    <label class="text-gray-900" for="rappetite2">No</label>
-                                                </div>
+                                                {{form.lossappetite}}
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="rnau" class="text-gray-900">Nausea&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rnau" id="rnau1" value="yes">
-                                                    <label class="text-gray-900" for="rnau1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rnau" id="rnau2" value="no">
-                                                    <label class="text-gray-900" for="rnau2">No</label>
-                                                </div>
+                                                {{form.nausea}}
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label for="rvom" class="text-gray-900">Vomiting&emsp;&emsp;&ensp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rvom" id="rvom1" value="yes">
-                                                    <label class="text-gray-900" for="rvom1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rvom" id="rvom2" value="no">
-                                                    <label class="text-gray-900" for="rvom2">No</label>
-                                                </div>
+                                                {{form.vomiting}}
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="rdiar" class="text-gray-900">Diarrhea&emsp;&emsp;&emsp;&emsp;&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rdiar" id="rdiar1" value="yes">
-                                                    <label class="text-gray-900" for="rdiar1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rdiar" id="rdiar2" value="no">
-                                                    <label class="text-gray-900" for="rdiar2">No</label>
-                                                </div>
+                                                {{form.diarrhea}}
                                             </div>
                                         </div>
 
@@ -240,14 +157,7 @@
                                             <div class="col-sm-12">
                                                 <center>
                                                 <label for="raltered" class="text-gray-900">Altered Mental State&emsp;&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="raltered" id="raltered1" value="yes">
-                                                    <label class="text-gray-900" for="raltered1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="raltered" id="raltered2" value="no">
-                                                    <label class="text-gray-900" for="raltered2">No</label>
-                                                </div>
+                                                {{form.alteredmentalstate}}
                                                 </center>
                                             </div> 
                                         </div>
@@ -256,25 +166,11 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6">
                                                 <label for="rsmell" class="text-gray-900">Loss of Smell&emsp;&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rsmell" id="rsmell1" value="yes">
-                                                    <label class="text-gray-900" for="rsmell1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rsmell" id="rsmell2" value="no">
-                                                    <label class="text-gray-900" for="rsmell2">No</label>
-                                                </div>
+                                                {{form.losssmell}}
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="rtaste" class="text-gray-900">Loss of Taste&emsp;&emsp;</label>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rtaste" id="rtaste1" value="yes">
-                                                    <label class="text-gray-900" for="rtaste1">Yes</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="rtaste" id="rtaste2" value="no">
-                                                    <label class="text-gray-900" for="rtaste2">No</label>
-                                                </div>
+                                                {{form.losstaste}}
                                             </div>
                                         </div>
                                         <hr>
@@ -282,16 +178,11 @@
                                             <div class="col-sm-12">
                                                 <center>
                                                 <label for="others" class="text-gray-900">Others, specify</label>
-                                                <input type="text" class="form-control form-control-user" id="others" placeholder=""> 
+                                                {{form.others}}
                                                 </center>
                                             </div>
                                         </div>
-
-                                        
-                                        <a href="{% url 'patientinfo' %}" class="btn btn-primary btn-user btn-block">
-                                            Save
-                                        </a>
-        
+                                        <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
                                     </form>
                                 </div>
                             </div>
