@@ -7,7 +7,7 @@ from .models import *
 from .forms import *
 from account.models import Account
 
-from .decorators import unauthenticated_user, allowed_users, admin_only
+#from .decorators import unauthenticated_user, allowed_users, admin_only
 
 #def login(request):
 #    form = "login-form"
@@ -163,12 +163,29 @@ def patientinfo(request, pk_test):
     return render(request, 'chart/patientinfo.html', context)
 
 @login_required(login_url='login')
+def doctorsnotes(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+    vitalsigns = patient.vitalsign_set.all()
+    healthtracker = patient.healthtracker_set.all()
+
+    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker}
+    return render(request, 'chart/doctorsnotes.html', context)
+
+@login_required(login_url='login')
 def vitalsigndetails(request, pk, pk_test):
     patient = Patient.objects.get(id=pk)
     vitalsigns = Vitalsign.objects.get(id=pk_test)
 
     context = {'patient':patient,'vitalsigns':vitalsigns}
     return render(request, 'chart/vitalsigndetails.html', context)
+
+@login_required(login_url='login')
+def healthtrackerdetails(request, pk, pk_test):
+    patient = Patient.objects.get(id=pk)
+    healthtracker = Healthtracker.objects.get(id=pk_test)
+
+    context = {'patient':patient,'healthtracker':healthtracker}
+    return render(request, 'chart/healthtrackerdetails.html', context)
 
 @login_required(login_url='login')
 def vitalsign(request, pk_test):

@@ -54,6 +54,7 @@
                         </div>
 
                         <div class="col-lg-6">
+                            {% if request.user.is_LGU %}
                             <div class="row">
                                 <!-- Card Example -->
                                 <div class="col-xl-6 col-md-6 mb-4">
@@ -95,43 +96,32 @@
                                     </div>
                                 </div>
                             </div>
-
+                            {% endif %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs & Daily Health Log</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Health Tracker</h6>
                                 </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Category</th>
-                                                    <th>Details</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for vitalsign in vitalsigns %}
-                                                    <tr>
-                                                        <td>{{vitalsign.date_created.date}}</td>
-                                                        <td>{{vitalsign.date_created.time}}</td>
-                                                        <td>Vital Signs</td>
-                                                        <td><a href="{% url 'vitalsigndetails' patient.id vitalsign.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
-                                                    </tr>
-                                                {% endfor %}
-
-                                                {% for healthtrack in healthtracker %}
-                                                <tr>
-                                                    <td>{{healthtrack.date_created.date}}</td>
-                                                    <td>{{healthtrack.date_created.time}}</td>
-                                                    <td>Health Tracker</td>
-                                                    <td><a href="{% url 'healthtrackerdetails' patient.id healthtrack.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="card-body text-gray-900">
+                                    Date: <b>{{healthtracker.date_created.date}}</b><br>
+                                    Time: <b>{{healthtracker.date_created.time}}</b><br>   
+                                    Asymptomatic: <b>{{healthtracker.asymptomatic}}</b><br>
+                                    Fever: <b>{{healthtracker.fever}}</b><br>
+                                    Cough: <b>{{healthtracker.cough}}</b><br>
+                                    General Weakness: <b>{{healthtracker.generalweakness}}</b><br>
+                                    Fatigue: <b>{{healthtracker.fatigue}}</b><br>
+                                    Headache: <b>{{healthtracker.headache}}</b><br>
+                                    Body aches: <b>{{healthtracker.bodyaches}}</b><br>
+                                    Sore throat: <b>{{healthtracker.sorethroat}}</b><br>
+                                    Runny nose: <b>{{healthtracker.runnynose}}</b><br>
+                                    Dyspnea: <b>{{healthtracker.dyspnea}}</b><br>
+                                    Loss of appetite: <b>{{healthtracker.lossappetite}}</b><br>
+                                    Nausea: <b>{{healthtracker.nausea}}</b><br>
+                                    Vomiting: <b>{{healthtracker.vomiting}}</b><br>
+                                    Diarrhea: <b>{{healthtracker.diarrhea}}</b><br>
+                                    Altered Mental State: <b>{{healthtracker.alteredmentalstate}}</b><br>
+                                    Loss of Smell: <b>{{healthtracker.losssmell}}</b><br>
+                                    Loss of Taste: <b>{{healthtracker.losstaste}}</b><br>
+                                    Others: <b>{{healthtracker.others}}</b><br>                      
                                 </div>
                             </div>
 
