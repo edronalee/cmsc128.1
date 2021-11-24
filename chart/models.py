@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.query_utils import check_rel_lookup_compatibility
+from datetime import datetime, timedelta
 
 # Create your models here.
 class Patient(models.Model):
@@ -108,6 +109,10 @@ class Patient(models.Model):
     
     def __str__(self):
         return self.name
+    
+    @property
+    def is_recent(self):    
+        return (self.date_created + timedelta(days=14)) > datetime.today()
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
