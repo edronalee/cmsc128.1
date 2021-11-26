@@ -163,15 +163,6 @@ def patientinfo(request, pk_test):
     return render(request, 'chart/patientinfo.html', context)
 
 @login_required(login_url='login')
-def doctorsnotes(request, pk_test):
-    patient = Patient.objects.get(id=pk_test)
-    vitalsigns = patient.vitalsign_set.all()
-    healthtracker = patient.healthtracker_set.all()
-
-    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker}
-    return render(request, 'chart/doctorsnotes.html', context)
-
-@login_required(login_url='login')
 def vitalsigndetails(request, pk, pk_test):
     patient = Patient.objects.get(id=pk)
     vitalsigns = Vitalsign.objects.get(id=pk_test)
@@ -199,6 +190,22 @@ def vitalsign(request, pk_test):
 
     context = {'patient':patient, 'form':form}
     return render(request, 'chart/vitalsign.html', context)
+
+@login_required(login_url='login')
+def doctorsnotes(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+    vitalsigns = patient.vitalsign_set.all()
+    healthtracker = patient.healthtracker_set.all()
+
+    form = DoctorsnoteForm(initial={'patient':patient})
+    if request.method == "POST":
+        form = DoctorsnoteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/doctorsnotes/%d' %patient.id)
+
+    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker, 'form':form}
+    return render(request, 'chart/doctorsnotes.html', context)
 
 
 @user_passes_test(Account.is_Doctor)

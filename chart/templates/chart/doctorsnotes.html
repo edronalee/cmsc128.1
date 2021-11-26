@@ -58,10 +58,17 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Doctor's Notes</h6>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body text-gray-900">
                                     <form action="" method=POST class="user">
                                         {% csrf_token %}
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <center>
+                                                Patient's Name: {{form.patient}}<hr>
+                                                {{form.notes}}
+                                                </center>
+                                            </div> 
+                                        </div>
                                         <br>
                                         <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
                                     </form>

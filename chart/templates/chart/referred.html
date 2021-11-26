@@ -38,6 +38,7 @@
                                     <tbody>
 
                                         {% for i in patients %}
+                                            {% if i.is_recent %}
                                             <tr>
                                                 <td>PR-{{i.id}}</td>
                                                 <td>{{i.status}}</td>
@@ -47,6 +48,7 @@
                                                 <td>{{i.date_created|timesince}}</td>
                                                 <td><a href="{% url 'doctorsnotes' i.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
                                             </tr>
+                                            {% endif %}
                                         {% endfor %}
 
                                     </tbody>

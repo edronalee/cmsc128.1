@@ -209,3 +209,7 @@ class Healthtracker(models.Model):
     losstaste = models.CharField(max_length=200, null=True, choices=LOSSTASTE)
     others = models.CharField(max_length=200, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+class Doctorsnote(models.Model):
+    patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
+    notes = models.TextField(blank=True)

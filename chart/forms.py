@@ -80,3 +80,12 @@ class HealthtrackerForm(ModelForm):
             'losstaste': forms.Select(choices=Healthtracker.LOSSTASTE, attrs={'class':'form-control'}), 
             'others': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }
+
+class DoctorsnoteForm(ModelForm):
+
+    class Meta:
+        model = Doctorsnote
+        fields = ('patient', 'notes')
+        widgets = {
+            'notes': forms.Textarea(attrs={'class':'form-control'}),
+        }
