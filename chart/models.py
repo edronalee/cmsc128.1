@@ -213,3 +213,4 @@ class Healthtracker(models.Model):
 class Doctorsnote(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
     notes = models.TextField(blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)

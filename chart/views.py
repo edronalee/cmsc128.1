@@ -196,6 +196,7 @@ def doctorsnotes(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
     vitalsigns = patient.vitalsign_set.all()
     healthtracker = patient.healthtracker_set.all()
+    doctorsnote = patient.doctorsnote_set.all()
 
     form = DoctorsnoteForm(initial={'patient':patient})
     if request.method == "POST":
@@ -204,7 +205,7 @@ def doctorsnotes(request, pk_test):
             form.save()
             return redirect('/doctorsnotes/%d' %patient.id)
 
-    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker, 'form':form}
+    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker, 'doctorsnote':doctorsnote, 'form':form}
     return render(request, 'chart/doctorsnotes.html', context)
 
 

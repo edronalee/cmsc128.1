@@ -77,7 +77,7 @@
                             
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs & Daily Health Log</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs, Daily Health & Doctor's Log</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -106,6 +106,15 @@
                                                     <td>{{healthtrack.date_created.time}}</td>
                                                     <td>Health Tracker</td>
                                                     <td><a href="{% url 'healthtrackerdetails' patient.id healthtrack.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                </tr>
+                                                {% endfor %}
+
+                                                {% for doctorsnotes in doctorsnote %}
+                                                <tr>
+                                                    <td>{{doctorsnotes.date_created.date}}</td>
+                                                    <td>{{doctorsnotes.date_created.time}}</td>
+                                                    <td>Doctor's Note</td>
+                                                    <td><a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
