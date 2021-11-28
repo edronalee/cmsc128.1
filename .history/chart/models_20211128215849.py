@@ -114,7 +114,7 @@ class Patient(models.Model):
     lastdate = models.DateField(null=True)
     question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
     question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
-    question5 = models.CharField(max_length=200, null=True)
+    question5 = models.CharField(max_length=200, blank=True)
     
     def __str__(self):
         return self.name

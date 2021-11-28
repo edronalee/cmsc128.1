@@ -36,7 +36,7 @@ class PatientForm(ModelForm):
             #'question3': forms.Select(choices=Patient.QUESTION3, attrs={'class':'form-control'}),
             'question3': forms.Select(choices=Patient.QUESTION3, attrs={'class':'form-control'}),
             'question4': forms.Select(choices=Patient.QUESTION4, attrs={'class':'form-control'}),
-            'question5': forms.TextInput(attrs={'class':'form-control'}),
+            'question5': forms.TextInput(attrs={'class':'form-control form-control-user'}),
             'status': forms.Select(choices=Patient.STATUS, attrs={'class':'form-control'}),
             'antigenfile':forms.FileInput(attrs={'class':'form-control'}),
             'rtpcrfile':forms.FileInput(attrs={'class':'form-control'}),
