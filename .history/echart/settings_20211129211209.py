@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['upcommunityechart.herokuapp.com', '127.0.0.1']
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SECURE = False
-
+SITE_ID = True
 
 # Application definition
 

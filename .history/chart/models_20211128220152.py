@@ -115,15 +115,9 @@ class Patient(models.Model):
     question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
     question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
     question5 = models.CharField(max_length=200, null=True)
-    bmiheight = models.FloatField(max_length=200, null=True)
-    bmiweight = models.FloatField(max_length=200, null=True)
-    finalbmi = 0
     
     def __str__(self):
         return self.name
-    
-    def getBMI(weight,height): #weight, height
-        return (weight/(pow(height, 2))) #how do i use this
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)

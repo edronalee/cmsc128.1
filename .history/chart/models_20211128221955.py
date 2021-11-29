@@ -123,7 +123,7 @@ class Patient(models.Model):
         return self.name
     
     def getBMI(weight,height): #weight, height
-        return (weight/(pow(height, 2))) #how do i use this
+        return (weight/(pow(height, 2)))
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)

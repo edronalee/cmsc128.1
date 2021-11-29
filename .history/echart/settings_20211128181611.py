@@ -30,7 +30,6 @@ CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SECURE = False
 
-
 # Application definition
 
 INSTALLED_APPS = [
