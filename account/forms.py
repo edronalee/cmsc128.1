@@ -5,6 +5,8 @@ from django.forms import fields, widgets
 
 from account.models import Account
 from chart import models
+from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 class DateInput(forms.DateInput):
@@ -67,3 +69,11 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=200, widget=widgets.PasswordInput(attrs={'class':"form-control"}))
     class Meta:
         fields = ['email', 'password']
+
+class UserPasswordResetForm(PasswordResetForm):
+    def __init__(self, *args, **kwargs):
+        super(UserPasswordResetForm, self).__init__(*args, **kwargs)
+
+    email = forms.EmailField(label='', widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+        }))

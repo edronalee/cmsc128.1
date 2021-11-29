@@ -17,7 +17,7 @@
         body {
             background-image: url("/static/images/bg2.png");
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: cover; 
         }
     </style>
 </head>
@@ -39,7 +39,6 @@
                                 <label for="email" class="col-sm-2 col-form-label">{{field.label_tag}}</label><br>
                                 <p class = "form-control">{{field}}</p>
                             </div>
-
                             {% endfor %}
 
                             {% if invalid_user %}
@@ -56,6 +55,11 @@
                             <div id="register-link" class="text-right">
                                 Not yet registered?
                                 <a href="{% url 'register' %}" class="col-sm-2 col-form-label">Register here</a>
+                            </div>
+                            <br>
+                            <div id="reset-link" class="text-right">
+                                Forgot your password?
+                                <a href="{% url 'reset_password' %}" class="col-sm-2 col-form-label">Reset your password here</a>
                             </div>
                         </form>
                     </div>

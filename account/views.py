@@ -23,6 +23,7 @@ def login_view(request):
             account = authenticate(email = email, password = raw_password)
             print(account)
             if account != None:
+                context['invalid_user'] = False
                 #print("Is Doctor? " + str(account.is_Doctor))
                 #print("Is LGU Employee? " + str(account.is_LGUEmployee))
                 login(request, account)

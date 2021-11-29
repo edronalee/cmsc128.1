@@ -57,6 +57,16 @@ class Patient(models.Model):
                     ('For Referral', 'For Referral'),
                     ('For Transfer', 'For Transfer')
     )
+
+    VACCINE = (
+                    ('CoronaVac (Sinovac)', 'CoronaVac (Sinovac)'),
+                    ('Gamaleya Sputnik V', 'Gamaleya Sputnik V'),
+                    ('Johnson and Johnson\'s Janssen', 'Johnson and Johnson\'s Janssen'),
+                    ('Bharat BioTech', 'Bharat BioTech'),
+                    ('Moderna', 'Moderna'),
+                    ('Sinopharm', 'Sinopharm')
+    )
+
     name = models.CharField(max_length=200, null=True)
     age = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200, null=True, choices=GENDER)
@@ -67,7 +77,7 @@ class Patient(models.Model):
     namechild = models.CharField(max_length=200, null=True, blank=True)
     contactnumber = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
-    vaccine = models.CharField(max_length=200, null=True, blank=True)
+    vaccine = models.CharField(max_length=200, null=True, choices=VACCINE)
     firstdose = models.CharField(max_length=200, null=True, choices=FIRSTDOSE)
     seconddose = models.CharField(max_length=200, null=True, choices=SECONDDOSE)
     fdosedate = models.DateField(null=True, blank=True)
@@ -89,6 +99,10 @@ class Patient(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
     #healthhistory
+    #QUESTION3 = (
+    #                ('Yes', 'Yes'),
+    #                ('No', 'No'),
+    #)
     QUESTION3 = (
                     ('Yes', 'Yes'),
                     ('No', 'No'),
@@ -97,15 +111,11 @@ class Patient(models.Model):
                     ('Yes', 'Yes'),
                     ('No', 'No'),
     )
-    QUESTION5 = (
-                    ('Yes', 'Yes'),
-                    ('No', 'No'),
-    )
     startdate = models.DateField(null=True)
     lastdate = models.DateField(null=True)
     question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
     question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
-    question5 = models.CharField(max_length=200, null=True, choices=QUESTION5)
+    question5 = models.CharField(max_length=200, null=True)
     
     def __str__(self):
         return self.name

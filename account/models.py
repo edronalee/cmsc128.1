@@ -91,7 +91,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
 #username = models.CharField(max_length=200, null = True, unique = True)
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
-    last_login = models.DateField(verbose_name="last login", auto_now_add=True)
+    last_login = models.DateTimeField(verbose_name="last login", auto_now_add=True)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -103,15 +103,15 @@ class Account(AbstractBaseUser, PermissionsMixin):
     address = models.CharField(max_length=200, null=True)
     barangay = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
-    birthdate = models.DateField(verbose_name="birth date", blank=True)
+    birthdate = models.DateField(verbose_name="birth date", blank=True) 
     age = models.CharField(max_length=200, null=True, blank=True)
     gender = models.CharField(max_length=200, null=True, choices=( 
                 ('Male', 'Male'),
                 ('Female', 'Female'),
     ))
+    contactnumber = models.CharField(max_length=200, null=True, verbose_name="contact number")
 
     #doctor only
-    contactnumber = models.CharField(max_length=200, null=True, verbose_name="contact number")
     licensenumber = models.CharField(verbose_name = "license number", max_length=200, null=True)
     licenseexpiry = models.DateField(verbose_name= "license expiry", null=True)
     licensepic = models.ImageField(verbose_name= "license picture", null = True, blank=True, upload_to = "pic_uploads/")

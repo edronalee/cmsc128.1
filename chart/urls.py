@@ -1,7 +1,11 @@
 from django.urls import path
 from . import views
 
+from django.contrib.auth import views as auth_views
+
 from account.views import docregistration_view, lguregistration_view, login_view, logout_view
+
+from account.forms import UserPasswordResetForm
 
 urlpatterns = [
     path('', login_view, name="login"),
@@ -23,4 +27,10 @@ urlpatterns = [
     path('healthtrackerdetails/<str:pk>/<str:pk_test>/', views.healthtrackerdetails, name="healthtrackerdetails"),
     path('transfer/', views.transfer, name="transfer"),
     path('statistics/', views.statistics, name="statistics"),
+    
+    #forgot password views
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name = "chart/password_reset.html", form_class= UserPasswordResetForm), name = "reset_password"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name = "chart/password_reset_sent.html"), name = "password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name = "chart/password_reset_form.html"), name = "password_reset_confirm"),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name = "chart/password_reset_done.html"), name = "password_reset_complete"),
 ]
