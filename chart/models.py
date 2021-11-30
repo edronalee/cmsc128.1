@@ -59,6 +59,7 @@ class Patient(models.Model):
     )
 
     VACCINE = (
+                    ('None', 'None'),
                     ('CoronaVac (Sinovac)', 'CoronaVac (Sinovac)'),
                     ('Gamaleya Sputnik V', 'Gamaleya Sputnik V'),
                     ('Johnson and Johnson\'s Janssen', 'Johnson and Johnson\'s Janssen'),

@@ -143,7 +143,7 @@ def healthtracker(request, pk_test):
 
 @login_required(login_url='login')
 def monitor(request):
-    patients = Patient.objects.all()
+    patients = Patient.objects.filter(status='For Monitoring')
     
     return render(request, 'chart/monitor.html', {'patients':patients})
 
@@ -219,7 +219,9 @@ def lguinfo(request):
 
 @login_required(login_url='login')
 def transfer(request):
-    return render(request, 'chart/transfer.html')
+    patients = Patient.objects.filter(status='For Transfer')
+
+    return render(request, 'chart/transfer.html', {'patients':patients})
 
 @login_required(login_url='login')
 def statistics(request):
