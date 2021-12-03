@@ -120,6 +120,7 @@ def brgyregistry(request):
     if request.method == "POST":
         form = PatientForm(request.POST)
         if form.is_valid():
+            
             form.save()
             return HttpResponseRedirect('/brgyregistry?submitted=True')
     else:

@@ -121,7 +121,7 @@
                                             <label for="rtpcrresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
                                             {{form.rtpcrfile}}
                                         </div>
-                                    </div>
+                                    </div>                                    
 
                                     <div class="form-group row">
                                         <div class="col-sm-4">
@@ -136,6 +136,46 @@
                                             <label for="xrayresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
                                             {{form.xrayfile}}
                                         </div>
+                                    </div>
+
+                                    <!--for BMI-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="bmiheight" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Height (cm)</label><br>
+                                            {{form.bmiheight}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="bmiweight" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Weight (kg)</label><br>
+                                            {{form.bmiweight}}
+                                        </div>
+                                        
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="finalbmi" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Resulting BMI to be recorded</label><br>
+                                            {{form.finalbmi}} <br>
+                                            <p id = "bmi_diag">Your BMI Diagnosis will appear here.</p>
+                                            <input type="button" value="Calculate BMI" class="btn btn-primary btn-block" onclick="getBMI()">
+                                            <script>
+                                                function getBMI(){
+                                                    var height = document.getElementById("id_bmiheight").value
+                                                    var weight = document.getElementById("id_bmiweight").value
+                                                    console.log("height = " + height)
+                                                    console.log("weight = " + weight)
+                                                    var bmiresult = (weight/Math.pow(height/100, 2)).toFixed(1)
+                                                    if(bmiresult < 18.5){
+                                                        var diag = " Underweight"
+                                                    }else if(bmiresult >= 18.5 && bmiresult <= 24.9){
+                                                        var diag = " Normal"
+                                                    }else if(bmiresult >= 25.0 && bmiresult <= 29.9){
+                                                        var diag = " Overweight"
+                                                    }else if(bmiresult >= 30.0){
+                                                        var diag = " Obese"
+                                                    }
+                                                    document.getElementById("id_finalbmi").value = bmiresult//get bmi, round off, set to the answer
+                                                    document.getElementById("bmi_diag").innerHTML = "Your BMI Diagnosis is" + diag.toUpperCase() + "."
+                                                }
+                                            </script>
+                                        </div>
+                                        <!--BMI-->
                                     </div>
 
                                     <div class="card-header py-3">
@@ -161,7 +201,7 @@
                                             {{form.question4}}
                                         </div>
                                         <div class="col-sm-12">
-                                            <label for="radio5" class="text-gray-900"><br>5. Have you been diagnosed with any co-morbidities? If so, please enumerate them.</label><br>
+                                            <label for="radio5" class="text-gray-900"><br>5. Have you been diagnosed with any co-morbidities? If so, please enumerate them. If none, answer "N/A" or "None".</label><br>
                                             {{form.question5}}
                                         </div>
                                         <center>

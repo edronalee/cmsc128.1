@@ -14,7 +14,7 @@ class PatientForm(ModelForm):
     class Meta:
         model = Patient
         #removed 'question3'
-        fields = ('name', 'age', 'gender', 'address', 'barangay', 'city', 'numchild', 'namechild', 'contactnumber', 'email', 'vaccine', 'firstdose', 'seconddose', 'fdosedate', 'sdosedate', 'telemedicine', 'antigenresult', 'antigendate', 'antigenfile', 'rtpcrfile', 'xrayfile', 'rtpcrresult', 'rtpcrdate', 'xray', 'xraydate', 'status', 'startdate', 'lastdate', 'question3', 'question4', 'question5')
+        fields = ('name', 'age', 'gender', 'address', 'barangay', 'city', 'numchild', 'namechild', 'contactnumber', 'email', 'vaccine', 'firstdose', 'seconddose', 'fdosedate', 'sdosedate', 'telemedicine', 'antigenresult', 'antigendate', 'antigenfile', 'rtpcrfile', 'xrayfile', 'rtpcrresult', 'rtpcrdate', 'bmiheight', 'bmiweight', 'finalbmi', 'xray', 'xraydate', 'status', 'startdate', 'lastdate', 'question3', 'question4', 'question5')
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control form-control-user'}),
             'age': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
@@ -41,6 +41,9 @@ class PatientForm(ModelForm):
             'antigenfile':forms.FileInput(attrs={'class':'form-control'}),
             'rtpcrfile':forms.FileInput(attrs={'class':'form-control'}),
             'xrayfile':forms.FileInput(attrs={'class':'form-control'}),
+            'bmiheight':forms.NumberInput(attrs={'class':'form-control'}),
+            'bmiweight':forms.NumberInput(attrs={'class':'form-control'}),
+            'finalbmi':forms.NumberInput(attrs={'class':'form-control', 'readonly':True}),
         }
 
 class VitalsignForm(ModelForm):

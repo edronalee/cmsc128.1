@@ -99,6 +99,11 @@ class Patient(models.Model):
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
+    bmiheight = models.FloatField(max_length=200, null=True)
+    bmiweight = models.FloatField(max_length=200, null=True)
+    finalbmi = models.FloatField(max_length=200, null=True)
+    #bmi
+
     #healthhistory
     #QUESTION3 = (
     #                ('Yes', 'Yes'),
@@ -117,7 +122,7 @@ class Patient(models.Model):
     question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
     question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
     question5 = models.CharField(max_length=200, null=True)
-    
+
     def __str__(self):
         return self.name
     
