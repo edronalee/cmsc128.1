@@ -159,8 +159,15 @@ def patientinfo(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
     vitalsigns = patient.vitalsign_set.all()
     healthtracker = patient.healthtracker_set.all()
+    if request.method == 'POST':
+        form = PatientstatusForm(request.POST, instance=patient)
+        if form.is_valid():
+            form.save()
+            return redirect('/communityboard/')
+    else:
+        form = PatientstatusForm(instance=patient)
 
-    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker}
+    context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker, 'form':form}
     return render(request, 'chart/patientinfo.html', context)
 
 @login_required(login_url='login')

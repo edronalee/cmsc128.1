@@ -46,6 +46,14 @@ class PatientForm(ModelForm):
             'finalbmi':forms.NumberInput(attrs={'class':'form-control', 'readonly':True}),
         }
 
+class PatientstatusForm(ModelForm):
+    class Meta:
+        model = Patient
+        fields = ('status',)
+        widgets = {
+            'status': forms.Select(choices=Patient.STATUS, attrs={'class':'form-control'}),
+        }
+
 class VitalsignForm(ModelForm):
     #patient = forms.ModelChoiceField(queryset=Patient.objects.all())
     class Meta:
