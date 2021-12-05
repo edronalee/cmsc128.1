@@ -233,12 +233,20 @@ def transfer(request):
 
 @login_required(login_url='login')
 def statistics(request):
+    patients = Patient.objects.all()
     no_of_patients = Patient.objects.all().count()
 
     accounts = Account.objects.all()
     no_of_lgu = accounts.filter(is_staff = True).count()
     no_of_doctor = accounts.filter(is_admin = True).count()
 
-    context = {'no_of_patients':no_of_patients, 'no_of_lgu':no_of_lgu, 'no_of_doctor':no_of_doctor}
+    no_of_transferred = patients.filter(status='For Transfer').count()
+    no_of_referred = patients.filter(status='For Referral').count()
+
+    no_of_rtpcr = patients.filter(rtpcrresult='Positive').count()
+    no_of_antigen = patients.filter(antigenresult='Positive').count()
+
+    context = {'no_of_patients':no_of_patients, 'no_of_lgu':no_of_lgu, 'no_of_doctor':no_of_doctor, 
+    'no_of_transferred':no_of_transferred, 'no_of_referred':no_of_referred, 'no_of_rtpcr':no_of_rtpcr, 'no_of_antigen':no_of_antigen}
 
     return render(request, 'chart/statistics.html', context)
