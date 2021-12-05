@@ -11,33 +11,146 @@
                             <h6 class="m-0 font-weight-bold text-primary">Summary Reports</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Barangay</th>
-                                            <th>Registered</th>
-                                            <th>Monitored</th>
-                                            <th>Transferred</th>
-                                            <th>Referred</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Barangay</th>
-                                            <th>Registered</th>
-                                            <th>Monitored</th>
-                                            <th>Transferred</th>
-                                            <th>Referred</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        
-                                    </tbody>
-                                </table>
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">No. of Patient Registered</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{no_of_patients}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">No. of LGU Staff Registered</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{no_of_lgu}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">No. of Physician Registered</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{no_of_doctor}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-table fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-6 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        List of Transferred Patients</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">00</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="#" class="btn btn-success btn-circle btn-lg">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-6 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">List of Referred Patients
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">00</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="#" class="btn btn-info btn-circle btn-lg">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-6 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        List of Positive RT-PCR Results</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">00</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="#" class="btn btn-primary btn-circle btn-lg">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-6 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        List of Positive Antigen Results</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">00</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="#" class="btn btn-warning btn-circle btn-lg">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 

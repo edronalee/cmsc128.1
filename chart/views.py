@@ -233,4 +233,12 @@ def transfer(request):
 
 @login_required(login_url='login')
 def statistics(request):
-    return render(request, 'chart/statistics.html')
+    no_of_patients = Patient.objects.all().count()
+
+    accounts = Account.objects.all()
+    no_of_lgu = accounts.filter(is_staff = True).count()
+    no_of_doctor = accounts.filter(is_admin = True).count()
+
+    context = {'no_of_patients':no_of_patients, 'no_of_lgu':no_of_lgu, 'no_of_doctor':no_of_doctor}
+
+    return render(request, 'chart/statistics.html', context)
