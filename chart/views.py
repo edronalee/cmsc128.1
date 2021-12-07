@@ -250,3 +250,27 @@ def statistics(request):
     'no_of_transferred':no_of_transferred, 'no_of_referred':no_of_referred, 'no_of_rtpcr':no_of_rtpcr, 'no_of_antigen':no_of_antigen}
 
     return render(request, 'chart/statistics.html', context)
+
+@login_required(login_url='login')
+def listtransferred(request):
+    patients = Patient.objects.filter(status='For Transfer')
+    
+    return render(request, 'chart/listtransferred.html', {'patients':patients})
+
+@login_required(login_url='login')
+def listreferred(request):
+    patients = Patient.objects.filter(status='For Referral')
+    
+    return render(request, 'chart/listreferred.html', {'patients':patients})
+
+@login_required(login_url='login')
+def listrtpcr(request):
+    patients = Patient.objects.filter(rtpcrresult='Positive')
+    
+    return render(request, 'chart/listrtpcr.html', {'patients':patients})
+
+@login_required(login_url='login')
+def listantigen(request):
+    patients = Patient.objects.filter(antigenresult='Positive')
+    
+    return render(request, 'chart/listantigen.html', {'patients':patients})
