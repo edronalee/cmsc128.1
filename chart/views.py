@@ -150,7 +150,7 @@ def monitor(request):
 
 @login_required(login_url='login')
 def referred(request):
-    patients = Patient.objects.all()
+    patients = Patient.objects.filter(status='For Referral')
     
     return render(request, 'chart/referred.html', {'patients':patients})
 
@@ -216,6 +216,13 @@ def doctorsnotes(request, pk_test):
     context = {'patient':patient, 'vitalsigns':vitalsigns, 'healthtracker':healthtracker, 'doctorsnote':doctorsnote, 'form':form}
     return render(request, 'chart/doctorsnotes.html', context)
 
+@login_required(login_url='login')
+def doctorsnotesdetails(request, pk, pk_test):
+    patient = Patient.objects.get(id=pk)
+    doctornotes = Doctorsnote.objects.get(id=pk_test)
+
+    context = {'patient':patient,'doctornotes':doctornotes}
+    return render(request, 'chart/doctorsnotesdetails.html', context)
 
 @user_passes_test(Account.is_Doctor)
 def docinfo(request):

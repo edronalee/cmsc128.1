@@ -114,7 +114,7 @@
                                                     <td>{{doctorsnotes.date_created.date}}</td>
                                                     <td>{{doctorsnotes.date_created.time}}</td>
                                                     <td>Doctor's Note</td>
-                                                    <td><a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                    <td><a href="{% url 'doctorsnotesdetails' patient.id doctorsnotes.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
