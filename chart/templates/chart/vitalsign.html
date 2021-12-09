@@ -68,15 +68,22 @@
                                                 <div class="col-sm-12">
                                                     <center>
                                                     {{form.patient}}<hr>
-                                                    <label for="bp" class="text-gray-900">Blood Pressure</label>
-                                                    {{form.bloodpressure}}
+                                                    <label for="bp" class="text-gray-900">Blood Pressure (mmHg)</label>
                                                     </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    {{form.systolic}}
+                                                </div> 
+                                                <div class="col-sm-6">
+                                                    {{form.diastolic}}
                                                 </div> 
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <center>
-                                                    <label for="hr" class="text-gray-900">Heart Rate</label>
+                                                    <label for="hr" class="text-gray-900">Heart Rate (bpm)</label>
                                                     {{form.heartrate}}
                                                     </center>
                                                 </div> 
@@ -84,7 +91,7 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <center>
-                                                    <label for="rr" class="text-gray-900">Respiratory Rate</label>
+                                                    <label for="rr" class="text-gray-900">Respiratory Rate (bpm)</label>
                                                     {{form.respiratoryrate}}
                                                     </center>
                                                 </div> 
@@ -92,7 +99,7 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <center>
-                                                    <label for="temp" class="text-gray-900">Temperature</label>
+                                                    <label for="temp" class="text-gray-900">Temperature (&#176;C)</label>
                                                     {{form.temperature}}
                                                     </center>
                                                 </div> 
@@ -100,7 +107,7 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <center>
-                                                    <label for="ps" class="text-gray-900">Pain Scale</label>
+                                                    <label for="ps" class="text-gray-900">Pain Scale (1-10)</label>
                                                     {{form.painscale}} 
                                                     </center>
                                                 </div> 
@@ -108,7 +115,7 @@
                                             <div class="form-group row">
                                                 <div class="col-sm-12">
                                                     <center>
-                                                    <label for="o2" class="text-gray-900">O2 Saturation</label>
+                                                    <label for="o2" class="text-gray-900">O2 Saturation (%)</label>
                                                     {{form.o2saturation}}
                                                     </center>
                                                 </div> 

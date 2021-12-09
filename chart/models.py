@@ -132,12 +132,14 @@ class Patient(models.Model):
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
-    bloodpressure = models.CharField(max_length=200, null=True)
-    heartrate = models.CharField(max_length=200, null=True)
-    respiratoryrate = models.CharField(max_length=200, null=True)
-    temperature = models.CharField(max_length=200, null=True)
-    painscale = models.CharField(max_length=200, null=True)
-    o2saturation = models.CharField(max_length=200, null=True)
+    #bloodpressure = models.CharField(max_length=200, null=True)
+    systolic = models.IntegerField(null=True)
+    diastolic = models.IntegerField(null=True)
+    heartrate = models.IntegerField(null=True)
+    respiratoryrate = models.IntegerField(null=True)
+    temperature = models.FloatField(max_length=200, null=True)
+    painscale = models.IntegerField(null=True)
+    o2saturation = models.IntegerField(null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
 class Healthtracker(models.Model):
