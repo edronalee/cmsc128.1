@@ -1,0 +1,226 @@
+{% extends 'chart/navbar.html' %}
+{% load static %}
+{% block content %}
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-900">Patient Registration</h1>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">A set of questions required:</h6>
+                        </div>
+                        <div class="card-body">
+                            {% if submitted %}
+                                Patient Registered Succesfully!
+                            {% else %}
+                                <form action="" method=POST class="user">
+                                    {% csrf_token %}
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="name" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Name</label><br>
+                                            {{form.name}}   
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="age" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Age</label><br>
+                                            {{form.age}}
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label for="gender" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Gender</label><br>
+                                            {{form.gender}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="streetAddress" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Address</label><br>
+                                            {{form.address}}
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="barangay" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Barangay</label><br>
+                                            {{form.barangay}}
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="city" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;City / Municipality</label><br>
+                                            {{form.city}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="numofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Number of Children</label><br>
+                                            {{form.numchild}}
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <label for="nameofchild" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Names of Children</label><br>
+                                            {{form.namechild}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="contactnumber" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Contact Number</label><br>
+                                            {{form.contactnumber}}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="email" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Email</label><br>
+                                            {{form.email}}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Vaccine</label><br>
+                                            {{form.vaccine}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="firstdose" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;1st Dose</label><br>
+                                            {{form.firstdose}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="seconddose" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;2nd Dose</label><br>
+                                            {{form.seconddose}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 1st Dose</label><br>
+                                            {{form.fdosedate}}
+                                        </div>
+                                        <div class="col-sm-2 mb-3 mb-sm-0">
+                                            <label for="vaccine" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date of 2nd Dose</label><br>
+                                            {{form.sdosedate}}
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label for="telemed" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Telemedicine</label><br>
+                                            {{form.telemedicine}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="antigenresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Antigen Test Result</label><br>
+                                            {{form.antigenresult}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="antigendate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                            {{form.antigendate}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="antigenresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                            {{form.antigenfile}}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="rtpcrresult" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;RT-PCR Test Result</label><br>
+                                            {{form.rtpcrresult}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="rtpcrdate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                            {{form.rtpcrdate}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="rtpcrresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                            {{form.rtpcrfile}}
+                                        </div>
+                                    </div>                                    
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="xray" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Chest X-ray or Film Array</label><br>
+                                            {{form.xray}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="xraydate" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Date Released</label><br>
+                                            {{form.xraydate}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="xrayresultfile" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Result (file)</label><br>
+                                            {{form.xrayfile}}
+                                        </div>
+                                    </div>
+
+                                    <!--for BMI-->
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <label for="bmiheight" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Height (cm)</label><br>
+                                            {{form.bmiheight}}
+                                        </div>
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="bmiweight" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Weight (kg)</label><br>
+                                            {{form.bmiweight}}
+                                        </div>
+                                        
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="finalbmi" class="text-gray-900">&nbsp;&nbsp;&nbsp;&nbsp;Resulting BMI to be recorded</label><br>
+                                            {{form.finalbmi}} <br>
+                                            <p id = "bmi_diag">Your BMI Diagnosis will appear here.</p>
+                                            <input type="button" value="Calculate BMI" class="btn btn-primary btn-block" onclick="getBMI()">
+                                            <script>
+                                                function getBMI(){
+                                                    var height = document.getElementById("id_bmiheight").value
+                                                    var weight = document.getElementById("id_bmiweight").value
+                                                    console.log("height = " + height)
+                                                    console.log("weight = " + weight)
+                                                    var bmiresult = (weight/Math.pow(height/100, 2)).toFixed(1)
+                                                    if(bmiresult < 18.5){
+                                                        var diag = " Underweight"
+                                                    }else if(bmiresult >= 18.5 && bmiresult <= 24.9){
+                                                        var diag = " Normal"
+                                                    }else if(bmiresult >= 25.0 && bmiresult <= 29.9){
+                                                        var diag = " Overweight"
+                                                    }else if(bmiresult >= 30.0){
+                                                        var diag = " Obese"
+                                                    }
+                                                    document.getElementById("id_finalbmi").value = bmiresult//get bmi, round off, set to the answer
+                                                    document.getElementById("bmi_diag").innerHTML = "Your BMI Diagnosis is" + diag.toUpperCase() + "."
+                                                }
+                                            </script>
+                                        </div>
+                                        <!--BMI-->
+                                    </div>
+
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Health History:</h6>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="symptomsdate" class="text-gray-900"><br>1. Day of onset of symptoms</label>
+                                            {{form.startdate}}
+                                        </div>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="exposuredate" class="text-gray-900"><br>2. Last day of exposure</label>
+                                            {{form.lastdate}}
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <label for="radio4" class="text-gray-900"><br>3. Have you worked together or stayed in the same close environment of with symptoms, confirmed or suspected COVID-19 Positive? (Healthcare workers wearing proper PPE not included.)</label><br>
+                                            {{form.question3}}
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="radio5" class="text-gray-900"><br>4. Have you travelled to any area aside from work or outside of the Philippines in the last 2 weeks?</label><br>
+                                            {{form.question4}}
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="radio5" class="text-gray-900"><br>5. Have you been diagnosed with any of the following co-morbidities?</label><br>
+                                            {{form.has_hypertension}}<br>
+                                            {{form.has_diabetes}}<br>
+                                            {{form.has_heart_disease}}<br>
+                                            {{form.has_lung_disease}}<br>
+                                            {{form.has_gastro}}<br>
+                                            {{form.has_genito}}<br>
+                                            {{form.has_neuro}}<br>
+                                            {{form.has_cancer}}<br>
+                                        </div>
+                                        <center>
+                                        <div class="col-sm-12">
+                                            <label for="status" class="text-gray-900"><br>Status:</label><br>
+                                            {{form.status}}
+                                        </div>
+                                        </center>
+                                    </div>
+                                    <input type="submit" value="Register Patient" class="btn btn-primary btn-user btn-block">
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+{% endblock content %}
