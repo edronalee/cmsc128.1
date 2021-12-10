@@ -281,3 +281,15 @@ def listantigen(request):
     patients = Patient.objects.filter(antigenresult='Positive')
     
     return render(request, 'chart/listantigen.html', {'patients':patients})
+
+@login_required(login_url='login')
+def hospital(request):
+    patients = Patient.objects.filter(status='Home Isolation')
+    
+    return render(request, 'chart/hospital.html', {'patients':patients})
+
+@login_required(login_url='login')
+def isolationfacility(request):
+    patients = Patient.objects.filter(status='Home Isolation')
+    
+    return render(request, 'chart/isolationfacility.html', {'patients':patients})
