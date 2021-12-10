@@ -32,55 +32,55 @@ def communityboard(request):
     patients = Patient.objects.all()
     alabang_patients = patients.filter(barangay='Alabang')
     alabang_registered = alabang_patients.count()
-    alabang_monitored = alabang_patients.filter(status='For Monitoring').count()
+    alabang_monitored = alabang_patients.filter(status='Home Isolation').count()
     alabang_transferred = alabang_patients.filter(status='For Transfer').count()
     alabang_referred = alabang_patients.filter(status='For Referral').count()
 
     ayala_alabang_patients = patients.filter(barangay='Ayala-Alabang')
     ayala_alabang_registered = ayala_alabang_patients.count()
-    ayala_alabang_monitored = ayala_alabang_patients.filter(status='For Monitoring').count()
+    ayala_alabang_monitored = ayala_alabang_patients.filter(status='Home Isolation').count()
     ayala_alabang_transferred = ayala_alabang_patients.filter(status='For Transfer').count()
     ayala_alabang_referred = ayala_alabang_patients.filter(status='For Referral').count()
 
     bayanan_patients = patients.filter(barangay='Bayanan')
     bayanan_registered = bayanan_patients.count()
-    bayanan_monitored = bayanan_patients.filter(status='For Monitoring').count()
+    bayanan_monitored = bayanan_patients.filter(status='Home Isolation').count()
     bayanan_transferred = bayanan_patients.filter(status='For Transfer').count()
     bayanan_referred = bayanan_patients.filter(status='For Referral').count()
 
     buli_patients = patients.filter(barangay='Buli')
     buli_registered = buli_patients.count()
-    buli_monitored = buli_patients.filter(status='For Monitoring').count()
+    buli_monitored = buli_patients.filter(status='Home Isolation').count()
     buli_transferred = buli_patients.filter(status='For Transfer').count()
     buli_referred = buli_patients.filter(status='For Referral').count()
 
     cupang_patients = patients.filter(barangay='Cupang')
     cupang_registered = cupang_patients.count()
-    cupang_monitored = cupang_patients.filter(status='For Monitoring').count()
+    cupang_monitored = cupang_patients.filter(status='Home Isolation').count()
     cupang_transferred = cupang_patients.filter(status='For Transfer').count()
     cupang_referred = cupang_patients.filter(status='For Referral').count()
 
     poblacion_patients = patients.filter(barangay='Poblacion')
     poblacion_registered = poblacion_patients.count()
-    poblacion_monitored = poblacion_patients.filter(status='For Monitoring').count()
+    poblacion_monitored = poblacion_patients.filter(status='Home Isolation').count()
     poblacion_transferred = poblacion_patients.filter(status='For Transfer').count()
     poblacion_referred = poblacion_patients.filter(status='For Referral').count()
 
     putatan_patients = patients.filter(barangay='Putatan')
     putatan_registered = putatan_patients.count()
-    putatan_monitored = putatan_patients.filter(status='For Monitoring').count()
+    putatan_monitored = putatan_patients.filter(status='Home Isolation').count()
     putatan_transferred = putatan_patients.filter(status='For Transfer').count()
     putatan_referred = putatan_patients.filter(status='For Referral').count()
 
     sucat_patients = patients.filter(barangay='Sucat')
     sucat_registered = sucat_patients.count()
-    sucat_monitored = sucat_patients.filter(status='For Monitoring').count()
+    sucat_monitored = sucat_patients.filter(status='Home Isolation').count()
     sucat_transferred = sucat_patients.filter(status='For Transfer').count()
     sucat_referred = sucat_patients.filter(status='For Referral').count()
 
     tunasan_patients = patients.filter(barangay='Tunasan')
     tunasan_registered = tunasan_patients.count()
-    tunasan_monitored = tunasan_patients.filter(status='For Monitoring').count()
+    tunasan_monitored = tunasan_patients.filter(status='Home Isolation').count()
     tunasan_transferred = tunasan_patients.filter(status='For Transfer').count()
     tunasan_referred = tunasan_patients.filter(status='For Referral').count()
 
@@ -144,7 +144,7 @@ def healthtracker(request, pk_test):
 
 @login_required(login_url='login')
 def monitor(request):
-    patients = Patient.objects.filter(status='For Monitoring')
+    patients = Patient.objects.filter(status='Home Isolation')
     
     return render(request, 'chart/monitor.html', {'patients':patients})
 

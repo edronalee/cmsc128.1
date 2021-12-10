@@ -53,7 +53,7 @@ class Patient(models.Model):
                     ('Film Array', 'Film Array'),
     )
     STATUS = (
-                    ('For Monitoring', 'For Monitoring'),
+                    ('Home Isolation', 'Home Isolation'),
                     ('For Referral', 'For Referral'),
                     ('For Transfer', 'For Transfer')
     )
