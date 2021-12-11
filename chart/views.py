@@ -247,7 +247,7 @@ def statistics(request):
     no_of_lgu = accounts.filter(is_staff = True).count()
     no_of_doctor = accounts.filter(is_admin = True).count()
 
-    no_of_transferred = patients.filter(status='For Transfer').count()
+    no_of_transferred = patients.filter(status='Transfer to Hospital').count() + patients.filter(status='Transfer to Isolation Facility').count()
     no_of_referred = patients.filter(status='For Referral').count()
 
     no_of_rtpcr = patients.filter(rtpcrresult='Positive').count()
@@ -284,12 +284,12 @@ def listantigen(request):
 
 @login_required(login_url='login')
 def hospital(request):
-    patients = Patient.objects.filter(status='Home Isolation')
+    patients = Patient.objects.filter(status='Transfer to Hospital')
     
     return render(request, 'chart/hospital.html', {'patients':patients})
 
 @login_required(login_url='login')
 def isolationfacility(request):
-    patients = Patient.objects.filter(status='Home Isolation')
+    patients = Patient.objects.filter(status='Transfer to Isolation Facility')
     
     return render(request, 'chart/isolationfacility.html', {'patients':patients})

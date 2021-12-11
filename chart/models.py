@@ -58,7 +58,6 @@ class Patient(models.Model):
                     ('Transfer to Hospital', 'Transfer to Hospital'),
                     ('Transfer to Isolation Facility', 'Transfer to Isolation Facility'),
                     ('Expired', 'Expired'),
-                    ('For Referral', 'For Referral'),
     )
 
     VACCINE = (
