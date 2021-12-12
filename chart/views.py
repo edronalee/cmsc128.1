@@ -293,3 +293,10 @@ def isolationfacility(request):
     patients = Patient.objects.filter(status='Transfer to Isolation Facility')
     
     return render(request, 'chart/isolationfacility.html', {'patients':patients})
+
+@login_required(login_url='login')
+def assigntelemed(request, pk_test):
+    patient = Patient.objects.get(id=pk_test)
+    context = {'patient':patient}
+    
+    return render(request, 'chart/assigntelemed.html', context)
