@@ -2,13 +2,13 @@
 {% load static %}
 {% block content %}
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-900">Patients For Transfer</h1>
+                    <h1 class="h3 mb-2 text-gray-900">Statistics</h1>
                     <p class="mb-4 text-gray-900">Muntinlupa City</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">List of Patients</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">List of Referred Patients</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -36,19 +36,21 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        
                                         {% for i in patients %}
-                                        {% if i.is_recent %}
-                                            <tr>
-                                                <td>PR-{{i.id}}</td>
-                                                <td>{{i.status}}</td>
-                                                <td>{{i.barangay}}</td>
-                                                <td>{{i.age}}</td>
-                                                <td>{{i.date_created.date}}</td>
-                                                <td>{{i.date_created|timesince}}</td>
-                                                <td><a href="{% url 'patientinfo' i.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                            </tr>
-                                        {% endif %}
+                                            {% if i.is_recent %}
+                                                <tr>
+                                                    <td>PR-{{i.id}}</td>
+                                                    <td>{{i.status}}</td>
+                                                    <td>{{i.barangay}}</td>
+                                                    <td>{{i.age}}</td>
+                                                    <td>{{i.date_created.date}}</td>
+                                                    <td>{{i.date_created|timesince}}</td>
+                                                    <td><a href="{% url 'patientinfo' i.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                </tr>
+                                            {% endif %}
                                         {% endfor %}
+
                                     </tbody>
                                 </table>
                             </div>

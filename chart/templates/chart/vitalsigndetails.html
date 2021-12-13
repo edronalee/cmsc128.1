@@ -18,7 +18,7 @@
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
-                                    Address: <b>{{patient.address}}</b><br>
+                                    Address: <b>{{patient.address}}, {{patient.barangay}}, Muntinlupa City</b><br>
                                     Number of Children: <b>{{patient.numchild}}</b><br>
                                     Names of Children: <b>{{patient.namechild}}</b><br>
                                     Contact Number: <b>{{patient.contactnumber}}</b><br>
@@ -29,6 +29,9 @@
                                     Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.antigendate}}</b><br>
                                     RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.rtpcrdate}}</b><br>
                                     Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.xraydate}}</b><br>
+                                    Height in cm: <b>{{patient.bmiheight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                    Weight in kg: <b>{{patient.bmiweight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                    BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
                                 </div>
                             </div>
 
@@ -40,20 +43,21 @@
                                 <div class="card-body text-gray-900">
                                     1. Day of onset of symptoms: <b>{{patient.startdate}}</b><br>
                                     2. Last day of exposure: <b>{{patient.lastdate}}</b><br>
-                                    3. For 2 weeks or more, do you have unexplained
-                                    weight loss or night sweats? <b>{{patient.question3}}</b><br>
-                                    4. Have you worked together or stayed in the same
+                                    3. Have you worked together or stayed in the same
                                     close environment of with symptoms, confirmed
                                     or suspected COVID-19 Positive ? (Healthcare
-                                    workers wearing proper PPE not included.) <b>{{patient.question4}}</b><br>
-                                    5. Have you travelled to any area aside from work
-                                    or outside of the Philippines in the last 2 weeks? <b>{{patient.question5}}</b>
+                                    workers wearing proper PPE not included.) <b>{{patient.question3}}</b><br>
+                                    4. Have you travelled to any area aside from work
+                                    or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
+                                    5. Have you been diagnosed with any co-morbidities? 
+                                    If so, please enumerate them. If none, answer "N/A" or "None". <b>{{patient.question5}}</b>
                                 </div>
                             </div>
 
                         </div>
 
                         <div class="col-lg-6">
+                            {% if request.user.is_LGU %}
                             <div class="row">
                                 <!-- Card Example -->
                                 <div class="col-xl-6 col-md-6 mb-4">
@@ -95,7 +99,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            {% endif %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
@@ -103,12 +107,12 @@
                                 <div class="card-body text-gray-900">
                                     Date: <b>{{vitalsigns.date_created.date}}</b><br>
                                     Time: <b>{{vitalsigns.date_created.time}}</b><br>
-                                    Blood Pressure: <b>{{vitalsigns.bloodpressure}}</b><br>
-                                    Heart Rate: <b>{{vitalsigns.heartrate}}</b><br>
-                                    Respiratory Rate: <b>{{vitalsigns.respiratoryrate}}</b><br>
-                                    Temperature: <b>{{vitalsigns.temperature}}</b><br>
+                                    Blood Pressure: <b>{{vitalsigns.systolic}} / {{vitalsigns.diastolic}} mmHg</b><br>
+                                    Heart Rate: <b>{{vitalsigns.heartrate}} bpm</b><br>
+                                    Respiratory Rate: <b>{{vitalsigns.respiratoryrate}} bpm</b><br>
+                                    Temperature: <b>{{vitalsigns.temperature}} &#176;C</b><br>
                                     Pain Scale: <b>{{vitalsigns.painscale}}</b><br>
-                                    O2 Saturation: <b>{{vitalsigns.o2saturation}}</b><br>                                  
+                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>                                  
                                 </div>
                             </div>
 

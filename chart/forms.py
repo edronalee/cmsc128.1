@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import *
+from account.models import *
 
 class PatientForm(ModelForm):
     fdosedate = forms.DateField(required=False, widget=forms.DateInput(attrs={'class':'form-control', 'type':'date'}))
@@ -59,18 +60,37 @@ class PatientForm(ModelForm):
             'has_cancer': forms.RadioSelect(),
         }
 
+class PatientstatusForm(ModelForm):
+    class Meta:
+        model = Patient
+        fields = ('status',)
+        widgets = {
+            'status': forms.Select(choices=Patient.STATUS, attrs={'class':'form-control'}),
+        }
+
+class TelemedForm(ModelForm):
+    telemed = forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors'))
+    class Meta:
+        model = Patient
+        fields = ('telemed',)
+        widgets = {
+            #'telemed': forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors')),
+        }
+
 class VitalsignForm(ModelForm):
     #patient = forms.ModelChoiceField(queryset=Patient.objects.all())
     class Meta:
         model = Vitalsign
-        fields = ('patient', 'bloodpressure', 'heartrate', 'respiratoryrate', 'temperature', 'painscale', 'o2saturation')
+        fields = ('patient', 'systolic', 'diastolic', 'heartrate', 'respiratoryrate', 'temperature', 'painscale', 'o2saturation')
         widgets = {
-            'bloodpressure': forms.TextInput(attrs={'class':'form-control form-control-user'}),
-            'heartrate': forms.TextInput(attrs={'class':'form-control form-control-user'}),
-            'respiratoryrate': forms.TextInput(attrs={'class':'form-control form-control-user'}),
-            'temperature': forms.TextInput(attrs={'class':'form-control form-control-user'}),
-            'painscale': forms.TextInput(attrs={'class':'form-control form-control-user'}),
-            'o2saturation': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            #'bloodpressure': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'systolic': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
+            'diastolic': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
+            'heartrate': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
+            'respiratoryrate': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
+            'temperature': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
+            'painscale': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
+            'o2saturation': forms.NumberInput(attrs={'class':'form-control form-control-user'}),
         }
 
 class HealthtrackerForm(ModelForm):
@@ -98,3 +118,15 @@ class HealthtrackerForm(ModelForm):
             'losstaste': forms.Select(choices=Healthtracker.LOSSTASTE, attrs={'class':'form-control'}), 
             'others': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }
+<<<<<<< HEAD
+=======
+
+class DoctorsnoteForm(ModelForm):
+
+    class Meta:
+        model = Doctorsnote
+        fields = ('patient', 'notes')
+        widgets = {
+            'notes': forms.Textarea(attrs={'class':'form-control'}),
+        }
+>>>>>>> 0b875286b95c91f56351bc81835ebe9951a8d7f5

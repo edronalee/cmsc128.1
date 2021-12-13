@@ -20,12 +20,23 @@ urlpatterns = [
     path('healthtracker/<str:pk_test>/', views.healthtracker, name="healthtracker"),
     path('monitor/', views.monitor, name="monitor"),
     path('referred/', views.referred, name="referred"),
+    path('hospital/', views.hospital, name="hospital"),
+    path('isolationfacility/', views.isolationfacility, name="isolationfacility"),
     path('patientinfo/<str:pk_test>/', views.patientinfo, name="patientinfo"),
+    path('doctorsnotes/<str:pk_test>/', views.doctorsnotes, name="doctorsnotes"),
+    path('doctorsnotesdetails/<str:pk>/<str:pk_test>/', views.doctorsnotesdetails, name="doctorsnotesdetails"),
     path('vitalsign/<str:pk_test>/', views.vitalsign, name="vitalsign"),
     path('vitalsigndetails/<str:pk>/<str:pk_test>/', views.vitalsigndetails, name="vitalsigndetails"),
+    path('healthtrackerdetails/<str:pk>/<str:pk_test>/', views.healthtrackerdetails, name="healthtrackerdetails"),
+    path('assigntelemed/<str:pk_test>/', views.assigntelemed, name="assigntelemed"),
     path('transfer/', views.transfer, name="transfer"),
     path('statistics/', views.statistics, name="statistics"),
-    
+
+    path('listtransferred/', views.listtransferred, name="listtransferred"),
+    path('listreferred/', views.listreferred, name="listreferred"),
+    path('listrtpcr/', views.listrtpcr, name="listrtpcr"),
+    path('listantigen/', views.listantigen, name="listantigen"),
+
     #forgot password views
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name = "chart/password_reset.html", form_class= UserPasswordResetForm), name = "reset_password"),
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name = "chart/password_reset_sent.html"), name = "password_reset_done"),

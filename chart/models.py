@@ -1,5 +1,7 @@
 from django.db import models
 from django.db.models.query_utils import check_rel_lookup_compatibility
+from datetime import datetime, timedelta
+from account.models import *
 
 # Create your models here.
 class Patient(models.Model):
@@ -54,12 +56,17 @@ class Patient(models.Model):
     STATUS = (
                     ('Home Isolation', 'Home Isolation'),
                     ('For Transfer', 'For Transfer'),
+<<<<<<< HEAD
                     ('Transfer to Hospital','Transfer to Hospital'),
+=======
+                    ('Transfer to Hospital', 'Transfer to Hospital'),
+>>>>>>> 0b875286b95c91f56351bc81835ebe9951a8d7f5
                     ('Transfer to Isolation Facility', 'Transfer to Isolation Facility'),
                     ('Expired', 'Expired'),
     )
 
     VACCINE = (
+                    ('None', 'None'),
                     ('CoronaVac (Sinovac)', 'CoronaVac (Sinovac)'),
                     ('Gamaleya Sputnik V', 'Gamaleya Sputnik V'),
                     ('Johnson and Johnson\'s Janssen', 'Johnson and Johnson\'s Janssen'),
@@ -68,6 +75,7 @@ class Patient(models.Model):
                     ('Sinopharm', 'Sinopharm')
     )
 
+    telemed = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=200, null=True)
     age = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200, null=True, choices=GENDER)
@@ -125,15 +133,21 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def is_recent(self):    
+        return (self.date_created + timedelta(days=14)) > datetime.today()
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
-    bloodpressure = models.CharField(max_length=200, null=True)
-    heartrate = models.CharField(max_length=200, null=True)
-    respiratoryrate = models.CharField(max_length=200, null=True)
-    temperature = models.CharField(max_length=200, null=True)
-    painscale = models.CharField(max_length=200, null=True)
-    o2saturation = models.CharField(max_length=200, null=True)
+    #bloodpressure = models.CharField(max_length=200, null=True)
+    systolic = models.IntegerField(null=True)
+    diastolic = models.IntegerField(null=True)
+    heartrate = models.IntegerField(null=True)
+    respiratoryrate = models.IntegerField(null=True)
+    temperature = models.FloatField(max_length=200, null=True)
+    painscale = models.IntegerField(null=True)
+    o2saturation = models.IntegerField(null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
 class Healthtracker(models.Model):
@@ -220,4 +234,9 @@ class Healthtracker(models.Model):
     losssmell = models.CharField(max_length=200, null=True, choices=LOSSSMELL)
     losstaste = models.CharField(max_length=200, null=True, choices=LOSSTASTE)
     others = models.CharField(max_length=200, null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+class Doctorsnote(models.Model):
+    patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
+    notes = models.TextField(blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
