@@ -297,6 +297,14 @@ def isolationfacility(request):
 @login_required(login_url='login')
 def assigntelemed(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
-    context = {'patient':patient}
+    if request.method == 'POST':
+        form = TelemedForm(request.POST, instance=patient)
+        if form.is_valid():
+            form.save()
+            return redirect('/communityboard/')
+    else:
+        form = TelemedForm(instance=patient)
+
+    context = {'patient':patient,'form':form}
     
     return render(request, 'chart/assigntelemed.html', context)

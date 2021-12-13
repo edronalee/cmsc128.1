@@ -62,18 +62,25 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">List of Doctors</h6>
                                 </div>
-                                <div class="card-body">
-                                    
-                                    
+                                <div class="card-body text-gray-900">
+                                    <form action="" method=POST class="user">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                Name: <b>{{patient.name}}</b><br>
+                                                Age: <b>{{patient.age}}</b><br>
+                                                <center>
+                                                <label for="bp" class="text-gray-900">Choose a Doctor</label>
+                                                {{form.telemed}}
+                                                </center>
+                                            </div> 
+                                        </div>
+                                        
+                                        <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
+                                    </form>                   
                                 </div>
                             </div>
-
-
-
-                        
-
                         </div>
-
                     </div>
                     
 {% endblock content %}

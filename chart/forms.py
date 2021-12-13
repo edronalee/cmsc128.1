@@ -55,6 +55,15 @@ class PatientstatusForm(ModelForm):
             'status': forms.Select(choices=Patient.STATUS, attrs={'class':'form-control'}),
         }
 
+class TelemedForm(ModelForm):
+    telemed = forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors'))
+    class Meta:
+        model = Patient
+        fields = ('telemed',)
+        widgets = {
+            #'telemed': forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors')),
+        }
+
 class VitalsignForm(ModelForm):
     #patient = forms.ModelChoiceField(queryset=Patient.objects.all())
     class Meta:

@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.query_utils import check_rel_lookup_compatibility
 from datetime import datetime, timedelta
+from account.models import *
 
 # Create your models here.
 class Patient(models.Model):
@@ -70,6 +71,7 @@ class Patient(models.Model):
                     ('Sinopharm', 'Sinopharm')
     )
 
+    telemed = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=200, null=True)
     age = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200, null=True, choices=GENDER)
