@@ -61,6 +61,7 @@
             </div>
 
             <!-- Nav Item - Charts -->
+
             {% if request.user.is_LGU %}
             <li class="nav-item {% if request.resolver_match.view_name == 'brgyregistry' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'brgyregistry' %}">
@@ -85,12 +86,22 @@
             </li>
             {% endif %}
 
-            <li class="nav-item {% if request.resolver_match.view_name == 'transfer' %}active{% endif %}">
-                <a class="nav-link" href="{% url 'transfer' %}">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {% if request.resolver_match.view_name == 'transfer' or request.resolver_match.view_name == 'hospital' or request.resolver_match.view_name == 'isolationfacility'%}active{% endif %}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Transfer</span></a>
+                    <span>Transfer</span>
+                </a>
+                <div id="collapseTwo" class="collapse {% if request.resolver_match.view_name == 'transfer' or request.resolver_match.view_name == 'hospital' or request.resolver_match.view_name == 'isolationfacility'%}show{% endif %}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {% if request.resolver_match.view_name == 'transfer' %}active{% endif %}" href="{% url 'transfer' %}">For Transfer</a>
+                        <a class="collapse-item {% if request.resolver_match.view_name == 'hospital' %}active{% endif %}" href="{% url 'hospital' %}">To Hospital</a>
+                        <a class="collapse-item {% if request.resolver_match.view_name == 'isolationfacility' %}active{% endif %}" href="{% url 'isolationfacility' %}">To Isolation Facility</a>
+                    </div>
+                </div>
             </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
 
