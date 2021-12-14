@@ -113,23 +113,23 @@ class Patient(models.Model):
     #bmi
 
     #healthhistory
-    #QUESTION3 = (
-    #                ('Yes', 'Yes'),
-    #                ('No', 'No'),
-    #)
-    QUESTION3 = (
+    YESNO = (
                     ('Yes', 'Yes'),
                     ('No', 'No'),
     )
-    QUESTION4 = (
-                    ('Yes', 'Yes'),
-                    ('No', 'No'),
-    )
+
     startdate = models.DateField(null=True)
     lastdate = models.DateField(null=True)
-    question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
-    question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
-    question5 = models.CharField(max_length=200, null=True)
+    question3 = models.CharField(max_length=200, null=True, choices=YESNO)
+    question4 = models.CharField(max_length=200, null=True, choices=YESNO)
+    has_hypertension = models.CharField(verbose_name = "Hypertension", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_diabetes = models.CharField(verbose_name = "Diabetes", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_heart_disease = models.CharField(verbose_name = "Heart Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_lung_disease = models.CharField(verbose_name = "Lung Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_gastro = models.CharField(verbose_name = "Gastrointestinal Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_genito = models.CharField(verbose_name = "Genitourinary Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_neuro = models.CharField(verbose_name = "Neurological Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_cancer = models.CharField(verbose_name = "Cancer", max_length=200, choices=YESNO, blank=False, default='Unspecified')
 
     def __str__(self):
         return self.name

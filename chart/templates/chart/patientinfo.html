@@ -49,8 +49,17 @@
                                     workers wearing proper PPE not included.) <b>{{patient.question3}}</b><br>
                                     4. Have you travelled to any area aside from work
                                     or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
-                                    5. Have you been diagnosed with any co-morbidities? 
-                                    If so, please enumerate them. If none, answer "N/A" or "None". <b>{{patient.question5}}</b>
+                                    5. Have you been diagnosed with any co-morbidities:
+                                    <ul style="list-style-type: none;">
+                                    <li>Hypertension: <b>{{patient.has_hypertension}}</b></li>
+                                    <li>Diabetes: <b>{{patient.has_diabetes}}</b></li>
+                                    <li>Heart Diseases: <b>{{patient.has_heart_disease}}</b></li>
+                                    <li>Lung Diseases: <b>{{patient.has_lung_disease}}</b></li>
+                                    <li>Gastrointestinal Diseases: <b>{{patient.has_gastro}}</b></li>
+                                    <li>Genitourinary Diseases: <b>{{patient.has_genito}}</b></li>
+                                    <li>Neurological Diseases: <b>{{patient.has_neuro}}</b></li>
+                                    <li>Cancer: <b>{{patient.has_cancer}}</b></li>
+                                    </ul>
                                 </div>
                             </div>
 
