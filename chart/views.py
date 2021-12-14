@@ -244,8 +244,8 @@ def statistics(request):
     no_of_patients = Patient.objects.all().count()
 
     accounts = Account.objects.all()
-    no_of_lgu = accounts.filter(is_staff = True).count()
-    no_of_doctor = accounts.filter(is_admin = True).count()
+    no_of_lgu = accounts.filter(groups__name='LGU Employees').count()
+    no_of_doctor = accounts.filter(groups__name='Doctors').count()
 
     no_of_transferred = patients.filter(status='Transfer to Hospital').count() + patients.filter(status='Transfer to Isolation Facility').count()
     no_of_referred = patients.filter(status='For Referral').count()
