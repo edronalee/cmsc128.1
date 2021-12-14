@@ -50,9 +50,11 @@ class PatientForm(ModelForm):
 class PatientstatusForm(ModelForm):
     class Meta:
         model = Patient
-        fields = ('status',)
+        fields = ('status', 'hospital', 'isolationfacility')
         widgets = {
             'status': forms.Select(choices=Patient.STATUS, attrs={'class':'form-control'}),
+            'hospital': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'isolationfacility': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }
 
 class TelemedForm(ModelForm):

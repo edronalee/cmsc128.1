@@ -103,6 +103,10 @@ class Patient(models.Model):
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
+    #hospital & isolation facility
+    hospital = models.CharField(max_length=200, null=True, blank=True)
+    isolationfacility = models.CharField(max_length=200, null=True, blank=True)
+
     bmiheight = models.FloatField(max_length=200, null=True)
     bmiweight = models.FloatField(max_length=200, null=True)
     finalbmi = models.FloatField(max_length=200, null=True)
