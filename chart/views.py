@@ -1,4 +1,3 @@
-from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login as dj_login, authenticate
@@ -300,18 +299,12 @@ def assigntelemed(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
     if request.method == 'POST':
         form = TelemedForm(request.POST, instance=patient)
-        nameset = Account.objects.filter(groups__name = "Doctors")
-        #print(nameset.query)
-        form.fields["telemed"].to_field_name = 'firstname'
-        form.fields["telemed"].queryset = nameset
         if form.is_valid():
             form.save()
             return redirect('/communityboard/')
     else:
         form = TelemedForm(instance=patient)
-        nameset = Account.objects.filter(groups__name = "Doctors")
-        form.fields["telemed"].to_field_name = 'firstname'
-        form.fields["telemed"].queryset = nameset
+
     context = {'patient':patient,'form':form}
     
     return render(request, 'chart/assigntelemed.html', context)

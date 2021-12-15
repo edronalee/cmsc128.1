@@ -133,16 +133,10 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.name
-
-    def __unicode__(self):
-        return self.name
     
     @property
     def is_recent(self):    
         return (self.date_created + timedelta(days=14)) > datetime.today()
-
-    def getFullName(self):
-        return self.name
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)

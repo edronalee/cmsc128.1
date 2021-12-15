@@ -1,6 +1,5 @@
 from django import forms
 from django.forms import ModelForm
-from django.forms.models import ModelChoiceField
 from .models import *
 from account.models import *
 
@@ -71,14 +70,13 @@ class PatientstatusForm(ModelForm):
             'isolationfacility': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }
 
-#LIST OF DOCTORS
 class TelemedForm(ModelForm):
+    telemed = forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors'))
     class Meta:
         model = Patient
-        #nameset = Account.objects.filter(groups__name = "Doctors")
-        #telemed = forms.ModelChoiceField(queryset=nameset, to_field_name="firstname")
         fields = ('telemed',)
         widgets = {
+            #'telemed': forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors')),
         }
 
 class VitalsignForm(ModelForm):
