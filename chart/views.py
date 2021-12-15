@@ -31,85 +31,85 @@ def register(request):
 def communityboard(request):
     patients = Patient.objects.all()
     alabang_patients = patients.filter(barangay='Alabang')
-    alabang_registered = alabang_patients.count()
     alabang_monitored = alabang_patients.filter(status='Home Isolation').count()
-    alabang_transferred = alabang_patients.filter(status='Transfer to Hospital').count() + alabang_patients.filter(status='Transfer to Isolation Facility').count()
-    alabang_referred = alabang_patients.filter(status='For Referral').count()
+    alabang_hospital = alabang_patients.filter(status='Transfer to Hospital').count()
+    alabang_facility = alabang_patients.filter(status='Transfer to Isolation Facility').count()
+    alabang_expired = alabang_patients.filter(status='Expired').count()
 
     ayala_alabang_patients = patients.filter(barangay='Ayala-Alabang')
-    ayala_alabang_registered = ayala_alabang_patients.count()
     ayala_alabang_monitored = ayala_alabang_patients.filter(status='Home Isolation').count()
-    ayala_alabang_transferred = ayala_alabang_patients.filter(status='Transfer to Hospital').count() + ayala_alabang_patients.filter(status='Transfer to Isolation Facility').count()
-    ayala_alabang_referred = ayala_alabang_patients.filter(status='For Referral').count()
+    ayala_alabang_hospital = ayala_alabang_patients.filter(status='Transfer to Hospital').count()
+    ayala_alabang_facility = ayala_alabang_patients.filter(status='Transfer to Isolation Facility').count()
+    ayala_alabang_expired = ayala_alabang_patients.filter(status='Expired').count()
 
     bayanan_patients = patients.filter(barangay='Bayanan')
-    bayanan_registered = bayanan_patients.count()
     bayanan_monitored = bayanan_patients.filter(status='Home Isolation').count()
-    bayanan_transferred = bayanan_patients.filter(status='Transfer to Hospital').count() + bayanan_patients.filter(status='Transfer to Isolation Facility').count()
-    bayanan_referred = bayanan_patients.filter(status='For Referral').count()
+    bayanan_hospital = bayanan_patients.filter(status='Transfer to Hospital').count()
+    bayanan_facility = bayanan_patients.filter(status='Transfer to Isolation Facility').count()
+    bayanan_expired = bayanan_patients.filter(status='Expired').count()
 
     buli_patients = patients.filter(barangay='Buli')
-    buli_registered = buli_patients.count()
     buli_monitored = buli_patients.filter(status='Home Isolation').count()
-    buli_transferred = buli_patients.filter(status='Transfer to Hospital').count() + buli_patients.filter(status='Transfer to Isolation Facility').count()
-    buli_referred = buli_patients.filter(status='For Referral').count()
+    buli_hospital = buli_patients.filter(status='Transfer to Hospital').count()
+    buli_facility = buli_patients.filter(status='Transfer to Isolation Facility').count()
+    buli_expired = buli_patients.filter(status='Expired').count()
 
     cupang_patients = patients.filter(barangay='Cupang')
-    cupang_registered = cupang_patients.count()
     cupang_monitored = cupang_patients.filter(status='Home Isolation').count()
-    cupang_transferred = cupang_patients.filter(status='Transfer to Hospital').count() + cupang_patients.filter(status='Transfer to Isolation Facility').count()
-    cupang_referred = cupang_patients.filter(status='For Referral').count()
+    cupang_hospital = cupang_patients.filter(status='Transfer to Hospital').count()
+    cupang_facility = cupang_patients.filter(status='Transfer to Isolation Facility').count()
+    cupang_expired = cupang_patients.filter(status='Expired').count()
 
     poblacion_patients = patients.filter(barangay='Poblacion')
-    poblacion_registered = poblacion_patients.count()
     poblacion_monitored = poblacion_patients.filter(status='Home Isolation').count()
-    poblacion_transferred = poblacion_patients.filter(status='Transfer to Hospital').count() + poblacion_patients.filter(status='Transfer to Isolation Facility').count()
-    poblacion_referred = poblacion_patients.filter(status='For Referral').count()
+    poblacion_hospital = poblacion_patients.filter(status='Transfer to Hospital').count()
+    poblacion_facility = poblacion_patients.filter(status='Transfer to Isolation Facility').count()
+    poblacion_expired = poblacion_patients.filter(status='Expired').count()
 
     putatan_patients = patients.filter(barangay='Putatan')
-    putatan_registered = putatan_patients.count()
     putatan_monitored = putatan_patients.filter(status='Home Isolation').count()
-    putatan_transferred = putatan_patients.filter(status='Transfer to Hospital').count() + putatan_patients.filter(status='Transfer to Isolation Facility').count()
-    putatan_referred = putatan_patients.filter(status='For Referral').count()
+    putatan_hospital = putatan_patients.filter(status='Transfer to Hospital').count()
+    putatan_facility = putatan_patients.filter(status='Transfer to Isolation Facility').count()
+    putatan_expired = putatan_patients.filter(status='Expired').count()
 
     sucat_patients = patients.filter(barangay='Sucat')
-    sucat_registered = sucat_patients.count()
     sucat_monitored = sucat_patients.filter(status='Home Isolation').count()
-    sucat_transferred = sucat_patients.filter(status='Transfer to Hospital').count() + sucat_patients.filter(status='Transfer to Isolation Facility').count()
-    sucat_referred = sucat_patients.filter(status='For Referral').count()
+    sucat_hospital = sucat_patients.filter(status='Transfer to Hospital').count()
+    sucat_facility = sucat_patients.filter(status='Transfer to Isolation Facility').count()
+    sucat_expired = sucat_patients.filter(status='Expired').count()
 
     tunasan_patients = patients.filter(barangay='Tunasan')
-    tunasan_registered = tunasan_patients.count()
     tunasan_monitored = tunasan_patients.filter(status='Home Isolation').count()
-    tunasan_transferred = tunasan_patients.filter(status='Transfer to Hospital').count() + tunasan_patients.filter(status='Transfer to Isolation Facility').count()
-    tunasan_referred = tunasan_patients.filter(status='For Referral').count()
+    tunasan_hospital = tunasan_patients.filter(status='Transfer to Hospital').count()
+    tunasan_facility = tunasan_patients.filter(status='Transfer to Isolation Facility').count()
+    tunasan_expired = tunasan_patients.filter(status='Expired').count()
 
-    context = { 'alabang_registered':alabang_registered, 'alabang_monitored':alabang_monitored, 
-                'alabang_transferred':alabang_transferred, 'alabang_referred':alabang_referred,
+    context = { 'alabang_monitored':alabang_monitored, 'alabang_hospital':alabang_hospital,
+                'alabang_facility':alabang_facility, 'alabang_expired':alabang_expired,
 
-                'ayala_alabang_registered':ayala_alabang_registered, 'ayala_alabang_monitored':ayala_alabang_monitored, 
-                'ayala_alabang_transferred':ayala_alabang_transferred, 'ayala_alabang_referred':ayala_alabang_referred,
+                'ayala_alabang_monitored':ayala_alabang_monitored, 'ayala_alabang_hospital':ayala_alabang_hospital, 
+                'ayala_alabang_facility':ayala_alabang_facility, 'ayala_alabang_expired':ayala_alabang_expired,
 
-                'bayanan_registered':bayanan_registered, 'bayanan_monitored':bayanan_monitored, 
-                'bayanan_transferred':bayanan_transferred, 'bayanan_referred':bayanan_referred,
+                'bayanan_monitored':bayanan_monitored, 'bayanan_hospital':bayanan_hospital, 
+                'bayanan_facility':bayanan_facility, 'bayanan_expired':bayanan_expired,
 
-                'buli_registered':buli_registered, 'buli_monitored':buli_monitored, 
-                'buli_transferred':buli_transferred, 'buli_referred':buli_referred,
+                'buli_monitored':buli_monitored, 'buli_hospital':buli_hospital, 
+                'buli_facility':buli_facility, 'buli_expired':buli_expired,
 
-                'cupang_registered':cupang_registered, 'cupang_monitored':cupang_monitored, 
-                'cupang_transferred':cupang_transferred, 'cupang_referred':cupang_referred,
+                'cupang_monitored':cupang_monitored, 'cupang_hospital':cupang_hospital, 
+                'cupang_facility':cupang_facility, 'cupang_expired':cupang_expired,
 
-                'poblacion_registered':poblacion_registered, 'poblacion_monitored':poblacion_monitored, 
-                'poblacion_transferred':poblacion_transferred, 'poblacion_referred':poblacion_referred,
+                'poblacion_monitored':poblacion_monitored, 'poblacion_hospital':poblacion_hospital, 
+                'poblacion_facility':poblacion_facility, 'poblacion_expired':poblacion_expired,
 
-                'putatan_registered':putatan_registered, 'putatan_monitored':putatan_monitored, 
-                'putatan_transferred':putatan_transferred, 'putatan_referred':putatan_referred,
+                'putatan_monitored':putatan_monitored, 'putatan_hospital':putatan_hospital, 
+                'putatan_facility':putatan_facility, 'putatan_expired':putatan_expired,
 
-                'sucat_registered':sucat_registered, 'sucat_monitored':sucat_monitored, 
-                'sucat_transferred':sucat_transferred, 'sucat_referred':sucat_referred,
+                'sucat_monitored':sucat_monitored, 'sucat_hospital':sucat_hospital, 
+                'sucat_facility':sucat_facility, 'sucat_expired':sucat_expired,
 
-                'tunasan_registered':tunasan_registered, 'tunasan_monitored':tunasan_monitored, 
-                'tunasan_transferred':tunasan_transferred, 'tunasan_referred':tunasan_referred,
+                'tunasan_monitored':tunasan_monitored, 'tunasan_hospital':tunasan_hospital, 
+                'tunasan_facility':tunasan_facility, 'tunasan_expired':tunasan_expired,
     }
 
     return render(request, 'chart/communityboard.html', context)
