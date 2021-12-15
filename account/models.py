@@ -132,7 +132,10 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
 #functions
     def __str__(self):
-        return self.email
+        return self.getFullName()
+        
+    def __unicode__(self):
+        return self.getFullName()
     
     def has_perm(self, perm, obj = None):
         return self.is_admin

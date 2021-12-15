@@ -6,3 +6,5 @@ admin.site.register(Patient)
 admin.site.register(Vitalsign)
 admin.site.register(Healthtracker)
 admin.site.register(Doctorsnote)
+
+
