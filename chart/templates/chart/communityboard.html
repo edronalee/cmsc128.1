@@ -12,7 +12,6 @@
                             <h6 class="m-0 font-weight-bold text-primary">Alabang</h6>
                         </div>
                         <div class="card-body">
-                    
                             <!-- Content Row -->
                             <div class="row">
                                 <!-- Card Example -->
@@ -26,7 +25,9 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_monitored}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#alabangIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -44,7 +45,9 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_hospital}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#alabangHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>   
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +65,9 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_facility}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-table fa-2x text-gray-300"></i>
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#alabangFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
                                                 </div>
                                             </div>
                                         </div>
@@ -80,7 +85,9 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#alabangExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a> 
                                                 </div>
                                             </div>
                                         </div>
@@ -163,7 +170,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{ayala_alabang_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -246,7 +253,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{bayanan_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -329,7 +336,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{buli_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -412,7 +419,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{cupang_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -495,7 +502,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{poblacion_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -578,7 +585,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{putatan_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -661,7 +668,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{sucat_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -744,7 +751,7 @@
                                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{tunasan_expired}}</div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -753,4 +760,180 @@
                             </div>
                         </div>
                     </div>
+
+    <!-- Alabang: Home Isolation -->
+    <div class="modal fade" id="alabangIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient Number</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alabang: Hospital -->
+    <div class="modal fade" id="alabangHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient Number</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alabang: Facility -->
+    <div class="modal fade" id="alabangFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient Number</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alabang: Expired -->
+    <div class="modal fade" id="alabangExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient Number</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}

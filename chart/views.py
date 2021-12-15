@@ -36,6 +36,11 @@ def communityboard(request):
     alabang_facility = alabang_patients.filter(status='Transfer to Isolation Facility').count()
     alabang_expired = alabang_patients.filter(status='Expired').count()
 
+    alabang_monitored_mod = alabang_patients.filter(status='Home Isolation')
+    alabang_hospital_mod = alabang_patients.filter(status='Transfer to Hospital')
+    alabang_facility_mod = alabang_patients.filter(status='Transfer to Isolation Facility')
+    alabang_expired_mod = alabang_patients.filter(status='Expired')
+
     ayala_alabang_patients = patients.filter(barangay='Ayala-Alabang')
     ayala_alabang_monitored = ayala_alabang_patients.filter(status='Home Isolation').count()
     ayala_alabang_hospital = ayala_alabang_patients.filter(status='Transfer to Hospital').count()
@@ -86,6 +91,9 @@ def communityboard(request):
 
     context = { 'alabang_monitored':alabang_monitored, 'alabang_hospital':alabang_hospital,
                 'alabang_facility':alabang_facility, 'alabang_expired':alabang_expired,
+
+                'alabang_monitored_mod':alabang_monitored_mod, 'alabang_hospital_mod':alabang_hospital_mod,
+                'alabang_facility_mod':alabang_facility_mod, 'alabang_expired_mod':alabang_expired_mod,
 
                 'ayala_alabang_monitored':ayala_alabang_monitored, 'ayala_alabang_hospital':ayala_alabang_hospital, 
                 'ayala_alabang_facility':ayala_alabang_facility, 'ayala_alabang_expired':ayala_alabang_expired,
@@ -308,3 +316,4 @@ def assigntelemed(request, pk_test):
     context = {'patient':patient,'form':form}
     
     return render(request, 'chart/assigntelemed.html', context)
+
