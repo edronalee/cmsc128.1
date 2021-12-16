@@ -142,9 +142,6 @@ class Patient(models.Model):
 
     def getFullName(self):
         return self.name
-    
-    def getEmail(self):
-        return self.email
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)

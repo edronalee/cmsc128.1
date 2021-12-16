@@ -67,7 +67,6 @@
                         </div>
 
                         <div class="col-lg-6">
-                            {% if request.user.is_LGU %}
                             <div class="row">
                                 <!-- Card Example -->
                                 <div class="col-xl-6 col-md-6 mb-4">
@@ -109,20 +108,79 @@
                                     </div>
                                 </div>
                             </div>
-                            {% endif %}
+
+                            <div class="row">
+                                <div class="col-xl-12 col-md-6 mb-4">
+                                    <center>
+                                    <a href="{% url 'assigntelemed' patient.id %}" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Assign to a Telemed</span>
+                                    </a>
+                                    </center>
+                                </div>
+                            </div>
+
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs & Daily Health Log</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Time</th>
+                                                    <th>Category</th>
+                                                    <th>Details</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for vitalsign in vitalsigns %}
+                                                    <tr>
+                                                        <td>{{vitalsign.date_created.date}}</td>
+                                                        <td>{{vitalsign.date_created.time}}</td>
+                                                        <td>Vital Signs</td>
+                                                        <td><a href="{% url 'vitalsigndetails' patient.id vitalsign.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                    </tr>
+                                                {% endfor %}
+
+                                                {% for healthtrack in healthtracker %}
+                                                <tr>
+                                                    <td>{{healthtrack.date_created.date}}</td>
+                                                    <td>{{healthtrack.date_created.time}}</td>
+                                                    <td>Health Tracker</td>
+                                                    <td><a href="{% url 'healthtrackerdetails' patient.id healthtrack.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Patient's Status</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Date: <b>{{vitalsigns.date_created.date}}</b><br>
-                                    Time: <b>{{vitalsigns.date_created.time}}</b><br>
-                                    Blood Pressure: <b>{{vitalsigns.systolic}} / {{vitalsigns.diastolic}} mmHg</b><br>
-                                    Heart Rate: <b>{{vitalsigns.heartrate}} bpm</b><br>
-                                    Respiratory Rate: <b>{{vitalsigns.respiratoryrate}} bpm</b><br>
-                                    Temperature: <b>{{vitalsigns.temperature}} &#176;C</b><br>
-                                    Pain Scale: <b>{{vitalsigns.painscale}}</b><br>
-                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>                                  
+                                    <form action="" method=POST class="user">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                Name: <b>{{patient.name}}</b><br>
+                                                Age: <b>{{patient.age}}</b><br>
+                                                <center>
+                                                <label for="bp" class="text-gray-900">Status</label>
+                                                {{form.status}}
+                                                </center>
+                                            </div> 
+                                        </div>
+                                        
+                                        <input type="submit" value="Update" class="btn btn-primary btn-user btn-block">
+                                    </form>                   
                                 </div>
                             </div>
 

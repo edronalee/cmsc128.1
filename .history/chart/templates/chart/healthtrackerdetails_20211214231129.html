@@ -15,7 +15,6 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -50,17 +49,8 @@
                                     workers wearing proper PPE not included.) <b>{{patient.question3}}</b><br>
                                     4. Have you travelled to any area aside from work
                                     or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
-                                    5. Have you been diagnosed with any co-morbidities:
-                                    <ul style="list-style-type: none;">
-                                    <li>Hypertension: <b>{{patient.has_hypertension}}</b></li>
-                                    <li>Diabetes: <b>{{patient.has_diabetes}}</b></li>
-                                    <li>Heart Diseases: <b>{{patient.has_heart_disease}}</b></li>
-                                    <li>Lung Diseases: <b>{{patient.has_lung_disease}}</b></li>
-                                    <li>Gastrointestinal Diseases: <b>{{patient.has_gastro}}</b></li>
-                                    <li>Genitourinary Diseases: <b>{{patient.has_genito}}</b></li>
-                                    <li>Neurological Diseases: <b>{{patient.has_neuro}}</b></li>
-                                    <li>Cancer: <b>{{patient.has_cancer}}</b></li>
-                                    </ul>
+                                    5. Have you been diagnosed with any co-morbidities? 
+                                    If so, please enumerate them. If none, answer "N/A" or "None". <b>{{patient.question5}}</b>
                                 </div>
                             </div>
 
@@ -112,17 +102,29 @@
                             {% endif %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Health Tracker</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Date: <b>{{vitalsigns.date_created.date}}</b><br>
-                                    Time: <b>{{vitalsigns.date_created.time}}</b><br>
-                                    Blood Pressure: <b>{{vitalsigns.systolic}} / {{vitalsigns.diastolic}} mmHg</b><br>
-                                    Heart Rate: <b>{{vitalsigns.heartrate}} bpm</b><br>
-                                    Respiratory Rate: <b>{{vitalsigns.respiratoryrate}} bpm</b><br>
-                                    Temperature: <b>{{vitalsigns.temperature}} &#176;C</b><br>
-                                    Pain Scale: <b>{{vitalsigns.painscale}}</b><br>
-                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>                                  
+                                    Date: <b>{{healthtracker.date_created.date}}</b><br>
+                                    Time: <b>{{healthtracker.date_created.time}}</b><br>   
+                                    Asymptomatic: <b>{{healthtracker.asymptomatic}}</b><br>
+                                    Fever: <b>{{healthtracker.fever}}</b><br>
+                                    Cough: <b>{{healthtracker.cough}}</b><br>
+                                    General Weakness: <b>{{healthtracker.generalweakness}}</b><br>
+                                    Fatigue: <b>{{healthtracker.fatigue}}</b><br>
+                                    Headache: <b>{{healthtracker.headache}}</b><br>
+                                    Body aches: <b>{{healthtracker.bodyaches}}</b><br>
+                                    Sore throat: <b>{{healthtracker.sorethroat}}</b><br>
+                                    Runny nose: <b>{{healthtracker.runnynose}}</b><br>
+                                    Dyspnea: <b>{{healthtracker.dyspnea}}</b><br>
+                                    Loss of appetite: <b>{{healthtracker.lossappetite}}</b><br>
+                                    Nausea: <b>{{healthtracker.nausea}}</b><br>
+                                    Vomiting: <b>{{healthtracker.vomiting}}</b><br>
+                                    Diarrhea: <b>{{healthtracker.diarrhea}}</b><br>
+                                    Altered Mental State: <b>{{healthtracker.alteredmentalstate}}</b><br>
+                                    Loss of Smell: <b>{{healthtracker.losssmell}}</b><br>
+                                    Loss of Taste: <b>{{healthtracker.losstaste}}</b><br>
+                                    Others: <b>{{healthtracker.others}}</b><br>                      
                                 </div>
                             </div>
 

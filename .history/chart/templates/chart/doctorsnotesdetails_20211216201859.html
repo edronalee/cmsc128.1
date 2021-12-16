@@ -15,7 +15,6 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -112,17 +111,12 @@
                             {% endif %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Doctor's Notes</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Date: <b>{{vitalsigns.date_created.date}}</b><br>
-                                    Time: <b>{{vitalsigns.date_created.time}}</b><br>
-                                    Blood Pressure: <b>{{vitalsigns.systolic}} / {{vitalsigns.diastolic}} mmHg</b><br>
-                                    Heart Rate: <b>{{vitalsigns.heartrate}} bpm</b><br>
-                                    Respiratory Rate: <b>{{vitalsigns.respiratoryrate}} bpm</b><br>
-                                    Temperature: <b>{{vitalsigns.temperature}} &#176;C</b><br>
-                                    Pain Scale: <b>{{vitalsigns.painscale}}</b><br>
-                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>                                  
+                                    Date: <b>{{doctornotes.date_created.date}}</b><br>
+                                    Time: <b>{{doctornotes.date_created.time}}</b><br>
+                                    Doctor's Notes: <b>{{doctornotes.notes}}</b><br>                                
                                 </div>
                             </div>
 

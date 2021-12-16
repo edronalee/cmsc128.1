@@ -153,7 +153,7 @@ def monitor(request):
 def referred(request):
     #query for getting patients assigned to the currently logged in doctor (based on their id)
     patients = Patient.objects.select_related('telemed').filter(telemed_id = request.user.id)
-    #print(patients.query) #this is just for checking the sql code associated with this queryset
+    print(patients.query)
     return render(request, 'chart/referred.html', {'patients':patients})
 
 @login_required(login_url='login')

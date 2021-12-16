@@ -71,10 +71,8 @@ class Patient(models.Model):
                     ('Sinopharm', 'Sinopharm')
     )
 
-    #many patients can be assigned to one (doctor) Account
     telemed = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL) 
     
-    #personal information
     name = models.CharField(max_length=200, null=True)
     age = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200, null=True, choices=GENDER)
@@ -142,9 +140,6 @@ class Patient(models.Model):
 
     def getFullName(self):
         return self.name
-    
-    def getEmail(self):
-        return self.email
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)

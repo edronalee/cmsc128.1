@@ -132,7 +132,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
 #functions
     def __str__(self):
-        return self.getFullName()
+        return self.getFullName
         
     def __unicode__(self):
         return self.getFullName()
@@ -145,9 +145,6 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
     def getFullName(self):
         return str(self.firstname + " " + self.lastname).title()
-
-    def getEmail(self):
-        return self.email
 
     def getAddress(self):
         return (str(self.address) + ", " + str(self.barangay) + ", " + str(self.city)).title()
