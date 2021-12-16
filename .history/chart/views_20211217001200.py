@@ -206,7 +206,7 @@ def vitalsign(request, pk_test):
 @login_required(login_url='login')
 def doctorsnotes(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
-    vitalsigns = patient.vitalsign_set.all() #_set.all() are automatically generated
+    vitalsigns = patient.vitalsign_set.all()
     healthtracker = patient.healthtracker_set.all()
     doctorsnote = patient.doctorsnote_set.all()
 

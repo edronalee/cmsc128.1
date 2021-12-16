@@ -153,8 +153,7 @@ def monitor(request):
 def referred(request):
     #patients = Patient.objects.select_related('telemed').filter(telemed_id = request.user.id) 
     #this is a query for getting patients assigned to the currently logged in doctor (based on their id)^^
-    patients = request.user.patient_set.all() #this works as well as this^^; patient_set is automatically 
-                                              #usable once you make a foreignekey relation
+    patients = request.user.patient_set.all() #this works as well as this^^; patient_set is automatically usable once you make a foreignekey relation
     #print(patients.query) #this is just for checking the sql code associated with this queryset
     return render(request, 'chart/referred.html', {'patients':patients})
 
@@ -206,7 +205,7 @@ def vitalsign(request, pk_test):
 @login_required(login_url='login')
 def doctorsnotes(request, pk_test):
     patient = Patient.objects.get(id=pk_test)
-    vitalsigns = patient.vitalsign_set.all() #_set.all() are automatically generated
+    vitalsigns = patient.vitalsign_set.all()
     healthtracker = patient.healthtracker_set.all()
     doctorsnote = patient.doctorsnote_set.all()
 
