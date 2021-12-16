@@ -332,7 +332,7 @@ def statistics(request):
 
 @login_required(login_url='login')
 def listtransferred(request):
-    patients = Patient.objects.filter(status='For Transfer')
+    patients = Patient.objects.filter(status='Transfer to Hospital' or 'Transfer to Isolation Facility')
     
     return render(request, 'chart/listtransferred.html', {'patients':patients})
 

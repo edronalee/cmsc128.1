@@ -140,7 +140,6 @@ class Patient(models.Model):
 
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
-    #bloodpressure = models.CharField(max_length=200, null=True)
     systolic = models.IntegerField(null=True)
     diastolic = models.IntegerField(null=True)
     heartrate = models.IntegerField(null=True)

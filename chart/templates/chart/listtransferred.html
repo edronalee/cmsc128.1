@@ -16,7 +16,7 @@
                                     <thead>
                                         <tr>
                                             <th>Patient Number</th>
-                                            <th>Status</th>
+                                            <th>Hospital</th>
                                             <th>Barangay</th>
                                             <th>Age</th>
                                             <th>Date Added</th>
@@ -27,7 +27,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>Patient Number</th>
-                                            <th>Status</th>
+                                            <th>Hospital</th>
                                             <th>Barangay</th>
                                             <th>Age</th>
                                             <th>Date Added</th>
@@ -41,7 +41,7 @@
                                             {% if i.is_recent %}
                                                 <tr>
                                                     <td>PR-{{i.id}}</td>
-                                                    <td>{{i.status}}</td>
+                                                    <td>{{i.hospital}}</td>
                                                     <td>{{i.barangay}}</td>
                                                     <td>{{i.age}}</td>
                                                     <td>{{i.date_created.date}}</td>
