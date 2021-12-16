@@ -2,8 +2,7 @@
 {% load static %}
 {% block content %}
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-900">{{patient.name}}</h1>
-                    <p class="mb-4">Details</p>
+                    <h1 class="h3 mb-2 text-gray-900">Vital Signs</h1>
 
                     <div class="row">
 
@@ -15,7 +14,6 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -58,67 +56,83 @@
                         </div>
 
                         <div class="col-lg-6">
-                            {% if request.user.is_LGU %}
-                            <div class="row">
-                                <!-- Card Example -->
-                                <div class="col-xl-6 col-md-6 mb-4">
-                                    <div class="card border-left-success shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                        Record</div>
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Vital Signs</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <a href="{% url 'vitalsign' patient.id %}" class="btn btn-success btn-circle btn-lg">
-                                                        <i class="fas fa-clipboard-list"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card Example -->
-                                <div class="col-xl-6 col-md-6 mb-4">
-                                    <div class="card border-left-warning shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                        Record</div>
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Daily Health</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <a href="{% url 'healthtracker' patient.id %}" class="btn btn-warning btn-circle btn-lg">
-                                                        <i class="fas fa-clipboard-list"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %}
+                
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
                                 </div>
-                                <div class="card-body text-gray-900">
-                                    Date: <b>{{vitalsigns.date_created.date}}</b><br>
-                                    Time: <b>{{vitalsigns.date_created.time}}</b><br>
-                                    Blood Pressure: <b>{{vitalsigns.systolic}} / {{vitalsigns.diastolic}} mmHg</b><br>
-                                    Heart Rate: <b>{{vitalsigns.heartrate}} bpm</b><br>
-                                    Respiratory Rate: <b>{{vitalsigns.respiratoryrate}} bpm</b><br>
-                                    Temperature: <b>{{vitalsigns.temperature}} &#176;C</b><br>
-                                    Pain Scale: <b>{{vitalsigns.painscale}}</b><br>
-                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>                                  
+                                <div class="card-body">
+                                        <form action="" method=POST class="user">
+                                            {% csrf_token %}
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+<<<<<<< HEAD
+                                                    <label for="bp" class="text-gray-900">Blood Pressure</label>
+                                                    {{form.bloodpressure}}
+=======
+                                                    {{form.patient}}<hr>
+                                                    <label for="bp" class="text-gray-900">Blood Pressure (mmHg)</label>
+>>>>>>> 0b875286b95c91f56351bc81835ebe9951a8d7f5
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    {{form.systolic}}
+                                                </div> 
+                                                <div class="col-sm-6">
+                                                    {{form.diastolic}}
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="hr" class="text-gray-900">Heart Rate (bpm)</label>
+                                                    {{form.heartrate}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="rr" class="text-gray-900">Respiratory Rate (bpm)</label>
+                                                    {{form.respiratoryrate}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="temp" class="text-gray-900">Temperature (&#176;C)</label>
+                                                    {{form.temperature}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="ps" class="text-gray-900">Pain Scale (1-10)</label>
+                                                    {{form.painscale}} 
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    <center>
+                                                    <label for="o2" class="text-gray-900">O2 Saturation (%)</label>
+                                                    {{form.o2saturation}}
+                                                    </center>
+                                                </div> 
+                                            </div>
+                                            
+                                            <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
+                                        </form>
                                 </div>
                             </div>
 
                         </div>
 
                     </div>
-                    
+
 {% endblock content %}
