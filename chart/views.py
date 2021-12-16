@@ -47,11 +47,21 @@ def communityboard(request):
     ayala_alabang_facility = ayala_alabang_patients.filter(status='Transfer to Isolation Facility').count()
     ayala_alabang_expired = ayala_alabang_patients.filter(status='Expired').count()
 
+    ayala_alabang_monitored_mod = ayala_alabang_patients.filter(status='Home Isolation')
+    ayala_alabang_hospital_mod = ayala_alabang_patients.filter(status='Transfer to Hospital')
+    ayala_alabang_facility_mod = ayala_alabang_patients.filter(status='Transfer to Isolation Facility')
+    ayala_alabang_expired_mod = ayala_alabang_patients.filter(status='Expired')
+
     bayanan_patients = patients.filter(barangay='Bayanan')
     bayanan_monitored = bayanan_patients.filter(status='Home Isolation').count()
     bayanan_hospital = bayanan_patients.filter(status='Transfer to Hospital').count()
     bayanan_facility = bayanan_patients.filter(status='Transfer to Isolation Facility').count()
     bayanan_expired = bayanan_patients.filter(status='Expired').count()
+
+    bayanan_monitored_mod = bayanan_patients.filter(status='Home Isolation')
+    bayanan_hospital_mod = bayanan_patients.filter(status='Transfer to Hospital')
+    bayanan_facility_mod = bayanan_patients.filter(status='Transfer to Isolation Facility')
+    bayanan_expired_mod = bayanan_patients.filter(status='Expired')
 
     buli_patients = patients.filter(barangay='Buli')
     buli_monitored = buli_patients.filter(status='Home Isolation').count()
@@ -59,11 +69,21 @@ def communityboard(request):
     buli_facility = buli_patients.filter(status='Transfer to Isolation Facility').count()
     buli_expired = buli_patients.filter(status='Expired').count()
 
+    buli_monitored_mod  = buli_patients.filter(status='Home Isolation')
+    buli_hospital_mod  = buli_patients.filter(status='Transfer to Hospital')
+    buli_facility_mod  = buli_patients.filter(status='Transfer to Isolation Facility')
+    buli_expired_mod  = buli_patients.filter(status='Expired')
+
     cupang_patients = patients.filter(barangay='Cupang')
     cupang_monitored = cupang_patients.filter(status='Home Isolation').count()
     cupang_hospital = cupang_patients.filter(status='Transfer to Hospital').count()
     cupang_facility = cupang_patients.filter(status='Transfer to Isolation Facility').count()
     cupang_expired = cupang_patients.filter(status='Expired').count()
+
+    cupang_monitored_mod = cupang_patients.filter(status='Home Isolation')
+    cupang_hospital_mod = cupang_patients.filter(status='Transfer to Hospital')
+    cupang_facility_mod = cupang_patients.filter(status='Transfer to Isolation Facility')
+    cupang_expired_mod = cupang_patients.filter(status='Expired')
 
     poblacion_patients = patients.filter(barangay='Poblacion')
     poblacion_monitored = poblacion_patients.filter(status='Home Isolation').count()
@@ -71,11 +91,21 @@ def communityboard(request):
     poblacion_facility = poblacion_patients.filter(status='Transfer to Isolation Facility').count()
     poblacion_expired = poblacion_patients.filter(status='Expired').count()
 
+    poblacion_monitored_mod = poblacion_patients.filter(status='Home Isolation')
+    poblacion_hospital_mod = poblacion_patients.filter(status='Transfer to Hospital')
+    poblacion_facility_mod = poblacion_patients.filter(status='Transfer to Isolation Facility')
+    poblacion_expired_mod = poblacion_patients.filter(status='Expired')
+    
     putatan_patients = patients.filter(barangay='Putatan')
     putatan_monitored = putatan_patients.filter(status='Home Isolation').count()
     putatan_hospital = putatan_patients.filter(status='Transfer to Hospital').count()
     putatan_facility = putatan_patients.filter(status='Transfer to Isolation Facility').count()
     putatan_expired = putatan_patients.filter(status='Expired').count()
+
+    putatan_monitored_mod = putatan_patients.filter(status='Home Isolation')
+    putatan_hospital_mod = putatan_patients.filter(status='Transfer to Hospital')
+    putatan_facility_mod = putatan_patients.filter(status='Transfer to Isolation Facility')
+    putatan_expired_mod = putatan_patients.filter(status='Expired')
 
     sucat_patients = patients.filter(barangay='Sucat')
     sucat_monitored = sucat_patients.filter(status='Home Isolation').count()
@@ -83,11 +113,21 @@ def communityboard(request):
     sucat_facility = sucat_patients.filter(status='Transfer to Isolation Facility').count()
     sucat_expired = sucat_patients.filter(status='Expired').count()
 
+    sucat_monitored_mod = sucat_patients.filter(status='Home Isolation')
+    sucat_hospital_mod = sucat_patients.filter(status='Transfer to Hospital')
+    sucat_facility_mod = sucat_patients.filter(status='Transfer to Isolation Facility')
+    sucat_expired_mod = sucat_patients.filter(status='Expired')
+
     tunasan_patients = patients.filter(barangay='Tunasan')
     tunasan_monitored = tunasan_patients.filter(status='Home Isolation').count()
     tunasan_hospital = tunasan_patients.filter(status='Transfer to Hospital').count()
     tunasan_facility = tunasan_patients.filter(status='Transfer to Isolation Facility').count()
     tunasan_expired = tunasan_patients.filter(status='Expired').count()
+
+    tunasan_monitored_mod = tunasan_patients.filter(status='Home Isolation')
+    tunasan_hospital_mod = tunasan_patients.filter(status='Transfer to Hospital')
+    tunasan_facility_mod = tunasan_patients.filter(status='Transfer to Isolation Facility')
+    tunasan_expired_mod = tunasan_patients.filter(status='Expired')
 
     context = { 'alabang_monitored':alabang_monitored, 'alabang_hospital':alabang_hospital,
                 'alabang_facility':alabang_facility, 'alabang_expired':alabang_expired,
@@ -98,26 +138,50 @@ def communityboard(request):
                 'ayala_alabang_monitored':ayala_alabang_monitored, 'ayala_alabang_hospital':ayala_alabang_hospital, 
                 'ayala_alabang_facility':ayala_alabang_facility, 'ayala_alabang_expired':ayala_alabang_expired,
 
+                'ayala_alabang_monitored_mod':ayala_alabang_monitored_mod, 'ayala_alabang_hospital_mod':ayala_alabang_hospital_mod, 
+                'ayala_alabang_facility_mod':ayala_alabang_facility_mod, 'ayala_alabang_expired_mod':ayala_alabang_expired_mod,
+
                 'bayanan_monitored':bayanan_monitored, 'bayanan_hospital':bayanan_hospital, 
                 'bayanan_facility':bayanan_facility, 'bayanan_expired':bayanan_expired,
+
+                'bayanan_monitored_mod':bayanan_monitored_mod, 'bayanan_hospital_mod':bayanan_hospital_mod, 
+                'bayanan_facility_mod':bayanan_facility_mod, 'bayanan_expired_mod':bayanan_expired_mod,
 
                 'buli_monitored':buli_monitored, 'buli_hospital':buli_hospital, 
                 'buli_facility':buli_facility, 'buli_expired':buli_expired,
 
+                'buli_monitored_mod':buli_monitored_mod, 'buli_hospital_mod':buli_hospital_mod, 
+                'buli_facility_mod':buli_facility_mod, 'buli_expired_mod':buli_expired_mod,
+
                 'cupang_monitored':cupang_monitored, 'cupang_hospital':cupang_hospital, 
                 'cupang_facility':cupang_facility, 'cupang_expired':cupang_expired,
+
+                'cupang_monitored_mod':cupang_monitored_mod, 'cupang_hospital_mod':cupang_hospital_mod, 
+                'cupang_facility_mod':cupang_facility_mod, 'cupang_expired_mod':cupang_expired_mod,
 
                 'poblacion_monitored':poblacion_monitored, 'poblacion_hospital':poblacion_hospital, 
                 'poblacion_facility':poblacion_facility, 'poblacion_expired':poblacion_expired,
 
+                'poblacion_monitored_mod':poblacion_monitored_mod, 'poblacion_hospital_mod':poblacion_hospital_mod, 
+                'poblacion_facility_mod':poblacion_facility_mod, 'poblacion_expired_mod':poblacion_expired_mod,
+
                 'putatan_monitored':putatan_monitored, 'putatan_hospital':putatan_hospital, 
                 'putatan_facility':putatan_facility, 'putatan_expired':putatan_expired,
+
+                'putatan_monitored_mod':putatan_monitored_mod, 'putatan_hospital_mod':putatan_hospital_mod, 
+                'putatan_facility_mod':putatan_facility_mod, 'putatan_expired_mod':putatan_expired_mod,
 
                 'sucat_monitored':sucat_monitored, 'sucat_hospital':sucat_hospital, 
                 'sucat_facility':sucat_facility, 'sucat_expired':sucat_expired,
 
+                'sucat_monitored_mod':sucat_monitored_mod, 'sucat_hospital_mod':sucat_hospital_mod, 
+                'sucat_facility_mod':sucat_facility_mod, 'sucat_expired_mod':sucat_expired_mod,
+
                 'tunasan_monitored':tunasan_monitored, 'tunasan_hospital':tunasan_hospital, 
                 'tunasan_facility':tunasan_facility, 'tunasan_expired':tunasan_expired,
+
+                'tunasan_monitored_mod':tunasan_monitored_mod, 'tunasan_hospital_mod':tunasan_hospital_mod, 
+                'tunasan_facility_mod':tunasan_facility_mod, 'tunasan_expired_mod':tunasan_expired_mod,
     }
 
     return render(request, 'chart/communityboard.html', context)
