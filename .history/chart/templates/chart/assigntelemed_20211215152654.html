@@ -1,0 +1,87 @@
+{% extends 'chart/navbar.html' %}
+{% load static %}
+{% block content %}
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-900">{{patient.name}}</h1>
+                    <p class="mb-4">Details</p>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <!-- Patient's Information -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
+                                </div>
+                                <div class="card-body text-gray-900">
+                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
+                                    Name: <b>{{patient.name}}</b><br>
+                                    Age: <b>{{patient.age}}</b><br>
+                                    Gender: <b>{{patient.gender}}</b><br>
+                                    Address: <b>{{patient.address}}, {{patient.barangay}}, Muntinlupa City</b><br>
+                                    Number of Children: <b>{{patient.numchild}}</b><br>
+                                    Names of Children: <b>{{patient.namechild}}</b><br>
+                                    Contact Number: <b>{{patient.contactnumber}}</b><br>
+                                    Email: <b>{{patient.email}}</b><br>
+                                    Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2nd Dose: <b>{{patient.seconddose}}</b><br>
+                                    Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date of 2nd Dose: <b>{{patient.sdosedate}}</b><br>
+                                    Telemedicine: <b>{{patient.telemedicine}}</b><br>
+                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.antigendate}}</b><br>
+                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.rtpcrdate}}</b><br>
+                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.xraydate}}</b><br>
+                                    Height in cm: <b>{{patient.bmiheight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                    Weight in kg: <b>{{patient.bmiweight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                    BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                </div>
+                            </div>
+
+                            <!-- Health History -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Health History</h6>
+                                </div>
+                                <div class="card-body text-gray-900">
+                                    1. Day of onset of symptoms: <b>{{patient.startdate}}</b><br>
+                                    2. Last day of exposure: <b>{{patient.lastdate}}</b><br>
+                                    3. Have you worked together or stayed in the same
+                                    close environment of with symptoms, confirmed
+                                    or suspected COVID-19 Positive ? (Healthcare
+                                    workers wearing proper PPE not included.) <b>{{patient.question3}}</b><br>
+                                    4. Have you travelled to any area aside from work
+                                    or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
+                                    5. Have you been diagnosed with any co-morbidities? 
+                                    If so, please enumerate them. If none, answer "N/A" or "None". <b>{{patient.question5}}</b>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">List of Doctors</h6>
+                                </div>
+                                <div class="card-body text-gray-900">
+                                    <form action="" method=POST class="user">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                Name: <b>{{patient.name}}</b><br>
+                                                Age: <b>{{patient.age}}</b><br>
+                                                <center>
+                                                <label for="bp" class="text-gray-900">Choose a Doctor</label>
+                                                {{form.telemed(style="list-style:none")}}
+                                                </center>
+                                            </div> 
+                                        </div>
+                                        
+                                        <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
+                                    </form>                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+{% endblock content %}
