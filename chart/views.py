@@ -343,13 +343,14 @@ def statistics(request):
 
 @login_required(login_url='login')
 def listtransferred(request):
-    patients = Patient.objects.filter(status='Transfer to Hospital' or 'Transfer to Isolation Facility')
+    patients = Patient.objects.filter(status='Transfer to Hospital')
+    patients1 = Patient.objects.filter(status='Transfer to Isolation Facility')
     
-    return render(request, 'chart/listtransferred.html', {'patients':patients})
+    return render(request, 'chart/listtransferred.html', {'patients':patients, 'patients1':patients1})
 
 @login_required(login_url='login')
 def listreferred(request):
-    patients = Patient.objects.filter(status='For Referral')
+    patients = Patient.objects.filter(status='Expired')
     
     return render(request, 'chart/listreferred.html', {'patients':patients})
 
