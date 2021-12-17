@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import ModelForm
+from django.forms.models import ModelChoiceField
 from .models import *
 from account.models import *
 
@@ -70,8 +71,16 @@ class PatientstatusForm(ModelForm):
             'isolationfacility': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }
 
+#LIST OF DOCTORS
+class UserModelChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+         return " %s, %s " % (obj.getFullName(), obj.getSchedule())
+
 class TelemedForm(ModelForm):
-    telemed = forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors'))
+    nameset = Account.objects.filter(groups__name = "Doctors")
+    telemed = UserModelChoiceField(queryset=nameset, widget=forms.RadioSelect) 
+    #don't put these in class meta!! ^^^ they won't be recognized
+
     class Meta:
         model = Patient
         fields = ('telemed',)

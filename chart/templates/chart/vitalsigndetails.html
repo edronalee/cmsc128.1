@@ -15,6 +15,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
+                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -133,7 +134,7 @@
                                             var diastolic = parseInt("{{vitalsigns.diastolic}}");
                                             if((systolic === 120) && (diastolic === 80)){
                                                 document.write("NORMAL");
-                                            } else if((systolic >= 120 || systolic < 120) && (diastolic > 80 || diastolic < 80)){
+                                            } else if((systolic >= 120 || systolic < 120) && (diastolic >= 80 || diastolic < 80)){
                                                 document.write("ABNORMAL");
                                             } else if(systolic < 90){
                                                 document.write("ALERT");
