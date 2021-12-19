@@ -64,19 +64,28 @@ class PatientForm(ModelForm):
 class PatientstatusForm(ModelForm):
     class Meta:
         model = Patient
-        fields = ('status',)
+        fields = ('status', 'hospital', 'isolationfacility')
         widgets = {
             'status': forms.Select(choices=Patient.STATUS, attrs={'class':'form-control'}),
+            'hospital': forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'isolationfacility': forms.TextInput(attrs={'class':'form-control form-control-user'}),
         }
 
 #LIST OF DOCTORS
+class UserModelChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+         return " %s, %s " % (obj.getFullName(), obj.getSchedule())
+
 class TelemedForm(ModelForm):
+    nameset = Account.objects.filter(groups__name = "Doctors")
+    telemed = UserModelChoiceField(queryset=nameset, widget=forms.RadioSelect) 
+    #don't put these in class meta!! ^^^ they won't be recognized
+
     class Meta:
         model = Patient
-        #nameset = Account.objects.filter(groups__name = "Doctors")
-        #telemed = forms.ModelChoiceField(queryset=nameset, to_field_name="firstname")
         fields = ('telemed',)
         widgets = {
+            #'telemed': forms.ModelChoiceField(queryset=Account.objects.filter(groups__name='Doctors')),
         }
 
 class VitalsignForm(ModelForm):

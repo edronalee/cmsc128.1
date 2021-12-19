@@ -1,0 +1,35 @@
+{% extends 'chart/navbar.html' %}
+{% load static %}
+{% block content %}
+                    <!--THIS SHOULD ONLY BE ACCESSIBLE IF "is_Doctor" is TRUE-->
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-900">{{request.user.getFullName}}</h1>
+                    <p class="mb-4">Details</p>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <!-- Doctor's Information -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Doctor's Information</h6>
+                                </div>
+                                <div class="card-body text-gray-900">
+                                    Name: {{request.user.getFullName}}<br>
+                                    Email: {{request.user.getEmail}}<br>
+                                    Age: {{request.user.getAge}}<br>
+                                    Gender: {{request.user.getGender}}<br>
+                                    Address: {{request.user.getAddress}}<br>
+                                    License Number: {{request.user.getLicenseNum}} <br>
+                                    License Expiry: {{request.user.getLicenseExp}} <br>
+                                    License Picture: <img src="{{request.user.getLicensePic.url}}" alt="the license picture"/> <br>
+                                    Contact Number: {{request.user.getContactNum}}<br>
+                                    Specialization: {{request.user.getSpecialization}} <br>
+                                    Schedule: {{request.user.getSchedule}} <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+{% endblock content %}
