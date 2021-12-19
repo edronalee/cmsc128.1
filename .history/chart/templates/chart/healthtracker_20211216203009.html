@@ -1,0 +1,205 @@
+{% extends 'chart/navbar.html' %}
+{% load static %}
+{% block content %}
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-900">Daily Health Tracker</h1>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <!-- Patient's Information -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
+                                </div>
+                                <div class="card-body text-gray-900">
+                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
+                                    Name: <b>{{patient.name}}</b><br>
+                                    Age: <b>{{patient.age}}</b><br>
+                                    Gender: <b>{{patient.gender}}</b><br>
+                                    Address: <b>{{patient.address}}, {{patient.barangay}}, Muntinlupa City</b><br>
+                                    Number of Children: <b>{{patient.numchild}}</b><br>
+                                    Names of Children: <b>{{patient.namechild}}</b><br>
+                                    Contact Number: <b>{{patient.contactnumber}}</b><br>
+                                    Email: <b>{{patient.email}}</b><br>
+                                    Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2nd Dose: <b>{{patient.seconddose}}</b><br>
+                                    Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date of 2nd Dose: <b>{{patient.sdosedate}}</b><br>
+                                    Telemedicine: <b>{{patient.telemedicine}}</b><br>
+                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.antigendate}}</b><br>
+                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.rtpcrdate}}</b><br>
+                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.xraydate}}</b><br>
+                                    Height in cm: <b>{{patient.bmiheight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                    Weight in kg: <b>{{patient.bmiweight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                    BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                </div>
+                            </div>
+
+                            <!-- Health History -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Health History</h6>
+                                </div>
+                                <div class="card-body text-gray-900">
+                                    1. Day of onset of symptoms: <b>{{patient.startdate}}</b><br>
+                                    2. Last day of exposure: <b>{{patient.lastdate}}</b><br>
+                                    3. Have you worked together or stayed in the same
+                                    close environment of with symptoms, confirmed
+                                    or suspected COVID-19 Positive ? (Healthcare
+                                    workers wearing proper PPE not included.) <b>{{patient.question3}}</b><br>
+                                    4. Have you travelled to any area aside from work
+                                    or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
+                                    5. Have you been diagnosed with any co-morbidities:
+                                    <ul style="list-style-type: none;">
+                                    <li>Hypertension: <b>{{patient.has_hypertension}}</b></li>
+                                    <li>Diabetes: <b>{{patient.has_diabetes}}</b></li>
+                                    <li>Heart Diseases: <b>{{patient.has_heart_disease}}</b></li>
+                                    <li>Lung Diseases: <b>{{patient.has_lung_disease}}</b></li>
+                                    <li>Gastrointestinal Diseases: <b>{{patient.has_gastro}}</b></li>
+                                    <li>Genitourinary Diseases: <b>{{patient.has_genito}}</b></li>
+                                    <li>Neurological Diseases: <b>{{patient.has_neuro}}</b></li>
+                                    <li>Cancer: <b>{{patient.has_cancer}}</b></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6">
+                
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Do you or any of your family member experience any of the following
+                                        symptoms?</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form action="" method=POST class="user">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <center>
+                                                    {{form.patient}}<hr>
+                                                </center>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <center>
+                                                <label for="rasymptomatic" class="text-gray-900">Asymptomatic&emsp;&emsp;</label>
+                                                </center>
+                                                {{form.asymptomatic}}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <center>
+                                                <label for="feverdeg" class="text-gray-900">Fever (°C)</label>
+                                                {{form.fever}}
+                                                </center>
+                                            </div>
+                                           
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="rcough" class="text-gray-900">Cough&emsp;&emsp;&emsp;&emsp;</label>
+                                                {{form.cough}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rgw" class="text-gray-900">General Weakness&emsp;</label>
+                                                {{form.generalweakness}}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="rfatigue" class="text-gray-900">Fatigue&emsp;&emsp;&emsp;&ensp;</label>
+                                                {{form.fatigue}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rheadache" class="text-gray-900">Headache&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;</label>
+                                                {{form.headache}}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="rbodyache" class="text-gray-900">Body Aches&emsp;&ensp;</label>
+                                                {{form.bodyaches}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rsorethroat" class="text-gray-900">Sore Throat&emsp;&emsp;&emsp;&ensp;&nbsp;</label>
+                                                {{form.sorethroat}}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="rnose" class="text-gray-900">Runny nose&emsp;&ensp;</label>
+                                                {{form.runnynose}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rdys" class="text-gray-900">Dyspnea&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;</label>
+                                                {{form.dyspnea}}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="rappetite" class="text-gray-900">Loss of appetite&emsp;</label>
+                                                {{form.lossappetite}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rnau" class="text-gray-900">Nausea&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;</label>
+                                                {{form.nausea}}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="rvom" class="text-gray-900">Vomiting&emsp;&emsp;&ensp;</label>
+                                                {{form.vomiting}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rdiar" class="text-gray-900">Diarrhea&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                                                {{form.diarrhea}}
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <center>
+                                                <label for="raltered" class="text-gray-900">Altered Mental State&emsp;&emsp;</label>
+                                                {{form.alteredmentalstate}}
+                                                </center>
+                                            </div> 
+                                        </div>
+                                        <hr>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="rsmell" class="text-gray-900">Loss of Smell&emsp;&emsp;</label>
+                                                {{form.losssmell}}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="rtaste" class="text-gray-900">Loss of Taste&emsp;&emsp;</label>
+                                                {{form.losstaste}}
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                <center>
+                                                <label for="others" class="text-gray-900">Others, specify</label>
+                                                {{form.others}}
+                                                </center>
+                                            </div>
+                                        </div>
+                                        <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+{% endblock content %}

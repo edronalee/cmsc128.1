@@ -1,0 +1,2517 @@
+{% extends 'chart/navbar.html' %}
+{% load static %}
+{% block content %}
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-900">Community Board</h1>
+            
+                    <p class="mb-4 text-gray-900">Muntinlupa City</p>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Alabang</h6>
+                        </div>
+                        <div class="card-body">
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#alabangIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#alabangHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#alabangFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{alabang_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#alabangExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Ayala - Alabang</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ayala_alabang_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#ayala_alabangIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ayala_alabang_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#ayala_alabangHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ayala_alabang_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#ayala_alabangFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ayala_alabang_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#ayala_alabangExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Bayanan</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{bayanan_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#bayananIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{bayanan_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#bayananHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{bayanan_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#bayananFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{bayanan_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#bayananExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Buli</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{buli_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#buliIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{buli_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#buliHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{buli_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#buliFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{buli_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#buliExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Cupang</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{cupang_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#cupangIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{cupang_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#cupangHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{cupang_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#cupangFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{cupang_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#cupangExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Poblacion</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{poblacion_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#poblacionIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{poblacion_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#poblacionHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{poblacion_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#poblacionFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{poblacion_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#poblacionExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Putatan</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{putatan_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#putatanIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{putatan_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#putatanHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{putatan_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#putatanFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{putatan_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#putatanExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Sucat</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{sucat_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#sucatIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{sucat_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#sucatHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{sucat_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#sucatFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{sucat_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#sucatExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Tunasan</h6>
+                        </div>
+                        <div class="card-body">
+                    
+                            <!-- Content Row -->
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Home Isolation</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{tunasan_monitored}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#tunasanIsolationModal">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Transferred to Hospital</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{tunasan_hospital}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#tunasanHospitalModal">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Transferred to Facility
+                                                    </div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{tunasan_facility}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#tunasanFacilityModal">
+                                                        <i class="fas fa-table"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Expired</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{tunasan_expired}}</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#tunasanExpiredModal">
+                                                        <i class="fas fa-exclamation-triangle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- ##### TEST ##### -->
+<div class="modal fade" id="test" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title text-gray-900" id="exampleModalLabel">test</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="table-responsive">
+                <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Patient Number</th>
+                            <th>Age</th>
+                            <th>Date Added</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for i in tests %}
+                            {% if i.is_recent %}
+                                <tr>
+                                    <td>PR-{{i.id}}</td>
+                                    <td>{{i.age}}</td>
+                                    <td>{{i.date_created.date}}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div> 
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+</div>
+</div>
+
+    <!-- Alabang: Home Isolation -->
+    <div class="modal fade" id="alabangIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alabang: Hospital -->
+    <div class="modal fade" id="alabangHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alabang: Facility -->
+    <div class="modal fade" id="alabangFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alabang: Expired -->
+    <div class="modal fade" id="alabangExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Alabang: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in alabang_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- Ayala-Alabang: Home Isolation -->
+    <div class="modal fade" id="ayala_alabangIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Ayala-Alabang: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in ayala_alabang_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ayala-Alabang: Hospital -->
+    <div class="modal fade" id="ayala_alabangHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Ayala-Alabang: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in ayala_alabang_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ayala-Alabang: Facility -->
+    <div class="modal fade" id="ayala_alabangFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Ayala-Alabang: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in ayala_alabang_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ayala-Alabang: Expired -->
+    <div class="modal fade" id="ayala_alabangExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Ayala-Alabang: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in ayala_alabang_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- bayanan: Home Isolation -->
+    <div class="modal fade" id="bayananIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Bayanan: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in bayanan_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bayanan: Hospital -->
+    <div class="modal fade" id="bayananHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Bayanan: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in bayanan_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bayanan: Facility -->
+    <div class="modal fade" id="bayananFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Bayanan: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in bayanan_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td> 
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bayanan: Expired -->
+    <div class="modal fade" id="bayananExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Bayanan: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in bayanan_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- buli: Home Isolation -->
+    <div class="modal fade" id="buliIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Buli: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in buli_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- buli: Hospital -->
+    <div class="modal fade" id="buliHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Buli: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in buli_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- buli: Facility -->
+    <div class="modal fade" id="buliFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Buli: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in buli_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- buli: Expired -->
+    <div class="modal fade" id="buliExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Buli: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in buli_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- cupang: Home Isolation -->
+    <div class="modal fade" id="cupangIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Cupang: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in cupang_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cupang: Hospital -->
+    <div class="modal fade" id="cupangHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Cupang: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in cupang_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cupang: Facility -->
+    <div class="modal fade" id="cupangFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Cupang: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in cupang_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cupang: Expired -->
+    <div class="modal fade" id="cupangExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Cupang: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in cupang_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- poblacion: Home Isolation -->
+    <div class="modal fade" id="poblacionIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Poblacion: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in poblacion_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- poblacion: Hospital -->
+    <div class="modal fade" id="poblacionHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Poblacion: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in poblacion_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- poblacion: Facility -->
+    <div class="modal fade" id="poblacionFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Poblacion: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in poblacion_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- poblacion: Expired -->
+    <div class="modal fade" id="poblacionExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Poblacion: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in poblacion_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- putatan: Home Isolation -->
+    <div class="modal fade" id="putatanIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Putatan: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in putatan_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- putatan: Hospital -->
+    <div class="modal fade" id="putatanHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Putatan: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in putatan_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- putatan: Facility -->
+    <div class="modal fade" id="putatanFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Putatan: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in putatan_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- putatan: Expired -->
+    <div class="modal fade" id="putatanExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Putatan: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in putatan_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- sucat: Home Isolation -->
+    <div class="modal fade" id="sucatIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Sucat: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in sucat_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sucat: Hospital -->
+    <div class="modal fade" id="sucatHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Sucat: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in sucat_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sucat: Facility -->
+    <div class="modal fade" id="sucatFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Sucat: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in sucat_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sucat: Expired -->
+    <div class="modal fade" id="sucatExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Sucat: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in sucat_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- #################### -->
+    <!-- tunasan: Home Isolation -->
+    <div class="modal fade" id="tunasanIsolationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Tunasan: Patient on Home Isolation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Date Added</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in tunasan_monitored_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.date_created.date}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- tunasan: Hospital -->
+    <div class="modal fade" id="tunasanHospitalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Tunasan: Patient Transferred to Hospital</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Hospital</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in tunasan_hospital_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.hospital}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- tunasan: Facility -->
+    <div class="modal fade" id="tunasanFacilityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Tunasan: Patient Transferred to Facility</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                    <th>Facility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in tunasan_facility_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                            <td>{{i.isolationfacility}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- tunasan: Expired -->
+    <div class="modal fade" id="tunasanExpiredModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-gray-900" id="exampleModalLabel">Tunasan: Patient Expired</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-gray-900" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Patient No.</th>
+                                    <th>Address</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {% for i in tunasan_expired_mod %}
+                                    {% if i.is_recent %}
+                                        <tr>
+                                            <td>PR-{{i.id}}</td>
+                                            <td>PR-{{i.address}}</td>
+                                            <td>{{i.age}}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
