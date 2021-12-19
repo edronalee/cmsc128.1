@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-900">{{patient.name}}</h1>
+                    <h1 class="h3 mb-2 text-gray-900">{{patient.name}} | Assign to a Doctor</h1>
                     <p class="mb-4">Details</p>
 
                     <div class="row">
@@ -15,7 +15,6 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Assigned Doctor: <b>{{patient.telemed.getFullName}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -69,7 +68,7 @@
                                     4. Have you travelled to any area aside from work
                                     or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
                                     5. Have you been diagnosed with any co-morbidities:
-                                    <ul style="list-style-type: none;">
+                                    <ul>
                                     <li>Hypertension: <b>{{patient.has_hypertension}}</b></li>
                                     <li>Diabetes: <b>{{patient.has_diabetes}}</b></li>
                                     <li>Heart Diseases: <b>{{patient.has_heart_disease}}</b></li>
@@ -85,62 +84,34 @@
                         </div>
 
                         <div class="col-lg-6">
-                            {% if request.user.is_LGU %}
-                            <div class="row">
-                                <!-- Card Example -->
-                                <div class="col-xl-6 col-md-6 mb-4">
-                                    <div class="card border-left-success shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                        Record</div>
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Vital Signs</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <a href="{% url 'vitalsign' patient.id %}" class="btn btn-success btn-circle btn-lg">
-                                                        <i class="fas fa-clipboard-list"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- Card Example -->
-                                <div class="col-xl-6 col-md-6 mb-4">
-                                    <div class="card border-left-warning shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                        Record</div>
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Daily Health</div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <a href="{% url 'healthtracker' patient.id %}" class="btn btn-warning btn-circle btn-lg">
-                                                        <i class="fas fa-clipboard-list"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Doctor's Notes</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">List of Doctors</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Date: <b>{{doctornotes.date_created.date}}</b><br>
-                                    Time: <b>{{doctornotes.date_created.time}}</b><br>
-                                    Doctor's Notes: <b>{{doctornotes.notes}}</b><br>                                
+                                    <form action="" method=POST class="user">
+                                        {% csrf_token %}
+                                        <div class="form-group row">
+                                            <div class="col-sm-12">
+                                                Name: <b>{{patient.name}}</b><br>
+                                                Age: <b>{{patient.age}}</b><br>
+                                                <center>
+                                                <label for="bp" class="text-gray-900">Choose a Doctor</label>
+                                                {% for x in form.telemed %}
+                                                    <div style="text-align: left;">
+                                                        {{ x }} <br>
+                                                    </div>
+                                                {% endfor %}
+                                                </center>
+                                            </div> 
+                                        </div>
+                                        
+                                        <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
+                                    </form>                   
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                     
 {% endblock content %}
