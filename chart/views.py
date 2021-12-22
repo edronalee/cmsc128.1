@@ -190,7 +190,7 @@ def communityboard(request):
 def brgyregistry(request):
     submitted = False
     if request.method == "POST":
-        form = PatientForm(request.POST)
+        form = PatientForm(request.POST, request.FILES)
         if form.is_valid():
             
             form.save()
@@ -309,10 +309,12 @@ def doctorsnotesdetails(request, pk, pk_test):
 
 @user_passes_test(Account.is_Doctor)
 def docinfo(request):
+    model = Account
     return render(request, 'chart/docinfo.html')
 
 @user_passes_test(Account.is_LGU)
 def lguinfo(request):
+    model = Account
     return render(request, 'chart/lguinfo.html')
 
 @login_required(login_url='login')

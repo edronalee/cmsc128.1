@@ -47,7 +47,7 @@ def logout_view(request):
 def docregistration_view(request):
     context = {}
     if request.POST:
-        form = RegistrationForm(request.POST)
+        form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid(): #data given is valid? register to database and add to 'doctors' group, then log-in
             form.save()
             email = form.cleaned_data.get("email")
@@ -70,7 +70,7 @@ def docregistration_view(request):
 def lguregistration_view(request):
     context={}
     if request.POST:
-        form = LGURegistrationForm(request.POST)
+        form = LGURegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             email = form.cleaned_data.get("email")

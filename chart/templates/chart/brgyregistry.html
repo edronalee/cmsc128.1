@@ -12,7 +12,7 @@
                             {% if submitted %}
                                 Patient Registered Succesfully!
                             {% else %}
-                                <form action="" method=POST class="user">
+                                <form action="" method=POST class="user" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
