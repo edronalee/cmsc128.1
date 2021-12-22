@@ -143,6 +143,9 @@ class Account(AbstractBaseUser, PermissionsMixin):
     def getFullName(self):
         return str(self.firstname + " " + self.lastname).title()
 
+    def getEmail(self):
+        return self.email
+
     def getAddress(self):
         return (str(self.address) + ", " + str(self.barangay) + ", " + str(self.city)).title()
 

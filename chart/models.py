@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.query_utils import check_rel_lookup_compatibility
 from datetime import datetime, timedelta
+from account.models import *
 
 # Create your models here.
 class Patient(models.Model):
@@ -70,6 +71,10 @@ class Patient(models.Model):
                     ('Sinopharm', 'Sinopharm')
     )
 
+    #many patients can be assigned to one (doctor) Account
+    telemed = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL) 
+    
+    #personal information
     name = models.CharField(max_length=200, null=True)
     age = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=200, null=True, choices=GENDER)
@@ -101,29 +106,33 @@ class Patient(models.Model):
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
+    #hospital & isolation facility
+    hospital = models.CharField(max_length=200, null=True, blank=True)
+    isolationfacility = models.CharField(max_length=200, null=True, blank=True)
+
     bmiheight = models.FloatField(max_length=200, null=True)
     bmiweight = models.FloatField(max_length=200, null=True)
     finalbmi = models.FloatField(max_length=200, null=True)
     #bmi
 
     #healthhistory
-    #QUESTION3 = (
-    #                ('Yes', 'Yes'),
-    #                ('No', 'No'),
-    #)
-    QUESTION3 = (
+    YESNO = (
                     ('Yes', 'Yes'),
                     ('No', 'No'),
     )
-    QUESTION4 = (
-                    ('Yes', 'Yes'),
-                    ('No', 'No'),
-    )
+
     startdate = models.DateField(null=True)
     lastdate = models.DateField(null=True)
-    question3 = models.CharField(max_length=200, null=True, choices=QUESTION3)
-    question4 = models.CharField(max_length=200, null=True, choices=QUESTION4)
-    question5 = models.CharField(max_length=200, null=True)
+    question3 = models.CharField(max_length=200, null=True, choices=YESNO)
+    question4 = models.CharField(max_length=200, null=True, choices=YESNO)
+    has_hypertension = models.CharField(verbose_name = "Hypertension", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_diabetes = models.CharField(verbose_name = "Diabetes", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_heart_disease = models.CharField(verbose_name = "Heart Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_lung_disease = models.CharField(verbose_name = "Lung Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_gastro = models.CharField(verbose_name = "Gastrointestinal Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_genito = models.CharField(verbose_name = "Genitourinary Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_neuro = models.CharField(verbose_name = "Neurological Diseases", max_length=200, choices=YESNO, blank=False, default='Unspecified')
+    has_cancer = models.CharField(verbose_name = "Cancer", max_length=200, choices=YESNO, blank=False, default='Unspecified')
 
     def __str__(self):
         return self.name
@@ -132,9 +141,14 @@ class Patient(models.Model):
     def is_recent(self):    
         return (self.date_created + timedelta(days=14)) > datetime.today()
 
+    def getFullName(self):
+        return self.name
+    
+    def getEmail(self):
+        return self.email
+
 class Vitalsign(models.Model):
     patient = models.ForeignKey(Patient, null=True, on_delete=models.SET_NULL)
-    #bloodpressure = models.CharField(max_length=200, null=True)
     systolic = models.IntegerField(null=True)
     diastolic = models.IntegerField(null=True)
     heartrate = models.IntegerField(null=True)

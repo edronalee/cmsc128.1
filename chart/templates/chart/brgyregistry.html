@@ -201,8 +201,55 @@
                                             {{form.question4}}
                                         </div>
                                         <div class="col-sm-12">
-                                            <label for="radio5" class="text-gray-900"><br>5. Have you been diagnosed with any co-morbidities? If so, please enumerate them. If none, answer "N/A" or "None".</label><br>
-                                            {{form.question5}}
+                                            <label for="radio5" class="text-gray-900"><br>5. Have you been diagnosed with any of the following co-morbidities?</label><br>
+                                            <label for="id_has_hypertension" class="text-gray-900">Hypertension</label>
+                                            {% for radio in form.has_hypertension %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
+                                            <label for="id_has_diabetes" class="text-gray-900">Diabetes</label>
+                                            {% for radio in form.has_diabetes %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
+                                            <label for="id_has_heart_disease" class="text-gray-900">Heart Diseases</label>
+                                            {% for radio in form.has_heart_disease %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
+                                            <label for="id_has_has_lung_disease" class="text-gray-900">Lung Diseases</label>
+                                            {% for radio in form.has_lung_disease %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
+                                            <label for="id_has_gastro" class="text-gray-900">Gastrointestinal Diseases</label>
+                                            {% for radio in form.has_gastro %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
+                                            <label for="id_has_genito" class="text-gray-900">Genitourinary Diseases</label>
+                                            {% for radio in form.has_genito %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
+                                            <label for="id_has_neuro" class="text-gray-900">Neurological Diseases</label>
+                                            {% for radio in form.has_neuro %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
+                                            <label for="id_has_cancer" class="text-gray-900">Cancer</label>
+                                            {% for radio in form.has_cancer %}
+                                                <div class="myradio">
+                                                    {{ radio }}
+                                                </div>
+                                            {% endfor %}<br>
                                         </div>
                                         <center>
                                         <div class="col-sm-12">

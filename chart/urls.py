@@ -28,6 +28,7 @@ urlpatterns = [
     path('vitalsign/<str:pk_test>/', views.vitalsign, name="vitalsign"),
     path('vitalsigndetails/<str:pk>/<str:pk_test>/', views.vitalsigndetails, name="vitalsigndetails"),
     path('healthtrackerdetails/<str:pk>/<str:pk_test>/', views.healthtrackerdetails, name="healthtrackerdetails"),
+    path('assigntelemed/<str:pk_test>/', views.assigntelemed, name="assigntelemed"),
     path('transfer/', views.transfer, name="transfer"),
     path('statistics/', views.statistics, name="statistics"),
 

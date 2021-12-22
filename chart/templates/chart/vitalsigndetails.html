@@ -15,6 +15,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
+                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -49,8 +50,17 @@
                                     workers wearing proper PPE not included.) <b>{{patient.question3}}</b><br>
                                     4. Have you travelled to any area aside from work
                                     or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
-                                    5. Have you been diagnosed with any co-morbidities? 
-                                    If so, please enumerate them. If none, answer "N/A" or "None". <b>{{patient.question5}}</b>
+                                    5. Have you been diagnosed with any co-morbidities:
+                                    <ul style="list-style-type: none;">
+                                    <li>Hypertension: <b>{{patient.has_hypertension}}</b></li>
+                                    <li>Diabetes: <b>{{patient.has_diabetes}}</b></li>
+                                    <li>Heart Diseases: <b>{{patient.has_heart_disease}}</b></li>
+                                    <li>Lung Diseases: <b>{{patient.has_lung_disease}}</b></li>
+                                    <li>Gastrointestinal Diseases: <b>{{patient.has_gastro}}</b></li>
+                                    <li>Genitourinary Diseases: <b>{{patient.has_genito}}</b></li>
+                                    <li>Neurological Diseases: <b>{{patient.has_neuro}}</b></li>
+                                    <li>Cancer: <b>{{patient.has_cancer}}</b></li>
+                                    </ul>
                                 </div>
                             </div>
 
@@ -107,12 +117,91 @@
                                 <div class="card-body text-gray-900">
                                     Date: <b>{{vitalsigns.date_created.date}}</b><br>
                                     Time: <b>{{vitalsigns.date_created.time}}</b><br>
+                                    <hr>
                                     Blood Pressure: <b>{{vitalsigns.systolic}} / {{vitalsigns.diastolic}} mmHg</b><br>
                                     Heart Rate: <b>{{vitalsigns.heartrate}} bpm</b><br>
                                     Respiratory Rate: <b>{{vitalsigns.respiratoryrate}} bpm</b><br>
                                     Temperature: <b>{{vitalsigns.temperature}} &#176;C</b><br>
                                     Pain Scale: <b>{{vitalsigns.painscale}}</b><br>
-                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>                                  
+                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>
+                                    <hr>
+                                    <center><b>STATUS</b></center>
+                                    Blood Pressure:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var systolic = parseInt("{{vitalsigns.systolic}}");
+                                            var diastolic = parseInt("{{vitalsigns.diastolic}}");
+                                            if((systolic === 120) && (diastolic === 80)){
+                                                document.write("NORMAL");
+                                            } else if((systolic >= 120 || systolic < 120) && (diastolic >= 80 || diastolic < 80)){
+                                                document.write("ABNORMAL");
+                                            } else if(systolic < 90){
+                                                document.write("ALERT");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>Heart Rate:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var heartrate = parseInt("{{vitalsigns.heartrate}}");
+                                            if(heartrate >= 60 && heartrate <= 100){
+                                                document.write("NORMAL");
+                                            } else if (heartrate < 60 || heartrate > 100) {
+                                                document.write("ABNORMAL");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>Respiratory Rate:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var respiratoryrate = parseInt("{{vitalsigns.respiratoryrate}}");
+                                            if(respiratoryrate >= 16 && respiratoryrate <= 20){
+                                                document.write("NORMAL");
+                                            } else if (respiratoryrate >= 21 && respiratoryrate <= 30) {
+                                                document.write("ABNORMAL");
+                                            } else if (respiratoryrate > 30) {
+                                                document.write("ALERT");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>Temperature:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var temperature = parseFloat("{{vitalsigns.temperature}}");
+                                            if(temperature >= 36.6 && temperature <= 37.8){
+                                                document.write("NORMAL");
+                                            } else if (temperature < 36.6 || temperature > 37.8) {
+                                                document.write("ABNORMAL");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>O2 Saturation:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var o2saturation = parseInt("{{vitalsigns.o2saturation}}");
+                                            if(o2saturation >= 95 && o2saturation <= 100){
+                                                document.write("NORMAL");
+                                            } else if (o2saturation >= 92 && o2saturation <= 94) {
+                                                document.write("ABNORMAL");
+                                            } else if (o2saturation < 92) {
+                                                document.write("ALERT");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
                                 </div>
                             </div>
 
