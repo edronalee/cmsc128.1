@@ -15,7 +15,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Assigned Doctor: <b>{{patient.telemed.getFullName}}</b><br>
+                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -24,45 +24,15 @@
                                     Names of Children: <b>{{patient.namechild}}</b><br>
                                     Contact Number: <b>{{patient.contactnumber}}</b><br>
                                     Email: <b>{{patient.email}}</b><br>
+                                    Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2nd Dose: <b>{{patient.seconddose}}</b><br>
+                                    Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date of 2nd Dose: <b>{{patient.sdosedate}}</b><br>
                                     Telemedicine: <b>{{patient.telemedicine}}</b><br>
+                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.antigendate}}</b><br>
+                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.rtpcrdate}}</b><br>
+                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.xraydate}}</b><br>
                                     Height in cm: <b>{{patient.bmiheight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
                                     Weight in kg: <b>{{patient.bmiweight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
-                                    BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br><br>
-                                    Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-                                    <ul>
-                                        <li>1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                                        <li>2nd Dose: <b>{{patient.seconddose}}</b></li>
-                                        <li>Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
-                                        <li>Date of 2nd Dose: <b>{{patient.sdosedate}}</b></li>
-                                    </ul>
-                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <ul>
-                                       <li>Date Released: <b>{{patient.antigendate}}</b></li>
-                                       {% if patient.antigenfile %}
-                                       <li>File: <a href="{{patient.antigenfile.url|default_if_none:'#'}}">{{patient.name}}'s Antigen Test Results</a> </li>
-                                       {% else %}
-                                       <li>File: Not provided</a> </li>
-                                       {% endif %}
-                                    </ul>
-
-                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <ul>
-                                        <li>Date Released: <b>{{patient.rtpcrdate}}</b><br></li>
-                                        {% if patient.rtpcrfile %}
-                                        <li>File: <a href="{{patient.rtpcrfile.url|default_if_none:'#'}}">{{patient.name}}'s RTPCR Test Results</a> </li>
-                                        {% else %}
-                                        <li>File: Not provided</a> </li>
-                                        {% endif %}
-                                    </ul>
-                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <ul>
-                                        <li>Date Released: <b>{{patient.xraydate}}</b><br></li>
-                                        {% if patient.xrayfile %}
-                                        <li>File: <a href="{{patient.xrayfile.url|default_if_none:'#'}}">{{patient.name}}'s X-Ray Test Results</a> </li>
-                                        {% else %}
-                                        <li>File: Not provided</a> </li>
-                                        {% endif %}
-                                    </ul>
+                                    BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
                                 </div>
                             </div>
 
@@ -142,29 +112,96 @@
                             {% endif %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Health Tracker</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Date: <b>{{healthtracker.date_created.date}}</b><br>
-                                    Time: <b>{{healthtracker.date_created.time}}</b><br>   
-                                    Asymptomatic: <b>{{healthtracker.asymptomatic}}</b><br>
-                                    Fever: <b>{{healthtracker.fever}}</b><br>
-                                    Cough: <b>{{healthtracker.cough}}</b><br>
-                                    General Weakness: <b>{{healthtracker.generalweakness}}</b><br>
-                                    Fatigue: <b>{{healthtracker.fatigue}}</b><br>
-                                    Headache: <b>{{healthtracker.headache}}</b><br>
-                                    Body aches: <b>{{healthtracker.bodyaches}}</b><br>
-                                    Sore throat: <b>{{healthtracker.sorethroat}}</b><br>
-                                    Runny nose: <b>{{healthtracker.runnynose}}</b><br>
-                                    Dyspnea: <b>{{healthtracker.dyspnea}}</b><br>
-                                    Loss of appetite: <b>{{healthtracker.lossappetite}}</b><br>
-                                    Nausea: <b>{{healthtracker.nausea}}</b><br>
-                                    Vomiting: <b>{{healthtracker.vomiting}}</b><br>
-                                    Diarrhea: <b>{{healthtracker.diarrhea}}</b><br>
-                                    Altered Mental State: <b>{{healthtracker.alteredmentalstate}}</b><br>
-                                    Loss of Smell: <b>{{healthtracker.losssmell}}</b><br>
-                                    Loss of Taste: <b>{{healthtracker.losstaste}}</b><br>
-                                    Others: <b>{{healthtracker.others}}</b><br>                      
+                                    Date: <b>{{vitalsigns.date_created.date}}</b><br>
+                                    Time: <b>{{vitalsigns.date_created.time}}</b><br>
+                                    <hr>
+                                    Blood Pressure: <b>{{vitalsigns.systolic}} / {{vitalsigns.diastolic}} mmHg</b><br>
+                                    Heart Rate: <b>{{vitalsigns.heartrate}} bpm</b><br>
+                                    Respiratory Rate: <b>{{vitalsigns.respiratoryrate}} bpm</b><br>
+                                    Temperature: <b>{{vitalsigns.temperature}} &#176;C</b><br>
+                                    Pain Scale: <b>{{vitalsigns.painscale}}</b><br>
+                                    O2 Saturation: <b>{{vitalsigns.o2saturation}} %</b><br>
+                                    <hr>
+                                    <center><b>STATUS</b></center>
+                                    Blood Pressure:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var systolic = parseInt("{{vitalsigns.systolic}}");
+                                            var diastolic = parseInt("{{vitalsigns.diastolic}}");
+                                            if((systolic === 120) && (diastolic === 80)){
+                                                document.write("NORMAL");
+                                            } else if((systolic >= 120 || systolic < 120) && (diastolic >= 80 || diastolic < 80)){
+                                                document.write("ABNORMAL");
+                                            } else if(systolic < 90){
+                                                document.write("ALERT");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>Heart Rate:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var heartrate = parseInt("{{vitalsigns.heartrate}}");
+                                            if(heartrate >= 60 && heartrate <= 100){
+                                                document.write("NORMAL");
+                                            } else if (heartrate < 60 || heartrate > 100) {
+                                                document.write("ABNORMAL");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>Respiratory Rate:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var respiratoryrate = parseInt("{{vitalsigns.respiratoryrate}}");
+                                            if(respiratoryrate >= 16 && respiratoryrate <= 20){
+                                                document.write("NORMAL");
+                                            } else if (respiratoryrate >= 21 && respiratoryrate <= 30) {
+                                                document.write("ABNORMAL");
+                                            } else if (respiratoryrate > 30) {
+                                                document.write("ALERT");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>Temperature:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var temperature = parseFloat("{{vitalsigns.temperature}}");
+                                            if(temperature >= 36.6 && temperature <= 37.8){
+                                                document.write("NORMAL");
+                                            } else if (temperature < 36.6 || temperature > 37.8) {
+                                                document.write("ABNORMAL");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
+
+                                    <br>O2 Saturation:
+                                    <b>
+                                    <script type="text/javascript">
+                                        (function() {
+                                            var o2saturation = parseInt("{{vitalsigns.o2saturation}}");
+                                            if(o2saturation >= 95 && o2saturation <= 100){
+                                                document.write("NORMAL");
+                                            } else if (o2saturation >= 92 && o2saturation <= 94) {
+                                                document.write("ABNORMAL");
+                                            } else if (o2saturation < 92) {
+                                                document.write("ALERT");
+                                            }
+                                        })();
+                                    </script>
+                                    </b>
                                 </div>
                             </div>
 

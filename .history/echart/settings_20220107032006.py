@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-@64&rue+9+bld8b)%e64tosj9lsfd$$cjl6n4a)rc(+^p%f&(n
 # With debug turned off Django won't handle static files for you any more 
 # - your production web server (Apache or something) should take care of that.
 # If you want your pictures to show up while on local server, turn on debug or use "runserver --insecure"
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['upcommunityechart.herokuapp.com', '127.0.0.1']
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
