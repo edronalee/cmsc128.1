@@ -38,30 +38,18 @@
                                     Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <ul>
                                        <li>Date Released: <b>{{patient.antigendate}}</b></li>
-                                       {% if patient.antigenfile %}
                                        <li>File: <a href="{{patient.antigenfile.url|default_if_none:'#'}}">{{patient.name}}'s Antigen Test Results</a> </li>
-                                       {% else %}
-                                       <li>File: Not provided</a> </li>
-                                       {% endif %}
                                     </ul>
 
                                     RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <ul>
                                         <li>Date Released: <b>{{patient.rtpcrdate}}</b><br></li>
-                                        {% if patient.rtpcrfile %}
                                         <li>File: <a href="{{patient.rtpcrfile.url|default_if_none:'#'}}">{{patient.name}}'s RTPCR Test Results</a> </li>
-                                        {% else %}
-                                        <li>File: Not provided</a> </li>
-                                        {% endif %}
                                     </ul>
                                     Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <ul>
                                         <li>Date Released: <b>{{patient.xraydate}}</b><br></li>
-                                        {% if patient.xrayfile %}
                                         <li>File: <a href="{{patient.xrayfile.url|default_if_none:'#'}}">{{patient.name}}'s X-Ray Test Results</a> </li>
-                                        {% else %}
-                                        <li>File: Not provided</a> </li>
-                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -81,7 +69,7 @@
                                     4. Have you travelled to any area aside from work
                                     or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
                                     5. Have you been diagnosed with any co-morbidities:
-                                    <ul style="list-style-type: none;">
+                                    <ul>
                                     <li>Hypertension: <b>{{patient.has_hypertension}}</b></li>
                                     <li>Diabetes: <b>{{patient.has_diabetes}}</b></li>
                                     <li>Heart Diseases: <b>{{patient.has_heart_disease}}</b></li>
@@ -97,30 +85,64 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Doctor's Notes</h6>
-                                </div>
-                                <div class="card-body text-gray-900">
-                                    <form action="" method=POST class="user">
-                                        {% csrf_token %}
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <center>
-                                                Patient's Name: {{form.patient}}<hr>
-                                                {{form.notes}}
-                                                </center>
-                                            </div> 
+                            <div class="row">
+                                <!-- Card Example -->
+                                <div class="col-xl-6 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                        Record</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Vital Signs</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="{% url 'vitalsign' patient.id %}" class="btn btn-success btn-circle btn-lg">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <br>
-                                        <input type="submit" value="Save" class="btn btn-primary btn-user btn-block">
-                                    </form>
+                                    </div>
+                                </div>
+
+                                <!-- Card Example -->
+                                <div class="col-xl-6 col-md-6 mb-4">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        Record</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800">Daily Health</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <a href="{% url 'healthtracker' patient.id %}" class="btn btn-warning btn-circle btn-lg">
+                                                        <i class="fas fa-clipboard-list"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            
+
+                            <div class="row">
+                                <div class="col-xl-12 col-md-6 mb-4">
+                                    <center>
+                                    <a href="{% url 'assigntelemed' patient.id %}" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-flag"></i>
+                                        </span>
+                                        <span class="text">Assign to a Telemed</span>
+                                    </a>
+                                    </center>
+                                </div>
+                            </div>
+
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs, Daily Health & Doctor's Log</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Vital Signs & Daily Health Log</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -151,15 +173,6 @@
                                                     <td><a href="{% url 'healthtrackerdetails' patient.id healthtrack.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
                                                 </tr>
                                                 {% endfor %}
-
-                                                {% for doctorsnotes in doctorsnote %}
-                                                <tr>
-                                                    <td>{{doctorsnotes.date_created.date}}</td>
-                                                    <td>{{doctorsnotes.date_created.time}}</td>
-                                                    <td>Doctor's Note</td>
-                                                    <td><a href="{% url 'doctorsnotesdetails' patient.id doctorsnotes.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
-                                                </tr>
-                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -179,12 +192,12 @@
                                                 Age: <b>{{patient.age}}</b><br>
                                                 <center>
                                                 <label for="bp" class="text-gray-900">Status</label>
-                                                {{form1.status}}
+                                                {{form.status}}
                                                 <br>
                                                 <label for="bp" class="text-gray-900">If patient will <b>transfer to hospital</b>, input hospital name:</label>
-                                                {{form1.hospital}}
+                                                {{form.hospital}}
                                                 <label for="bp" class="text-gray-900">If patient will <b>transfer to isolation facility</b>, input facility name:</label>
-                                                {{form1.isolationfacility}}
+                                                {{form.isolationfacility}}
                                                 </center>
                                             </div> 
                                         </div>

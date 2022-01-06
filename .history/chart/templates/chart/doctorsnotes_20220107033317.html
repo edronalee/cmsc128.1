@@ -30,39 +30,32 @@
                                     BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br><br>
                                     Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
                                     <ul>
-                                        <li>1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                                        <li>2nd Dose: <b>{{patient.seconddose}}</b></li>
-                                        <li>Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
-                                        <li>Date of 2nd Dose: <b>{{patient.sdosedate}}</b></li>
-                                    </ul>
-                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <ul>
-                                       <li>Date Released: <b>{{patient.antigendate}}</b></li>
-                                       {% if patient.antigenfile %}
-                                       <li>File: <a href="{{patient.antigenfile.url|default_if_none:'#'}}">{{patient.name}}'s Antigen Test Results</a> </li>
-                                       {% else %}
-                                       <li>File: Not provided</a> </li>
-                                       {% endif %}
-                                    </ul>
-
-                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <ul>
-                                        <li>Date Released: <b>{{patient.rtpcrdate}}</b><br></li>
-                                        {% if patient.rtpcrfile %}
-                                        <li>File: <a href="{{patient.rtpcrfile.url|default_if_none:'#'}}">{{patient.name}}'s RTPCR Test Results</a> </li>
+                                        <li>Date Released: <b>{{patient.antigendate}}</b></li>
+                                        {% if patient.antigenfile %}
+                                        <li>File: <a href="{{patient.antigenfile.url|default_if_none:'#'}}">{{patient.name}}'s Antigen Test Results</a> </li>
                                         {% else %}
                                         <li>File: Not provided</a> </li>
                                         {% endif %}
-                                    </ul>
-                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <ul>
-                                        <li>Date Released: <b>{{patient.xraydate}}</b><br></li>
-                                        {% if patient.xrayfile %}
-                                        <li>File: <a href="{{patient.xrayfile.url|default_if_none:'#'}}">{{patient.name}}'s X-Ray Test Results</a> </li>
-                                        {% else %}
-                                        <li>File: Not provided</a> </li>
-                                        {% endif %}
-                                    </ul>
+                                     </ul>
+ 
+                                     RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                     <ul>
+                                         <li>Date Released: <b>{{patient.rtpcrdate}}</b><br></li>
+                                         {% if patient.rtpcrfile %}
+                                         <li>File: <a href="{{patient.rtpcrfile.url|default_if_none:'#'}}">{{patient.name}}'s RTPCR Test Results</a> </li>
+                                         {% else %}
+                                         <li>File: Not provided</a> </li>
+                                         {% endif %}
+                                     </ul>
+                                     Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                     <ul>
+                                         <li>Date Released: <b>{{patient.xraydate}}</b><br></li>
+                                         {% if patient.xrayfile %}
+                                         <li>File: <a href="{{patient.xrayfile.url|default_if_none:'#'}}">{{patient.name}}'s X-Ray Test Results</a> </li>
+                                         {% else %}
+                                         <li>File: Not provided</a> </li>
+                                         {% endif %}
+                                     </ul>
                                 </div>
                             </div>
 
