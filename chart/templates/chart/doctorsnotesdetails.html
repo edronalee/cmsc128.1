@@ -38,18 +38,24 @@
                                     Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <ul>
                                        <li>Date Released: <b>{{patient.antigendate}}</b></li>
+                                       {% if patient.antigenfile.url is not null %}
                                        <li>File: <a href="{{patient.antigenfile.url}}">{{patient.name}}'s Antigen Test Results</a> </li>
+                                       {% endif %}
                                     </ul>
 
                                     RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <ul>
                                         <li>Date Released: <b>{{patient.rtpcrdate}}</b><br></li>
+                                        {% if patient.rtpcrfile.url is not null %}
                                         <li>File: <a href="{{patient.rtpcrfile.url}}">{{patient.name}}'s RTPCR Test Results</a> </li>
+                                        {% endif %}
                                     </ul>
                                     Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <ul>
                                         <li>Date Released: <b>{{patient.xraydate}}</b><br></li>
+                                        {% if patient.xrayfile.url is not null %}
                                         <li>File: <a href="{{patient.xrayfile.url}}">{{patient.name}}'s X-Ray Test Results</a> </li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>

@@ -23,7 +23,7 @@
                                     Address: {{request.user.getAddress}}<br>
                                     License Number: {{request.user.getLicenseNum}} <br>
                                     License Expiry: {{request.user.getLicenseExp}} <br>
-                                    License Picture: <img src="{{request.user.getLicensePic}}" alt="the license picture"/> <br>
+                                    License Picture: {% if request.user.getLicensePic is not null %}<img src="{{request.user.getLicensePic}}" alt="the license picture"/> <br>{% endif %}
                                     Contact Number: {{request.user.getContactNum}}<br>
                                     Specialization: {{request.user.getSpecialization}} <br>
                                     Schedule: {{request.user.getSchedule}} <br>
