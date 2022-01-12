@@ -111,7 +111,7 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item {% if request.resolver_match.view_name == 'statistics' %}active{% endif %}">
+            <li class="nav-item {% if request.resolver_match.view_name == 'statistics' or request.resolver_match.view_name == 'listtransferred' or request.resolver_match.view_name == 'listrtpcr' or request.resolver_match.view_name == 'listantigen' or request.resolver_match.view_name == 'listreferred' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'statistics' %}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Statistics</span></a>

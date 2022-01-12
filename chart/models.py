@@ -64,11 +64,13 @@ class Patient(models.Model):
     VACCINE = (
                     ('None', 'None'),
                     ('CoronaVac (Sinovac)', 'CoronaVac (Sinovac)'),
+                    ('Pfizer-BioNTech', 'Pfizer-BioNTech'),
+                    ('Oxford AstraZeneca', 'Oxford AstraZeneca'),
                     ('Gamaleya Sputnik V', 'Gamaleya Sputnik V'),
                     ('Johnson and Johnson\'s Janssen', 'Johnson and Johnson\'s Janssen'),
                     ('Bharat BioTech', 'Bharat BioTech'),
                     ('Moderna', 'Moderna'),
-                    ('Sinopharm', 'Sinopharm')
+                    ('Novavax', 'Novavax')
     )
 
     #many patients can be assigned to one (doctor) Account

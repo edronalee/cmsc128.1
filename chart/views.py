@@ -333,7 +333,7 @@ def statistics(request):
     no_of_doctor = accounts.filter(groups__name='Doctors').count()
 
     no_of_transferred = patients.filter(status='Transfer to Hospital').count() + patients.filter(status='Transfer to Isolation Facility').count()
-    no_of_referred = patients.filter(status='For Referral').count()
+    no_of_referred = patients.filter(telemed__isnull = False).count()
 
     no_of_rtpcr = patients.filter(rtpcrresult='Positive').count()
     no_of_antigen = patients.filter(antigenresult='Positive').count()
@@ -352,7 +352,8 @@ def listtransferred(request):
 
 @login_required(login_url='login')
 def listreferred(request):
-    patients = Patient.objects.filter(status='Expired')
+    #patients = Patient.objects.filter(status='Expired')
+    patients = Patient.objects.filter(telemed__isnull = False)
     
     return render(request, 'chart/listreferred.html', {'patients':patients})
 
