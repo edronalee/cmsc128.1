@@ -167,7 +167,7 @@
                                                         <td>{{vitalsign.date_created.date}}</td>
                                                         <td>{{vitalsign.date_created.time}}</td>
                                                         <td>Vital Signs</td>
-                                                        <td><a href="{% url 'vitalsigndetails' patient.id vitalsign.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                        <td><a href="{% url 'vitalsigndetails' patient.id vitalsign.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
 
@@ -176,7 +176,7 @@
                                                     <td>{{healthtrack.date_created.date}}</td>
                                                     <td>{{healthtrack.date_created.time}}</td>
                                                     <td>Health Tracker</td>
-                                                    <td><a href="{% url 'healthtrackerdetails' patient.id healthtrack.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a</td>
+                                                    <td><a href="{% url 'healthtrackerdetails' patient.id healthtrack.id %}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
