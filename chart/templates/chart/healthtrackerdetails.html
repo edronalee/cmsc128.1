@@ -141,6 +141,7 @@
                                 <div class="card-body text-gray-900">
                                     Date: <b>{{healthtracker.date_created.date}}</b><br>
                                     Time: <b>{{healthtracker.date_created.time}}</b><br>   
+                                    <hr>
                                     Asymptomatic: <b>{{healthtracker.asymptomatic}}</b><br>
                                     Fever: <b>{{healthtracker.fever}}</b><br>
                                     Cough: <b>{{healthtracker.cough}}</b><br>
@@ -158,7 +159,10 @@
                                     Altered Mental State: <b>{{healthtracker.alteredmentalstate}}</b><br>
                                     Loss of Smell: <b>{{healthtracker.losssmell}}</b><br>
                                     Loss of Taste: <b>{{healthtracker.losstaste}}</b><br>
-                                    Others: <b>{{healthtracker.others}}</b><br>                      
+                                    Others: <b>{{healthtracker.others}}</b><br>     
+                                    
+                                    <br>
+                                    <button class="btn btn-secondary btn-user btn-block" type="button" onClick="javascript:history.go(-1);">Back</button>
                                 </div>
                             </div>
 

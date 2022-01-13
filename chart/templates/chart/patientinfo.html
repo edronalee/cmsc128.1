@@ -91,6 +91,7 @@
                         </div>
 
                         <div class="col-lg-6">
+                            {% if request.user.is_LGU %}
                             <div class="row">
                                 <!-- Card Example -->
                                 <div class="col-xl-6 col-md-6 mb-4">
@@ -132,7 +133,9 @@
                                     </div>
                                 </div>
                             </div>
+                            {% endif %}
 
+                            {% if request.user.is_LGU %}
                             <div class="row">
                                 <div class="col-xl-12 col-md-6 mb-4">
                                     <center>
@@ -145,6 +148,7 @@
                                     </center>
                                 </div>
                             </div>
+                            {% endif %}
 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -185,6 +189,7 @@
                                 </div>
                             </div>
 
+                            {% if request.user.is_LGU %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Status</h6>
@@ -212,6 +217,7 @@
                                     </form>                   
                                 </div>
                             </div>
+                            {% endif %}
 
                         </div>
 
