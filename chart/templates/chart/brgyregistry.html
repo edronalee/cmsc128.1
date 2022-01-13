@@ -191,7 +191,7 @@
                                             <label for="exposuredate" class="text-gray-900"><br>2. Last day of exposure</label>
                                             {{form.lastdate}}
                                         </div>
-                                        
+                                    
                                         <div class="col-sm-12">
                                             <label for="radio4" class="text-gray-900"><br>3. Have you worked together or stayed in the same close environment of with symptoms, confirmed or suspected COVID-19 Positive? (Healthcare workers wearing proper PPE not included.)</label><br>
                                             {{form.question3}}
@@ -202,61 +202,93 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <label for="radio5" class="text-gray-900"><br>5. Have you been diagnosed with any of the following co-morbidities?</label><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
                                             <label for="id_has_hypertension" class="text-gray-900">Hypertension</label>
                                             {% for radio in form.has_hypertension %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="col-sm-4">
                                             <label for="id_has_diabetes" class="text-gray-900">Diabetes</label>
                                             {% for radio in form.has_diabetes %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="col-sm-4">
                                             <label for="id_has_heart_disease" class="text-gray-900">Heart Diseases</label>
                                             {% for radio in form.has_heart_disease %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
                                             <label for="id_has_has_lung_disease" class="text-gray-900">Lung Diseases</label>
                                             {% for radio in form.has_lung_disease %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="col-sm-4">
                                             <label for="id_has_gastro" class="text-gray-900">Gastrointestinal Diseases</label>
                                             {% for radio in form.has_gastro %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="col-sm-4">
                                             <label for="id_has_genito" class="text-gray-900">Genitourinary Diseases</label>
                                             {% for radio in form.has_genito %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">  
                                             <label for="id_has_neuro" class="text-gray-900">Neurological Diseases</label>
                                             {% for radio in form.has_neuro %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
+                                        </div>
+
+                                        <div class="col-sm-4"> 
                                             <label for="id_has_cancer" class="text-gray-900">Cancer</label>
                                             {% for radio in form.has_cancer %}
-                                                <div class="myradio">
+                                                <div class="myradio text-gray-900">
                                                     {{ radio }}
                                                 </div>
-                                            {% endfor %}<br>
+                                            {% endfor %}
                                         </div>
-                                        <center>
+                                    </div>
+
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Patient's Status:</h6>
+                                    </div>
+                                    <div class="form-group row">
                                         <div class="col-sm-12">
-                                            <label for="status" class="text-gray-900"><br>Status:</label><br>
+                                            <br>
+                                           
                                             {{form.status}}
+                                            
                                         </div>
-                                        </center>
                                     </div>
                                     <input type="submit" value="Register Patient" class="btn btn-primary btn-user btn-block">
                                 </form>
