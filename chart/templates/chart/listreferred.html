@@ -8,7 +8,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">List of Expired Patients</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">List of Referred Patients</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -16,7 +16,7 @@
                                     <thead>
                                         <tr>
                                             <th>Patient Number</th>
-                                            <th>Address</th>
+                                            <th>Assigned Doctor</th>
                                             <th>Barangay</th>
                                             <th>Age</th>
                                             <th>Date Added</th>
@@ -26,7 +26,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>Patient Number</th>
-                                            <th>Address</th>
+                                            <th>Assigned Doctor</th>
                                             <th>Barangay</th>
                                             <th>Age</th>
                                             <th>Date Added</th>
@@ -39,7 +39,7 @@
                                             {% if i.is_recent %}
                                                 <tr>
                                                     <td>PR-{{i.id}}</td>
-                                                    <td>{{i.address}}</td>
+                                                    <td>{{i.telemed.getFullName}}</td>
                                                     <td>{{i.barangay}}</td>
                                                     <td>{{i.age}}</td>
                                                     <td>{{i.date_created.date}}</td>

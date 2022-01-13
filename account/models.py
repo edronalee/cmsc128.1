@@ -168,7 +168,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
         return str(self.licenseexpiry)
 
     def getLicensePic(self):
-        return str(self.licensepic)
+        return self.licensepic.url
 
     def getContactNum(self):
         return str(self.contactnumber)
@@ -177,7 +177,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
         return str(self.specialization).title()
 
     def getSchedule(self):
-        return str(self.schedule).title()
+        return str(self.schedule).upper()
 
     def is_Doctor(self):
         return self.groups.filter(name="Doctors").exists()

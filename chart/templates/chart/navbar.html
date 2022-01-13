@@ -111,7 +111,7 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item {% if request.resolver_match.view_name == 'statistics' %}active{% endif %}">
+            <li class="nav-item {% if request.resolver_match.view_name == 'statistics' or request.resolver_match.view_name == 'listtransferred' or request.resolver_match.view_name == 'listrtpcr' or request.resolver_match.view_name == 'listantigen' or request.resolver_match.view_name == 'listreferred' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'statistics' %}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Statistics</span></a>
@@ -177,9 +177,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-900 small">Hello, {{request.user.getFullName|title}}</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{% static '/images/undraw_profile.svg' %}">
+                                <span class="mr-2 d-none d-lg-inline text-gray-900 small">Hello, {{request.user.getFullName|title}}!</span>
+                                <!--<img class="img-profile rounded-circle"
+                                    src="{% static '/images/undraw_profile.svg' %}">-->
                             </a>
                         <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

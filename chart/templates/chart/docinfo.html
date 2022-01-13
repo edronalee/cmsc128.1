@@ -16,16 +16,17 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Doctor's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Name: {{request.user.getFullName}}<br>
-                                    Email: {{request.user.getEmail}}<br>
-                                    Age: {{request.user.getAge}}<br>
-                                    Gender: {{request.user.getGender}}<br>
-                                    Address: {{request.user.getAddress}}<br>
-                                    License Number: {{request.user.getLicenseNum}} <br>
-                                    License Expiry: {{request.user.getLicenseExp}} <br>
-                                    Contact Number: {{request.user.getContactNum}}<br>
-                                    Specialization: {{request.user.getSpecialization}} <br>
-                                    Schedule: {{request.user.getSchedule}} <br>
+                                    Name: <b>{{request.user.getFullName}}</b><br>
+                                    Email: <b>{{request.user.getEmail}}</b><br>
+                                    Age: <b>{{request.user.getAge}}</b><br>
+                                    Gender: <b>{{request.user.getGender}}</b><br>
+                                    Address: <b>{{request.user.getAddress}} City</b><br>
+                                    License Number: <b>{{request.user.getLicenseNum}} </b><br>
+                                    License Expiry: <b>{{request.user.getLicenseExp}} </b><br>
+                                    License Picture:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% if request.user.getLicensePic is not null %}<img src="{{request.user.getLicensePic}}" alt="the license picture"/> {% endif %}<br>
+                                    Contact Number: <b>{{request.user.getContactNum}}</b><br>
+                                    Specialization: <b>{{request.user.getSpecialization}} </b><br>
+                                    Schedule: <b>{{request.user.getSchedule}} </b><br>
                                 </div>
                             </div>
                         </div>

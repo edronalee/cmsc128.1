@@ -190,7 +190,7 @@ def communityboard(request):
 def brgyregistry(request):
     submitted = False
     if request.method == "POST":
-        form = PatientForm(request.POST)
+        form = PatientForm(request.POST, request.FILES)
         if form.is_valid():
             
             form.save()
@@ -309,10 +309,12 @@ def doctorsnotesdetails(request, pk, pk_test):
 
 @user_passes_test(Account.is_Doctor)
 def docinfo(request):
+    model = Account
     return render(request, 'chart/docinfo.html')
 
 @user_passes_test(Account.is_LGU)
 def lguinfo(request):
+    model = Account
     return render(request, 'chart/lguinfo.html')
 
 @login_required(login_url='login')
@@ -331,7 +333,7 @@ def statistics(request):
     no_of_doctor = accounts.filter(groups__name='Doctors').count()
 
     no_of_transferred = patients.filter(status='Transfer to Hospital').count() + patients.filter(status='Transfer to Isolation Facility').count()
-    no_of_referred = patients.filter(status='For Referral').count()
+    no_of_referred = patients.filter(telemed__isnull = False).count()
 
     no_of_rtpcr = patients.filter(rtpcrresult='Positive').count()
     no_of_antigen = patients.filter(antigenresult='Positive').count()
@@ -350,7 +352,8 @@ def listtransferred(request):
 
 @login_required(login_url='login')
 def listreferred(request):
-    patients = Patient.objects.filter(status='Expired')
+    #patients = Patient.objects.filter(status='Expired')
+    patients = Patient.objects.filter(telemed__isnull = False)
     
     return render(request, 'chart/listreferred.html', {'patients':patients})
 

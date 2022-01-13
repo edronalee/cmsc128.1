@@ -64,11 +64,13 @@ class Patient(models.Model):
     VACCINE = (
                     ('None', 'None'),
                     ('CoronaVac (Sinovac)', 'CoronaVac (Sinovac)'),
+                    ('Pfizer-BioNTech', 'Pfizer-BioNTech'),
+                    ('Oxford AstraZeneca', 'Oxford AstraZeneca'),
                     ('Gamaleya Sputnik V', 'Gamaleya Sputnik V'),
                     ('Johnson and Johnson\'s Janssen', 'Johnson and Johnson\'s Janssen'),
                     ('Bharat BioTech', 'Bharat BioTech'),
                     ('Moderna', 'Moderna'),
-                    ('Sinopharm', 'Sinopharm')
+                    ('Novavax', 'Novavax')
     )
 
     #many patients can be assigned to one (doctor) Account
@@ -93,15 +95,15 @@ class Patient(models.Model):
     telemedicine = models.CharField(max_length=200, null=True, choices=TELEMEDICINE)
     antigenresult = models.CharField(max_length=200, null=True, choices=ANTIGENRESULT)
     antigendate = models.DateField(null=True)
-    antigenfile = models.ImageField(verbose_name= "antigenfile", null = True, blank=True, upload_to = "pic_uploads/")
+    antigenfile = models.FileField(verbose_name= "antigenfile", null = True, blank=True, upload_to = "pdf_uploads/")
     #antigenfile
     rtpcrresult = models.CharField(max_length=200, null=True, choices=RTPCRRESULT)
     rtpcrdate = models.DateField(null=True)
-    rtpcrfile = models.ImageField(verbose_name= "rtpcrfile", null = True, blank=True, upload_to = "pic_uploads/")
+    rtpcrfile = models.FileField(verbose_name= "rtpcrfile", null = True, blank=True, upload_to = "pdf_uploads/")
     #rtpcrfile
     xray = models.CharField(max_length=200, null=True, choices=XRAY)
     xraydate = models.DateField(null=True)
-    xrayfile = models.ImageField(verbose_name= "xrayfile", null = True, blank=True, upload_to = "pic_uploads/")
+    xrayfile = models.FileField(verbose_name= "xrayfile", null = True, blank=True, upload_to = "pdf_uploads/")
     #xrayfile
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     date_created = models.DateTimeField(auto_now_add=True, null=True)

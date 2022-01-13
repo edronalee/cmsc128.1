@@ -15,7 +15,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Patient's Information</h6>
                                 </div>
                                 <div class="card-body text-gray-900">
-                                    Assigned Doctor: <b>{{patient.telemed}}</b><br>
+                                    Assigned Doctor: <b>{{patient.telemed.getFullName}}</b><br>
                                     Name: <b>{{patient.name}}</b><br>
                                     Age: <b>{{patient.age}}</b><br>
                                     Gender: <b>{{patient.gender}}</b><br>
@@ -24,15 +24,39 @@
                                     Names of Children: <b>{{patient.namechild}}</b><br>
                                     Contact Number: <b>{{patient.contactnumber}}</b><br>
                                     Email: <b>{{patient.email}}</b><br>
-                                    Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2nd Dose: <b>{{patient.seconddose}}</b><br>
-                                    Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date of 2nd Dose: <b>{{patient.sdosedate}}</b><br>
                                     Telemedicine: <b>{{patient.telemedicine}}</b><br>
-                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.antigendate}}</b><br>
-                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.rtpcrdate}}</b><br>
-                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date Released: <b>{{patient.xraydate}}</b><br>
                                     Height in cm: <b>{{patient.bmiheight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
                                     Weight in kg: <b>{{patient.bmiweight}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
-                                    BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br>
+                                    BMI: <b>{{patient.finalbmi}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br><br>
+                                    Vaccine: <b>{{patient.vaccine}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+                                    <ul>
+                                        <li>1st Dose: <b>{{patient.firstdose}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                        <li>2nd Dose: <b>{{patient.seconddose}}</b></li>
+                                        <li>Date of 1st Dose: <b>{{patient.fdosedate}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
+                                        <li>Date of 2nd Dose: <b>{{patient.sdosedate}}</b></li>
+                                    </ul>
+                                    Antigen Test Result: <b>{{patient.antigenresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <ul>
+                                       <li>Date Released: <b>{{patient.antigendate}}</b></li>
+                                       {% if patient.antigenfile.url is not null %}
+                                       <li>File: <a href="{{patient.antigenfile.url}}">{{patient.name}}'s Antigen Test Results</a> </li>
+                                       {% endif %}
+                                    </ul>
+
+                                    RT-PCR Test Result: <b>{{patient.rtpcrresult}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <ul>
+                                        <li>Date Released: <b>{{patient.rtpcrdate}}</b><br></li>
+                                        {% if patient.rtpcrfile.url is not null %}
+                                        <li>File: <a href="{{patient.rtpcrfile.url}}">{{patient.name}}'s RTPCR Test Results</a> </li>
+                                        {% endif %}
+                                    </ul>
+                                    Chest X-ray or Film Array: <b>{{patient.xray}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <ul>
+                                        <li>Date Released: <b>{{patient.xraydate}}</b><br></li>
+                                        {% if patient.xrayfile.url is not null %}
+                                        <li>File: <a href="{{patient.xrayfile.url}}">{{patient.name}}'s X-Ray Test Results</a> </li>
+                                        {% endif %}
+                                    </ul>
                                 </div>
                             </div>
 
@@ -51,7 +75,7 @@
                                     4. Have you travelled to any area aside from work
                                     or outside of the Philippines in the last 2 weeks? <b>{{patient.question4}}</b><br>
                                     5. Have you been diagnosed with any co-morbidities:
-                                    <ul style="list-style-type: none;">
+                                    <ul>
                                     <li>Hypertension: <b>{{patient.has_hypertension}}</b></li>
                                     <li>Diabetes: <b>{{patient.has_diabetes}}</b></li>
                                     <li>Heart Diseases: <b>{{patient.has_heart_disease}}</b></li>
@@ -202,6 +226,8 @@
                                         })();
                                     </script>
                                     </b>
+                                    <br> <br>
+                                    <button class="btn btn-secondary btn-user btn-block" type="button" onClick="javascript:history.go(-1);">Back</button>
                                 </div>
                             </div>
 

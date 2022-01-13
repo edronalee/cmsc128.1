@@ -28,7 +28,8 @@
         <h3 class="text-center">Register as LGU Staff</h3>
         <br>
         <div class="container", style="background-color: rgba(255,255,255,0.6); border-radius: 20px;">
-            <form class="row g-3" action = "" method = "post">
+            <form class="row g-3" action = "" method = "post" enctype="multipart/form-data">
+                <!--include enctype multipart/form-data to allow files to be included in the data-->
                 {% csrf_token %}
                 {% for field in registration_form %}
                 

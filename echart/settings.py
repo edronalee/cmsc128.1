@@ -88,6 +88,9 @@ DATABASES = {
     }
 }
 
+#Media pathing
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') # server path to store files in the computer.
+MEDIA_URL = '/media/' # reference URL for browser to access the files over Http.
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -130,7 +133,9 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
-STATICFILES_DIRS = ( os.path.join('static'), )
+STATICFILES_DIRS = ( 
+    os.path.join(BASE_DIR, 'static'), 
+)
 
 
 # Default primary key field type
